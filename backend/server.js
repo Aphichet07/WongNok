@@ -2,8 +2,7 @@ import express from "express";
 import cors from "cors";
 import path from "path";
 import 'dotenv/config'; 
-import router from "../backend/routes/route.js";
-import databaseConnect from "./utils/connectDB.js";
+import router from "../backend/routes/routes.js";
 import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -15,7 +14,6 @@ app.use(express.json());
 app.use(router)
 
 
-await databaseConnect();
 console.log("ENV")
 console.log(process.env.CONNECTION_STRING)
 
