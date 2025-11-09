@@ -17,10 +17,28 @@ const shopController = {
     },
 
     getShopbyName: async (req, res) => {
-        console.log("Hello from getShopbyName")
+        try {
+            const name = req.body
+            const shop = await shopService.getShopByName(name)
+            if (!shop){
+                res.status(500).json({message: "can not found"})
+            }
+            res.status(200).json(shop)
+
+        }catch(err){
+            res.status(500).json({ message: "Internal server error" });
+        }
     },
+
     filterShopAll: async (req, res) => {
-        console.log("Hello from fillterShopAll")
+        try {
+            const filters = req.query;
+            const shops = await shopService.filterShop(filters);
+
+            res.status(200).json(shops);
+        } catch (err) {
+            res.status(500).json({ message: "Internal server error" });
+        }
     },
 
     filterByPrice: async (req, res) => {
