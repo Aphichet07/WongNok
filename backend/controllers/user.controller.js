@@ -1,6 +1,6 @@
 import userService from "../services/user.service"
 
-const userrController = {
+const userController = {
     test: (req, res) => {
         req.json({ status: true, message: "Hello from user controller" })
     },
@@ -58,4 +58,4 @@ const userrController = {
     }
 }
 
-export default userrController
+export default userController
