@@ -1,0 +1,43 @@
+main{
+    width: 100%;
+    height: 2400px;
+}
+
+main .container{
+    margin: 50px 160px; 
+    display: block;
+}
+
+main .container h2{
+    margin: 20px 0;
+}
+
+main .container section .input{
+    display: flex;
+    margin: 20px 70px;
+    width: 88%;
+}
+
+main .container section .input input{
+    border: none;
+    border-radius: 10px;
+    width: 100%;
+    height: 30px;
+    padding-left: 20px;
+}
+
+main .container section .input img{
+    width: 30px;
+    height: 30px;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+main .container section .comments{
+    margin: 30px 70px;
+    width: 88%;
+}
+
+main .container section .comments .comment{
+    display: flex;
+}

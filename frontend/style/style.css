@@ -1,0 +1,304 @@
+main{
+    background-image: url('../resources/main/bg-hero.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    width: 100%;
+    height: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main p{
+    color: white;
+    font-size: 56px;
+    margin-top: 70px;
+    margin-bottom: 50px;
+}
+
+main .container .find{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main .container .find div{
+    display: inline;
+}
+
+main .box input{
+    width: 500px;
+    height: 50px;
+    border: none;
+    border-radius: 50px;
+    margin-right: 30px;
+    font-size: 20px;
+    text-indent: 20px;
+}
+
+main .enter-box button{
+    width: 150px;
+    height: 50px;
+    color: #ECECEC;
+    background-color: rgb(240, 110, 49);
+    border: none;
+    border-radius: 50px;
+    font-size: 20px;
+}
+
+.content{
+    width: 100%;
+    height: 1200px;
+}
+
+.content .container{
+    margin: 50px 70px; 
+    display: block;
+}
+
+.content .container div{
+    margin-top: 5px;
+}
+
+.content .container .main-text{    /*ข้อความหลักแต่ละเรื่อง*/
+    color:#38220F;
+    font-size: 28px;
+}
+
+.content .container .shop{      /*ข้อความหลักร้านแนะนำ*/
+    display: flex;
+    gap: 1025px;
+    margin-top: 50px;
+}
+
+.content .container .article{   /*ข้อความหลัดบทความ*/
+    display: flex;
+    gap: 1135px;
+    margin-top: 50px;
+}
+
+/* ค้นหาสไตล์กาแฟ */
+
+.content .container .main-text p{   
+    display: block;
+} 
+
+.content .container .filter-bar{    /* แถบเก็บปุ่มสไตล์กาแฟ */
+    display: flex;
+    width: 100%;
+    height: 100px;
+    align-items: center;
+    justify-items: center;
+    gap: 47px;
+    font-size: 17px;
+    overflow-x: scroll;
+    cursor: pointer;
+}
+
+.content .container .filter-bar button{     /* แต่ละปุ่ม */
+    text-align: center;
+    min-width: 152px;
+    height: 47px;
+    border-radius: 50px;
+    border: none;
+    background-color: rgb(148, 114, 84);
+}
+
+.content .container .filter-bar button a{       /* ตัวลิงก์ไปอีกหน้า*/
+    display: flex;
+    color: white;
+    text-decoration: none;
+}
+
+.content .container .filter-bar button a:hover{     /* hover ปุ่ม */
+    min-width: 149px;
+    height: 45px;
+    border: 2px solid rgb(148, 114, 84);
+    border-radius: 50px;
+    color: rgb(148, 114, 84);
+    background-color: rgb(248, 241, 233);
+    margin-bottom: 13px;
+}
+
+.content .container .filter-bar  button a .pic{     /*บล็อกรูปภาพในปุ่ม*/
+    padding: 0 0 6px 25px;
+}
+
+.content .container .filter-bar button a .pic img{  /*ขนารูปภาพ*/
+    width: 30px;
+    height: 30px;
+}
+
+.content .container .filter-bar button a .text{     /*บล็อกข้อความในปุ่ม*/
+    padding: 9px 0 0 10px;
+}
+
+.content .container .filter-bar::-webkit-scrollbar{     /*ความสูง scrollbar*/
+    height: 7px;
+}
+
+.content .container .filter-bar::-webkit-scrollbar-thumb{   /*สีscrollbar*/
+    background-color: #6a6a6a;
+    border-radius: 50px;
+}
+
+/* ร้านแนะนำ */
+
+.content .container .main-text a.more{      /* ดูเพิ่มเติม*/
+    font-size: 17px;
+    padding-top: 12px;
+    text-decoration: none;
+    color: #38220F;
+}
+
+.content .container .shop-suggestion{   /* บล็อกแสดงการ์ดร้าน*/
+    width: 100%;
+    display: flex;
+    overflow-x: scroll;
+    min-height: 140px;
+    gap: 35px;
+    margin-top: 30px;
+    padding-bottom: 25px;
+}
+
+.content .container .shop-suggestion .card{     /*ขนาด/สีแต่ละการ์ด*/
+    width: 200px;
+    height: 260px;
+    font-size: 13px;
+    background-color: #38220F;
+    border-radius: 40px;
+}
+
+.content .container .shop-suggestion .card a{   /*ข้อความในการ์ด*/
+    color: white;
+    text-decoration: none;
+}
+
+.content .container .shop-suggestion::-webkit-scrollbar{    /* scrollbar*/
+    height: 7px;
+}
+
+.content .container .shop-suggestion::-webkit-scrollbar-thumb{
+    background-color: #6a6a6a;
+    border-radius: 50px;
+}
+
+.content .container .shop-suggestion .card .pic{    /* บล็อกรูปภาพในการ์ด*/
+    margin-top: 0px;
+}
+
+.content .container .shop-suggestion .card .pic img{    /* ขนาดรูปหัวการ์ด*/
+    width: 200px;
+    border-radius: 40px 40px 0 0;
+}
+
+.content .container .shop-suggestion .card .info{   /* บล็อกข้อมูลในการ์ด*/
+    padding: 5px 0 0 15px;
+}
+
+.content .container .shop-suggestion .card .info .score{    /*บล็อกรูปดาว*/
+    display: flex;
+    width: 150px;
+    height: 25px;
+    gap: 7px;
+}
+
+.content .container .shop-suggestion .card .info .score img{    /*ขนาดรูปดาว*/
+    width: 15px;
+    height: 15px;
+}
+
+.content .container .shop-suggestion .card .info .specific{     /*บล็อกแท็กของร้าน*/
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width: 170px;
+    font-size: 10px;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+.content .container .shop-suggestion .card .info .specific .tag{    /* แต่ละแท็ก*/
+    display: flex;
+    width: 80px;
+    height: 18px;
+    text-align: center;
+    padding-top: 2px;
+    background-color: #D9794C;
+    border-radius: 8px;
+}
+
+.content .container .shop-suggestion .card .info .specific .tag .pic{    /* บล็อกรูปในแท็ก*/
+    margin-left: 9px;
+    margin-top: 2px;
+}
+
+.content .container .shop-suggestion .card .info .specific .tag .pic img{    /*รูปในแท็กร้าน*/
+    width: 12px;
+    height: 12px;
+}
+
+.content .container .shop-suggestion .card .info .specific .tag .text{    /* บล็อกข้อความในแท็ก*/
+    margin-left: 7px;
+    margin-top: 3px;
+}
+
+/* บทความ */
+
+.content .container .article-suggestion{    /* บล็อกการ์ดบทความ*/
+    display: flex;
+    width: 100%;
+    height: 390px;
+    gap: 35px;
+    margin-top: 30px;
+    padding-bottom: 18px;
+    overflow-x: scroll;
+}
+
+.content .container .article-suggestion::-webkit-scrollbar{     /*scorllbar*/
+    height: 7px;
+}
+
+.content .container .article-suggestion::-webkit-scrollbar-thumb{
+    background-color: #6a6a6a;
+    border-radius: 50px;
+}
+
+.content .container .article-suggestion .card{      /*ขนาด/สีแต่ละการ์ด*/
+    width: 200px;
+    height: 360px;
+    background-color: #38220F;
+    border-radius: 20px 20px 0 0;
+    font-size: 13px;
+}
+
+.content .container .article-suggestion .card a{    /* ข้อความในการ์ด*/
+    color: white;
+    text-decoration: none;
+}
+
+.content .container .article-suggestion .card .pic{     /*บล็อกรูปในการ์ด*/
+    margin-top: 0;
+}
+
+.content .container .article-suggestion .card .pic img{     /*รูปในการ์ด*/
+    width: 200px;
+    height: 270px;
+    border-radius: 20px 20px 0 0;
+}
+
+.content .container .article-suggestion .card .info{    /*บล็อกข้อมูลในการ์ด*/
+    margin: 5px 0 0 10px;
+}
+
+.content .container .article-suggestion .card .info .specific{      /*บล็อกข้อมูลผู้เขียน/วัน*/
+    display: flex;
+    font-size: 10px;
+    margin-top: 40px;
+    gap: 90px;
+}
+
+.content .container .article-suggestion .card .info .specific .date{    /*เฉพาะของวันที่*/
+    margin-top: 2px;
+}

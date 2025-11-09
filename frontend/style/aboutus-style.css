@@ -1,0 +1,58 @@
+/* หลัก */
+
+.content{
+    width: 100%;
+    height: 530px;
+}
+
+.content .container{
+    margin: 50px 70px; 
+    display: block;
+}
+
+.content .container div{
+    margin-top: 5px;
+}
+
+.content .container .main-text{    /*บล็อกข้อความหลัก*/
+    color:#38220F;
+}
+
+.content .container .main-text h1{    /*ข้อความหลัก*/
+    font-size: 30px;
+}
+
+.content .container .card{      /*การ์ด*/
+    display: flex;
+    width: 100%;
+    height: 400px;
+    margin-top: 30px;
+    color: #38220F;
+    font-size: 18px;
+    background-color: white;
+    border-radius: 15px;
+    filter: drop-shadow(0px 4px 5px #5c5c5c);
+}
+
+.content .container .card .pic{     /*บล็อกรูป*/
+    margin: 25px 10px 0 25px;
+}
+
+.content .container .card .pic img{     /*รูป*/
+    width: 290px;
+    height: 340px;
+    border-radius: 20px;
+    filter: contrast(65%) drop-shadow(3px 4px 5px #00000037);
+}
+
+.content .container .card article{     /*บล็อกข้อความ*/
+    margin: 25px 25px 0 20px;
+}
+
+.content .container .card article h2{     /*บรรทัดแรกในการ์ด*/
+    margin-bottom: 10px;
+}
+
+.content .container .card article ul{     /*หัวข้อย่อยในการ์ด*/
+    margin-left: 25px;
+}

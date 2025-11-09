@@ -1,0 +1,98 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: #ECECEC;
+}
+
+/*ส่วนหัว*/
+
+nav {
+    width: 100%;
+    height: 100px;
+    background-color: rgb(56, 34, 15);
+    box-shadow: 1px 2px black;
+}
+
+nav .container{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+img {
+    width: 140px;
+    height: 100px;
+}
+
+nav .logo{
+    margin-right: 500px;
+}
+
+nav .nav1{
+    color: black;
+    display: flex;
+    gap: 50px;
+    list-style-type: none;
+    text-decoration: none;
+    justify-content: center;
+    margin-right: 0px;
+}
+
+nav .nav1 a{
+    color: #ECECEC;
+    text-decoration: none;
+}
+
+nav .nav2{
+    display: flex;
+    gap: 10px;
+    list-style-type: none;
+    text-decoration: none;
+    justify-content: center;
+}
+
+nav .nav2 a{
+    color: #ECECEC;
+    text-decoration: none;
+}
+
+nav .nav2 .space-nav2{
+    color: #ECECEC;
+}
+
+/*ส่วนท้าย*/
+footer {
+    width: 100%;
+    height: 200px;
+    background-color: #38220F;
+}
+
+footer .container{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+footer .container .nagivator {
+    margin: 30px 70px;
+}
+
+footer .container .nagivator .nav-link li{
+    list-style-type: none;
+}
+
+footer .container .nagivator .nav-link li a{
+    color: #ECECEC;
+    font-size: 18px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+footer .container .terms p{
+    margin-top: 70px;
+    font-size: 14px;
+    color: #ECECEC;
+}
