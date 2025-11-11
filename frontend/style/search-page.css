@@ -29,6 +29,11 @@ section {
     position: absolute;
     border-radius: 30px;
     width: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
 }
 
 fieldset {
@@ -116,4 +121,21 @@ fieldset {
 .star-rating- label:hover,
 .star-rating label:hover~label {
     color: #f5c518;
+}
+
+.gogobtn {
+    width: 70px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gogobtn button {
+    width: 70px;
+    height: 30px;
+    background-color: rgb(197, 49, 49);
+    border: 1px solid black;
+    border-radius: 4px;
+    color: white;
 }

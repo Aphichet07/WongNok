@@ -152,7 +152,7 @@ main .enter-box button{
     color: #38220F;
 }
 
-.content .container .shop-suggestion{   /* บล็อกแสดงการ์ดร้าน*/
+.content .container #shop-suggestion{   /* บล็อกแสดงการ์ดร้าน*/
     width: 100%;
     display: flex;
     overflow-x: scroll;
@@ -162,7 +162,7 @@ main .enter-box button{
     padding-bottom: 25px;
 }
 
-.content .container .shop-suggestion .card{     /*ขนาด/สีแต่ละการ์ด*/
+.content .container #shop-suggestion .product-card{     /*ขนาด/สีแต่ละการ์ด*/
     width: 200px;
     height: 260px;
     font-size: 13px;
@@ -170,46 +170,46 @@ main .enter-box button{
     border-radius: 40px;
 }
 
-.content .container .shop-suggestion .card a{   /*ข้อความในการ์ด*/
+.content .container #shop-suggestion .product-card a{   /*ข้อความในการ์ด*/
     color: white;
     text-decoration: none;
 }
 
-.content .container .shop-suggestion::-webkit-scrollbar{    /* scrollbar*/
+.content .container #shop-suggestion::-webkit-scrollbar{    /* scrollbar*/
     height: 7px;
 }
 
-.content .container .shop-suggestion::-webkit-scrollbar-thumb{
+.content .container #shop-suggestion::-webkit-scrollbar-thumb{
     background-color: #6a6a6a;
     border-radius: 50px;
 }
 
-.content .container .shop-suggestion .card .pic{    /* บล็อกรูปภาพในการ์ด*/
+.content .container #shop-suggestion .product-card .pic{    /* บล็อกรูปภาพในการ์ด*/
     margin-top: 0px;
 }
 
-.content .container .shop-suggestion .card .pic img{    /* ขนาดรูปหัวการ์ด*/
+.content .container #shop-suggestion .product-card .pic img{    /* ขนาดรูปหัวการ์ด*/
     width: 200px;
     border-radius: 40px 40px 0 0;
 }
 
-.content .container .shop-suggestion .card .info{   /* บล็อกข้อมูลในการ์ด*/
+.content .container #shop-suggestion .product-card .info{   /* บล็อกข้อมูลในการ์ด*/
     padding: 5px 0 0 15px;
 }
 
-.content .container .shop-suggestion .card .info .score{    /*บล็อกรูปดาว*/
+.content .container #shop-suggestion .product-card .info .score{    /*บล็อกรูปดาว*/
     display: flex;
     width: 150px;
     height: 25px;
     gap: 7px;
 }
 
-.content .container .shop-suggestion .card .info .score img{    /*ขนาดรูปดาว*/
+.content .container #shop-suggestion .product-card .info .score img{    /*ขนาดรูปดาว*/
     width: 15px;
     height: 15px;
 }
 
-.content .container .shop-suggestion .card .info .specific{     /*บล็อกแท็กของร้าน*/
+.content .container #shop-suggestion .product-card .info .specific{     /*บล็อกแท็กของร้าน*/
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
@@ -219,7 +219,7 @@ main .enter-box button{
     margin-top: 5px;
 }
 
-.content .container .shop-suggestion .card .info .specific .tag{    /* แต่ละแท็ก*/
+.content .container #shop-suggestion .product-card .info .specific .tag{    /* แต่ละแท็ก*/
     display: flex;
     width: 80px;
     height: 18px;
@@ -229,17 +229,17 @@ main .enter-box button{
     border-radius: 8px;
 }
 
-.content .container .shop-suggestion .card .info .specific .tag .pic{    /* บล็อกรูปในแท็ก*/
+.content .container #shop-suggestion .product-card .info .specific .tag .pic{    /* บล็อกรูปในแท็ก*/
     margin-left: 9px;
     margin-top: 2px;
 }
 
-.content .container .shop-suggestion .card .info .specific .tag .pic img{    /*รูปในแท็กร้าน*/
+.content .container #shop-suggestion .product-card .info .specific .tag .pic img{    /*รูปในแท็กร้าน*/
     width: 12px;
     height: 12px;
 }
 
-.content .container .shop-suggestion .card .info .specific .tag .text{    /* บล็อกข้อความในแท็ก*/
+.content .container #shop-suggestion .product-product-card .info .specific .tag .text{    /* บล็อกข้อความในแท็ก*/
     margin-left: 7px;
     margin-top: 3px;
 }
@@ -265,7 +265,7 @@ main .enter-box button{
     border-radius: 50px;
 }
 
-.content .container .article-suggestion .card{      /*ขนาด/สีแต่ละการ์ด*/
+.content .container .article-suggestion .product-card{      /*ขนาด/สีแต่ละการ์ด*/
     width: 200px;
     height: 360px;
     background-color: #38220F;
@@ -273,32 +273,32 @@ main .enter-box button{
     font-size: 13px;
 }
 
-.content .container .article-suggestion .card a{    /* ข้อความในการ์ด*/
+.content .container .article-suggestion .product-card a{    /* ข้อความในการ์ด*/
     color: white;
     text-decoration: none;
 }
 
-.content .container .article-suggestion .card .pic{     /*บล็อกรูปในการ์ด*/
+.content .container .article-suggestion .product-card .pic{     /*บล็อกรูปในการ์ด*/
     margin-top: 0;
 }
 
-.content .container .article-suggestion .card .pic img{     /*รูปในการ์ด*/
+.content .container .article-suggestion .product-card .pic img{     /*รูปในการ์ด*/
     width: 200px;
     height: 270px;
     border-radius: 20px 20px 0 0;
 }
 
-.content .container .article-suggestion .card .info{    /*บล็อกข้อมูลในการ์ด*/
+.content .container .article-suggestion .product-card .info{    /*บล็อกข้อมูลในการ์ด*/
     margin: 5px 0 0 10px;
 }
 
-.content .container .article-suggestion .card .info .specific{      /*บล็อกข้อมูลผู้เขียน/วัน*/
+.content .container .article-suggestion .product-card .info .specific{      /*บล็อกข้อมูลผู้เขียน/วัน*/
     display: flex;
     font-size: 10px;
     margin-top: 40px;
     gap: 90px;
 }
 
-.content .container .article-suggestion .card .info .specific .date{    /*เฉพาะของวันที่*/
+.content .container .article-suggestion .product-card .info .specific .date{    /*เฉพาะของวันที่*/
     margin-top: 2px;
 }
