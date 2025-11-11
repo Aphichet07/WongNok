@@ -1,8 +1,8 @@
-import userService from "../services/user.service"
+import userService from "../services/user.service.js"
 
 const userController = {
     test: (req, res) => {
-        req.json({ status: true, message: "Hello from user controller" })
+        res.json({ status: true, message: "Hello from user controller" })
     },
 
     register: async (req, res) => {

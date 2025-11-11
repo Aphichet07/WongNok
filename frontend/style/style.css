@@ -1,4 +1,4 @@
-main{
+/* main{
     background-image: url('../resources/main/bg-hero.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -45,34 +45,108 @@ main .enter-box button{
     border: none;
     border-radius: 50px;
     font-size: 20px;
+} */
+
+main {
+    background-image: url('../resources/main/bg-hero.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    width: 100%;
+    height: 700px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 80px;
 }
 
-.content{
+main .container {
+    text-align: center;
+}
+
+main p {
+    color: white;
+    font-size: 56px;
+    margin-top: 70px;
+    margin-bottom: 50px;
+}
+
+main .find {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+main .box input {
+    width: min(500px, 80vw);
+    height: 50px;
+    border: none;
+    border-radius: 50px;
+    font-size: 20px;
+    text-indent: 20px;
+}
+
+main .enter-box button {
+    width: 150px;
+    height: 50px;
+    color: #ECECEC;
+    background-color: rgb(240, 110, 49);
+    border: none;
+    border-radius: 50px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+@media (max-width: 640px) {
+    main {
+        height: 520px;
+    }
+
+    main p {
+        font-size: 32px;
+        margin-top: 40px;
+        margin-bottom: 30px;
+    }
+
+    main .enter-box button {
+        width: 130px;
+        height: 46px;
+        font-size: 18px;
+    }
+}
+
+.content {
     width: 100%;
     height: 1200px;
 }
 
-.content .container{
-    margin: 50px 70px; 
+.content .container {
+    margin: 50px 70px;
     display: block;
 }
 
-.content .container div{
+.content .container div {
     margin-top: 5px;
 }
 
-.content .container .main-text{    /*ข้อความหลักแต่ละเรื่อง*/
-    color:#38220F;
+.content .container .main-text {
+    /*ข้อความหลักแต่ละเรื่อง*/
+    color: #38220F;
     font-size: 28px;
 }
 
-.content .container .shop{      /*ข้อความหลักร้านแนะนำ*/
+.content .container .shop {
+    /*ข้อความหลักร้านแนะนำ*/
     display: flex;
     gap: 1025px;
     margin-top: 50px;
 }
 
-.content .container .article{   /*ข้อความหลัดบทความ*/
+.content .container .article {
+    /*ข้อความหลัดบทความ*/
     display: flex;
     gap: 1135px;
     margin-top: 50px;
@@ -80,79 +154,117 @@ main .enter-box button{
 
 /* ค้นหาสไตล์กาแฟ */
 
-.content .container .main-text p{   
+.content .container .main-text p {
     display: block;
-} 
+}
 
-.content .container .filter-bar{    /* แถบเก็บปุ่มสไตล์กาแฟ */
+/* แถบเก็บปุ่มสไตล์กาแฟ */
+.content .container .filter-bar {
     display: flex;
+    flex-wrap: nowrap;
     width: 100%;
     height: 100px;
     align-items: center;
-    justify-items: center;
+    justify-content: flex-start;
     gap: 47px;
     font-size: 17px;
-    overflow-x: scroll;
-    cursor: pointer;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0 24px;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: #c49a6c #f5efe7;
 }
 
-.content .container .filter-bar button{     /* แต่ละปุ่ม */
-    text-align: center;
+/* แต่ละปุ่ม */
+.content .container .filter-bar button {
+    flex: 0 0 auto;
     min-width: 152px;
     height: 47px;
     border-radius: 50px;
     border: none;
     background-color: rgb(148, 114, 84);
+    cursor: pointer;
+    padding: 0;
+
 }
 
-.content .container .filter-bar button a{       /* ตัวลิงก์ไปอีกหน้า*/
+
+.content .container .filter-bar button a {
     display: flex;
-    color: white;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    height: 100%;
+    color: #ffffff;
     text-decoration: none;
+    font: inherit;
+ 
 }
 
-.content .container .filter-bar button a:hover{     /* hover ปุ่ม */
-    min-width: 149px;
-    height: 45px;
-    border: 2px solid rgb(148, 114, 84);
-    border-radius: 50px;
-    color: rgb(148, 114, 84);
+
+.content .container .filter-bar button:hover {
     background-color: rgb(248, 241, 233);
-    margin-bottom: 13px;
+    border: 2px solid rgb(148, 114, 84);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-.content .container .filter-bar  button a .pic{     /*บล็อกรูปภาพในปุ่ม*/
-    padding: 0 0 6px 25px;
+/* สีตัวอักษร hover */
+.content .container .filter-bar button:hover a {
+    color: rgb(148, 114, 84);
 }
 
-.content .container .filter-bar button a .pic img{  /*ขนารูปภาพ*/
+/* บล็อกรูปภาพในปุ่ม */
+.content .container .filter-bar button a .pic {
+    padding-bottom: 4px;
+}
+
+/* ขนาดรูปภาพ */
+.content .container .filter-bar button a .pic img {
     width: 30px;
     height: 30px;
 }
 
-.content .container .filter-bar button a .text{     /*บล็อกข้อความในปุ่ม*/
-    padding: 9px 0 0 10px;
+
+.content .container .filter-bar button a p {
+    padding-top: 6px;
+
 }
 
-.content .container .filter-bar::-webkit-scrollbar{     /*ความสูง scrollbar*/
+
+.content .container .filter-bar::-webkit-scrollbar {
     height: 7px;
 }
 
-.content .container .filter-bar::-webkit-scrollbar-thumb{   /*สีscrollbar*/
-    background-color: #6a6a6a;
-    border-radius: 50px;
+.content .container .filter-bar::-webkit-scrollbar-track {
+    background: #f5efe7;
+    border-radius: 999px;
+    margin-inline: 40px;
+}
+
+.content .container .filter-bar::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, #c08a53, #a87345);
+    border-radius: 999px;
+    border: 2px solid #f5efe7;
+}
+.content .container .filter-bar::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(90deg,#aa7440,#8f5b2f);
 }
 
 /* ร้านแนะนำ */
 
-.content .container .main-text a.more{      /* ดูเพิ่มเติม*/
+.content .container .main-text a.more {
+    /* ดูเพิ่มเติม*/
     font-size: 17px;
     padding-top: 12px;
     text-decoration: none;
     color: #38220F;
 }
 
-.content .container .shop-suggestion{   /* บล็อกแสดงการ์ดร้าน*/
+.content .container #shop-suggestion {
+    /* บล็อกแสดงการ์ดร้าน*/
     width: 100%;
     display: flex;
     overflow-x: scroll;
@@ -162,7 +274,8 @@ main .enter-box button{
     padding-bottom: 25px;
 }
 
-.content .container .shop-suggestion .card{     /*ขนาด/สีแต่ละการ์ด*/
+.content .container #shop-suggestion .product-card {
+    /*ขนาด/สีแต่ละการ์ด*/
     width: 200px;
     height: 260px;
     font-size: 13px;
@@ -170,46 +283,54 @@ main .enter-box button{
     border-radius: 40px;
 }
 
-.content .container .shop-suggestion .card a{   /*ข้อความในการ์ด*/
+.content .container #shop-suggestion .product-card a {
+    /*ข้อความในการ์ด*/
     color: white;
     text-decoration: none;
 }
 
-.content .container .shop-suggestion::-webkit-scrollbar{    /* scrollbar*/
+.content .container #shop-suggestion::-webkit-scrollbar {
+    /* scrollbar*/
     height: 7px;
 }
 
-.content .container .shop-suggestion::-webkit-scrollbar-thumb{
+.content .container #shop-suggestion::-webkit-scrollbar-thumb {
     background-color: #6a6a6a;
     border-radius: 50px;
 }
 
-.content .container .shop-suggestion .card .pic{    /* บล็อกรูปภาพในการ์ด*/
+.content .container #shop-suggestion .product-card .pic {
+    /* บล็อกรูปภาพในการ์ด*/
     margin-top: 0px;
 }
 
-.content .container .shop-suggestion .card .pic img{    /* ขนาดรูปหัวการ์ด*/
+.content .container #shop-suggestion .product-card .pic img {
+    /* ขนาดรูปหัวการ์ด*/
     width: 200px;
     border-radius: 40px 40px 0 0;
 }
 
-.content .container .shop-suggestion .card .info{   /* บล็อกข้อมูลในการ์ด*/
+.content .container #shop-suggestion .product-card .info {
+    /* บล็อกข้อมูลในการ์ด*/
     padding: 5px 0 0 15px;
 }
 
-.content .container .shop-suggestion .card .info .score{    /*บล็อกรูปดาว*/
+.content .container #shop-suggestion .product-card .info .score {
+    /*บล็อกรูปดาว*/
     display: flex;
     width: 150px;
     height: 25px;
     gap: 7px;
 }
 
-.content .container .shop-suggestion .card .info .score img{    /*ขนาดรูปดาว*/
+.content .container #shop-suggestion .product-card .info .score img {
+    /*ขนาดรูปดาว*/
     width: 15px;
     height: 15px;
 }
 
-.content .container .shop-suggestion .card .info .specific{     /*บล็อกแท็กของร้าน*/
+.content .container #shop-suggestion .product-card .info .specific {
+    /*บล็อกแท็กของร้าน*/
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
@@ -219,7 +340,8 @@ main .enter-box button{
     margin-top: 5px;
 }
 
-.content .container .shop-suggestion .card .info .specific .tag{    /* แต่ละแท็ก*/
+.content .container #shop-suggestion .product-card .info .specific .tag {
+    /* แต่ละแท็ก*/
     display: flex;
     width: 80px;
     height: 18px;
@@ -229,76 +351,340 @@ main .enter-box button{
     border-radius: 8px;
 }
 
-.content .container .shop-suggestion .card .info .specific .tag .pic{    /* บล็อกรูปในแท็ก*/
+.content .container #shop-suggestion .product-card .info .specific .tag .pic {
+    /* บล็อกรูปในแท็ก*/
     margin-left: 9px;
     margin-top: 2px;
 }
 
-.content .container .shop-suggestion .card .info .specific .tag .pic img{    /*รูปในแท็กร้าน*/
+.content .container #shop-suggestion .product-card .info .specific .tag .pic img {
+    /*รูปในแท็กร้าน*/
     width: 12px;
     height: 12px;
 }
 
-.content .container .shop-suggestion .card .info .specific .tag .text{    /* บล็อกข้อความในแท็ก*/
+
+.content .container #shop-suggestion .product-product-card .info .specific .tag .text {
+    /* บล็อกข้อความในแท็ก*/
     margin-left: 7px;
     margin-top: 3px;
 }
 
 /* บทความ */
 
-.content .container .article-suggestion{    /* บล็อกการ์ดบทความ*/
+/* แถวการ์ดบทความ */
+.content .container .article-suggestion {
     display: flex;
+    gap: 24px;
     width: 100%;
-    height: 390px;
-    gap: 35px;
-    margin-top: 30px;
-    padding-bottom: 18px;
-    overflow-x: scroll;
+    margin-top: 24px;
+    padding: 8px 4px 18px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;        /* เลื่อนแล้วหนึบทีละใบ */
+    -webkit-overflow-scrolling: touch;
 }
 
-.content .container .article-suggestion::-webkit-scrollbar{     /*scorllbar*/
+/* scrollbar สวยหน่อย */
+.content .container .article-suggestion::-webkit-scrollbar {
     height: 7px;
 }
 
-.content .container .article-suggestion::-webkit-scrollbar-thumb{
-    background-color: #6a6a6a;
-    border-radius: 50px;
+.content .container .article-suggestion::-webkit-scrollbar-track {
+    background-color: #f5efe7;
+    border-radius: 999px;
 }
 
-.content .container .article-suggestion .card{      /*ขนาด/สีแต่ละการ์ด*/
-    width: 200px;
-    height: 360px;
-    background-color: #38220F;
-    border-radius: 20px 20px 0 0;
+.content .container .article-suggestion::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, #c08a53, #8f5b2f);
+    border-radius: 999px;
+}
+
+/* การ์ดแต่ละใบ */
+.content .container .article-suggestion .article-card {
+    flex: 0 0 220px;                    /* ความกว้างการ์ด */
+    height: 340px;
+    background: #38220F;
+    border-radius: 20px;
+    overflow: hidden;
     font-size: 13px;
+    color: #fff;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+    scroll-snap-align: start;          /* ให้การ์ดล็อกชิดซ้ายตอนเลื่อน */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.content .container .article-suggestion .card a{    /* ข้อความในการ์ด*/
-    color: white;
+.content .container .article-suggestion .article-card a {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    color: inherit;
     text-decoration: none;
 }
 
-.content .container .article-suggestion .card .pic{     /*บล็อกรูปในการ์ด*/
-    margin-top: 0;
+/* รูปในการ์ด */
+.content .container .article-suggestion .article-card .pic {
+    margin: 0;
+    height: 60%;                        /* เอาสัดส่วนแทน fixed px */
+    overflow: hidden;
 }
 
-.content .container .article-suggestion .card .pic img{     /*รูปในการ์ด*/
-    width: 200px;
-    height: 270px;
-    border-radius: 20px 20px 0 0;
+.content .container .article-suggestion .article-card .pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;                  /* ครอปรูปให้เต็มสวย */
+    display: block;
+    transition: transform 0.25s ease;
 }
 
-.content .container .article-suggestion .card .info{    /*บล็อกข้อมูลในการ์ด*/
-    margin: 5px 0 0 10px;
-}
-
-.content .container .article-suggestion .card .info .specific{      /*บล็อกข้อมูลผู้เขียน/วัน*/
+/* ส่วนข้อมูลด้านล่าง */
+.content .container .article-suggestion .article-card .info {
+    padding: 10px 12px 12px;
     display: flex;
-    font-size: 10px;
-    margin-top: 40px;
-    gap: 90px;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 40%;
 }
 
-.content .container .article-suggestion .card .info .specific .date{    /*เฉพาะของวันที่*/
-    margin-top: 2px;
+.content .container .article-suggestion .article-card .info > p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* บรรทัดผู้เขียน / วัน */
+.content .container .article-suggestion .article-card .info .specific {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.7rem;
+    margin-top: 14px;
+    opacity: 0.85;
+}
+
+.content .container .article-suggestion .article-card .info .specific .author {
+    font-weight: 500;
+}
+
+.content .container .article-suggestion .article-card .info .specific .date {
+    margin: 0;
+}
+
+/* hover effect – ยกการ์ดขึ้นนิด + ซูมรูป */
+.content .container .article-suggestion .article-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.45);
+}
+
+.content .container .article-suggestion .article-card:hover .pic img {
+    transform: scale(1.08);
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+/* Tablet: การ์ดกว้างขึ้นนิด ให้เลื่อนง่าย */
+@media (max-width: 992px) {
+    .content .container .article-suggestion {
+        gap: 18px;
+    }
+
+    .content .container .article-suggestion .article-card {
+        flex: 0 0 240px;
+        height: 330px;
+    }
+}
+
+/* Mobile: ให้การ์ดกิน 70–80% ความกว้างจอ เลื่อน swipe ได้สบาย */
+@media (max-width: 640px) {
+    .content .container .article-suggestion {
+        gap: 16px;
+        padding-inline: 4px;
+    }
+
+    .content .container .article-suggestion .article-card {
+        flex: 0 0 75vw;     /* ~75% ของ viewport */
+        max-width: 320px;
+        height: 320px;
+    }
+
+    .content .container .article-suggestion .article-card .info > p {
+        font-size: 0.85rem;
+    }
+}
+
+/* Desktop ใหญ่ ๆ: แทนที่จะเลื่อนอย่างเดียว จัดเป็น grid 3 ใบ/แถวก็ได้ */
+@media (min-width: 1200px) {
+    .content .container .article-suggestion {
+        flex-wrap: wrap;
+        overflow-x: visible;              /* ไม่ต้องมี scrollbar ก็ได้ */
+        justify-content: space-between;
+    }
+
+    .content .container .article-suggestion .article-card {
+        flex: 0 1 calc(33.333% - 24px);   /* ประมาณ 3 ใบใน 1 แถว */
+        max-width: 260px;
+    }
+}
+/* ห่อ slider ทั้งบล็อก */
+.article-slider {
+    position: relative;
+    margin-top: 16px;
+    margin-bottom: 60px;   /* <<< เพิ่มระยะห่างจาก footer */
+}
+
+
+/* แถวการ์ดบทความ */
+.content .container .article-suggestion {
+    display: flex;
+    flex-wrap: nowrap;             /* <<< บังคับแถวเดียว */
+    gap: 24px;
+    width: 100%;
+    margin-top: 8px;
+    padding: 8px 40px 40px;        /* เผื่อช่องว่างด้านล่างจาก footer หน่อย */
+
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+
+/* scrollbar */
+.content .container .article-suggestion::-webkit-scrollbar {
+    height: 7px;
+}
+.content .container .article-suggestion::-webkit-scrollbar-track {
+    background-color: #f5efe7;
+    border-radius: 999px;
+}
+.content .container .article-suggestion::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, #c08a53, #8f5b2f);
+    border-radius: 999px;
+}
+
+/* การ์ดบทความ */
+.content .container .article-suggestion .article-card {
+    flex: 0 0 220px;
+    height: 340px;
+    background: #38220F;
+    border-radius: 20px;
+    overflow: hidden;
+    font-size: 13px;
+    color: #fff;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+    scroll-snap-align: start;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.content .container .article-suggestion .article-card a {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+}
+
+/* รูป */
+.content .container .article-suggestion .article-card .pic {
+    margin: 0;
+    height: 60%;
+    overflow: hidden;
+}
+.content .container .article-suggestion .article-card .pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.25s ease;
+}
+
+/* ข้อมูล */
+.content .container .article-suggestion .article-card .info {
+    padding: 10px 12px 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 40%;
+}
+.content .container .article-suggestion .article-card .info > p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin: 0;
+}
+.content .container .article-suggestion .article-card .info .specific {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.7rem;
+    margin-top: 14px;
+    opacity: 0.85;
+}
+.content .container .article-suggestion .article-card .info .specific .author {
+    font-weight: 500;
+}
+.content .container .article-suggestion .article-card .info .specific .date {
+    margin: 0;
+}
+
+/* hover การ์ด */
+.content .container .article-suggestion .article-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.45);
+}
+.content .container .article-suggestion .article-card:hover .pic img {
+    transform: scale(1.08);
+}
+
+/* ปุ่ม slider ซ้าย–ขวา */
+.article-slider .slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 34px;
+    height: 34px;
+    border-radius: 999px;
+    border: none;
+    background: rgba(56, 34, 15, 0.92);
+    color: #f9fafb;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+    z-index: 5;
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.article-slider .slider-btn.prev {
+    left: 4px;
+}
+.article-slider .slider-btn.next {
+    right: 4px;
+}
+
+.article-slider .slider-btn:hover {
+    background: rgba(88, 54, 24, 0.98);
+    transform: translateY(-50%) scale(1.05);
+}
+
+/* มือถือ – ซ่อนปุ่ม ใช้ swipe แทน */
+@media (max-width: 640px) {
+    .article-slider .slider-btn {
+        display: none;
+    }
+
+    .content .container .article-suggestion {
+        padding-inline: 4px;
+        gap: 16px;
+    }
+
+    .content .container .article-suggestion .article-card {
+        flex: 0 0 75vw;
+        max-width: 320px;
+        height: 320px;
+    }
 }

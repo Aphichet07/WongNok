@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WongNok</title>
-    <link rel="stylesheet" href="style/headfoot-style.css">
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="/frontend/style/headfoot-style.css">
+    <link rel="stylesheet" href="/frontend/style/style.css">
+
 </head>
+
 <body>
-    <nav id="main">
+    <!-- <nav id="main">
         <div class="container">
             <div class="logo">
                 <div class="image">
@@ -18,10 +21,10 @@
 
             <div class="nav1">
                 <ul class="nav1">
-                    <li><a href="index.html">หน้าหลัก</a></li>
-                    <li><a href="pages/find.html">ค้นหา</a></li>
-                    <li><a href="pages/shop.html">ร้านค้า</a></li>
-                    <li><a href="pages/article.html">บทความ</a></li>
+                    <li><a href="/frontend/index.html">หน้าหลัก</a></li>
+                    <li><a href="/frontend/pages/find.html">ค้นหา</a></li>
+                    <li><a href="/frontend/pages/shop.html">ร้านค้า</a></li>
+                    <li><a href="/frontend/pages/article.html">บทความ</a></li>
                 </ul>
             </div>
 
@@ -33,7 +36,35 @@
                 </ul>
             </div>
         </div>
-    </nav>
+    </nav> -->
+
+    <header id="main-nav-bar">
+        <div class="container">
+            <div class="nav-logo">
+                <img src="/frontend/resources/logo/logo2.png" alt="logo-image" class="logo-image">
+            </div>
+
+
+            <div class="sub-nav-bar">
+                <div class="nav-bar1">
+                    <ul class="ul-navbar1">
+                        <li><a href="/frontend/index.html">Home</a></li>
+                        <li><a href="/frontend/pages/find.html">Search</a></li>
+                        <li><a href="/frontend/pages/article.html">Article</a></li>
+                        <li><a href="/frontend/pages/aboutus.html">About us</a></li>
+                    </ul>
+                </div>
+                <div class="nav-bar2">
+                    <ul class="ul-navbar2">
+                        <li><a href="#">signin</a></li>
+                        <li>|</li>
+                        <li><a href="#">signup</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </header>
 
     <main class="main">
         <div class="container">
@@ -41,12 +72,12 @@
 
             <div class="find">
                 <div class="box">
-                <input type="text" placeholder="ค้นหาร้าน">
-            </div>
+                    <input type="text" placeholder="ค้นหาร้านใกล้ที่คุณอยู่">
+                </div>
 
-            <div class="enter-box">
-                <button type="button">ค้นหาร้าน</button>
-            </div>
+                <div class="enter-box">
+                    <button type="button">ค้นหา</button>
+                </div>
             </div>
         </div>
     </main>
@@ -56,410 +87,165 @@
             <div class="main-text">
                 <p>ค้นหาสไตล์กาแฟที่คุณหลงใหล</p>
             </div>
-            <div class="filter-bar"> 
+            <div class="filter-bar">
                 <button id="dark-roast"><a href="#">
-                    <div class="pic"><img src="/frontend/resources/icon/coffee-cup.png" alt="image-icon"></div>
-                    <div class="text">คั่วเข้ม</div>
-                </a></button>
+                        <div class="pic"><img src="/frontend/resources/icon/coffee-cup.png" alt="image-icon"></div>
+                        <div class="text">คั่วเข้ม</div>
+                    </a></button>
                 <button id="medium-roast"><a href="#">
-                    <div class="pic"><img src="/frontend/resources/icon/coffee-cup.png" alt="image-icon"></div>
-                    <div class="text">คั่วกลาง</div>
-                </a></button>
+                        <div class="pic"><img src="/frontend/resources/icon/coffee-cup.png" alt="image-icon"></div>
+                        <div class="text">คั่วกลาง</div>
+                    </a></button>
                 <button id="light-roast"><a href="#">
-                    <div class="pic"><img src="/frontend/resources/icon/coffee-cup.png" alt="image-icon"></div>
-                    <div class="text">คั่วอ่อน</div>
-                </a></button>
+                        <div class="pic"><img src="/frontend/resources/icon/coffee-cup.png" alt="image-icon"></div>
+                        <div class="text">คั่วอ่อน</div>
+                    </a></button>
                 <button id="specialty"><a href="#">
-                    <div class="pic"><img src="/frontend/resources/icon/coffee-cup.png" alt="image-icon"></div>
-                    <div class="text">Specialty</div>
-                </a></button>
+                        <div class="pic"><img src="/frontend/resources/icon/coffee-cup.png" alt="image-icon"></div>
+                        <div class="text">Specialty</div>
+                    </a></button>
                 <button id="chocolate"><a href="#">
-                    <div class="pic"><img src="/frontend/resources/icon/coffee-cup.png" alt="image-icon"></div>
-                    <div class="text">Chocolate</div>
-                </a></button>
+                        <div class="pic"><img src="/frontend/resources/icon/coffee-cup.png" alt="image-icon"></div>
+                        <div class="text">Chocolate</div>
+                    </a></button>
                 <button id="fruity"><a href="#">
-                    <div class="pic"><img src="/frontend/resources/icon/coffee-cup.png" alt="image-icon"></div>
-                    <div class="text">Fruity</div>
-                </a></button>
+                        <div class="pic"><img src="/frontend/resources/icon/coffee-cup.png" alt="image-icon"></div>
+                        <div class="text">Fruity</div>
+                    </a></button>
                 <button id="cold-brew"><a href="#">
-                    <div class="pic"><img src="/frontend/resources/icon/coffee-cup.png" alt="image-icon"></div>
-                    <div class="text">Cold Brew</div>
-                </a></button>
+                        <div class="pic"><img src="/frontend/resources/icon/coffee-cup.png" alt="image-icon"></div>
+                        <div class="text">Cold Brew</div>
+                    </a></button>
                 <button id="cold-brew"><a href="#">
-                    <div class="pic"><img src="/frontend/resources/icon/coffee-cup.png" alt="image-icon"></div>
-                    <div class="text">Cold Brew</div>
-                </a></button>
+                        <div class="pic"><img src="/frontend/resources/icon/coffee-cup.png" alt="image-icon"></div>
+                        <div class="text">Cold Brew</div>
+                    </a></button>
                 <button id="cold-brew"><a href="#">
-                    <div class="pic"><img src="/frontend/resources/icon/coffee-cup.png" alt="image-icon"></div>
-                    <div class="text">Cold Brew</div>
-                </a></button>
+                        <div class="pic"><img src="/frontend/resources/icon/coffee-cup.png" alt="image-icon"></div>
+                        <div class="text">Cold Brew</div>
+                    </a></button>
                 <button id="cold-brew"><a href="#">
-                    <div class="pic"><img src="/frontend/resources/icon/coffee-cup.png" alt="image-icon"></div>
-                    <div class="text">Cold Brew</div>
-                </a></button>
+                        <div class="pic"><img src="/frontend/resources/icon/coffee-cup.png" alt="image-icon"></div>
+                        <div class="text">Cold Brew</div>
+                    </a></button>
+                
             </div>
+       
 
             <div class="main-text shop">
                 <p>ร้านแนะนำประจำสัปดาห์</p>
                 <a href="/frontend/pages/find.html" class="more">ดูเพิ่มเติม ></a>
             </div>
 
-            <div class="shop-suggestion">
-                <div class="card">
-                    <a href="#">
-                        <div class="pic">
-                            <img src="/frontend/resources/shop/masonia-cover.jpg">
-                        </div>
-                        <div class="info">
-                            <p>Masonia Tree & Coffee Cafe</p>
-                            <div class="score">
-                                <img src="/frontend/resources/score/star.png">
-                                <img src="/frontend/resources/score/star.png">
-                                <img src="/frontend/resources/score/star.png">
-                                <img src="/frontend/resources/score/star.png">
-                            </div>
-                            <p>เปิด-ปิด: 9.00 - 18.00 น.</p>
-                            <div class="specific">
-                                <div class="tag">
-                                    <div class="pic"><img src="/frontend/resources/icon/coffee-cup.png" alt="image-icon"></div>
-                                    <div class="text">คั่วเข้ม</div>
-                                </div>
-                                <div class="tag">
-                                    <div class="pic"><img src="/frontend/resources/icon/coffee-cup.png" alt="image-icon"></div>
-                                    <div class="text">Specialty</div>
-                                </div>
-                                <div class="tag">
-                                    <div class="pic"><img src="/frontend/resources/icon/coffee-cup.png" alt="image-icon"></div>
-                                    <div class="text">Cold Brew</div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="#">
-                        <div class="pic">
-                            <img src="/frontend/resources/shop/masonia-cover.jpg">
-                        </div>
-                        <div class="info">
-                            <p>Masonia Tree & Coffee Cafe</p>
-                            <div class="score">
-                                <img src="/frontend/resources/score/star.png">
-                                <img src="/frontend/resources/score/star.png">
-                                <img src="/frontend/resources/score/star.png">
-                                <img src="/frontend/resources/score/star.png">
-                            </div>
-                            <p>เปิด-ปิด: 9.00 - 18.00 น.</p>
-                            <div class="specific">
-                                <div class="tag">
-                                    <div class="pic"><img src="/frontend/resources/icon/coffee-cup.png" alt="image-icon"></div>
-                                    <div class="text">คั่วเข้ม</div>
-                                </div>
-                                <div class="tag">
-                                    <div class="pic"><img src="/frontend/resources/icon/coffee-cup.png" alt="image-icon"></div>
-                                    <div class="text">Specialty</div>
-                                </div>
-                                <div class="tag">
-                                    <div class="pic"><img src="/frontend/resources/icon/coffee-cup.png" alt="image-icon"></div>
-                                    <div class="text">Cold Brew</div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="#">
-                        <div class="pic">
-                            <img src="/frontend/resources/shop/masonia-cover.jpg">
-                        </div>
-                        <div class="info">
-                            <p>Masonia Tree & Coffee Cafe</p>
-                            <div class="score">
-                                <img src="/frontend/resources/score/star.png">
-                                <img src="/frontend/resources/score/star.png">
-                                <img src="/frontend/resources/score/star.png">
-                                <img src="/frontend/resources/score/star.png">
-                            </div>
-                            <p>เปิด-ปิด: 9.00 - 18.00 น.</p>
-                            <div class="specific">
-                                <div class="tag">
-                                    <div class="pic"><img src="/frontend/resources/icon/coffee-cup.png" alt="image-icon"></div>
-                                    <div class="text">คั่วเข้ม</div>
-                                </div>
-                                <div class="tag">
-                                    <div class="pic"><img src="/frontend/resources/icon/coffee-cup.png" alt="image-icon"></div>
-                                    <div class="text">Specialty</div>
-                                </div>
-                                <div class="tag">
-                                    <div class="pic"><img src="/frontend/resources/icon/coffee-cup.png" alt="image-icon"></div>
-                                    <div class="text">Cold Brew</div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="#">
-                        <div class="pic">
-                            <img src="/frontend/resources/shop/masonia-cover.jpg">
-                        </div>
-                        <div class="info">
-                            <p>Masonia Tree & Coffee Cafe</p>
-                            <div class="score">
-                                <img src="/frontend/resources/score/star.png">
-                                <img src="/frontend/resources/score/star.png">
-                                <img src="/frontend/resources/score/star.png">
-                                <img src="/frontend/resources/score/star.png">
-                            </div>
-                            <p>เปิด-ปิด: 9.00 - 18.00 น.</p>
-                            <div class="specific">
-                                <div class="tag">
-                                    <div class="pic"><img src="/frontend/resources/icon/coffee-cup.png" alt="image-icon"></div>
-                                    <div class="text">คั่วเข้ม</div>
-                                </div>
-                                <div class="tag">
-                                    <div class="pic"><img src="/frontend/resources/icon/coffee-cup.png" alt="image-icon"></div>
-                                    <div class="text">Specialty</div>
-                                </div>
-                                <div class="tag">
-                                    <div class="pic"><img src="/frontend/resources/icon/coffee-cup.png" alt="image-icon"></div>
-                                    <div class="text">Cold Brew</div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="#">
-                        <div class="pic">
-                            <img src="/frontend/resources/shop/masonia-cover.jpg">
-                        </div>
-                        <div class="info">
-                            <p>Masonia Tree & Coffee Cafe</p>
-                            <div class="score">
-                                <img src="/frontend/resources/score/star.png">
-                                <img src="/frontend/resources/score/star.png">
-                                <img src="/frontend/resources/score/star.png">
-                                <img src="/frontend/resources/score/star.png">
-                            </div>
-                            <p>เปิด-ปิด: 9.00 - 18.00 น.</p>
-                            <div class="specific">
-                                <div class="tag">
-                                    <div class="pic"><img src="/frontend/resources/icon/coffee-cup.png" alt="image-icon"></div>
-                                    <div class="text">คั่วเข้ม</div>
-                                </div>
-                                <div class="tag">
-                                    <div class="pic"><img src="/frontend/resources/icon/coffee-cup.png" alt="image-icon"></div>
-                                    <div class="text">Specialty</div>
-                                </div>
-                                <div class="tag">
-                                    <div class="pic"><img src="/frontend/resources/icon/coffee-cup.png" alt="image-icon"></div>
-                                    <div class="text">Cold Brew</div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="#">
-                        <div class="pic">
-                            <img src="/frontend/resources/shop/masonia-cover.jpg">
-                        </div>
-                        <div class="info">
-                            <p>Masonia Tree & Coffee Cafe</p>
-                            <div class="score">
-                                <img src="/frontend/resources/score/star.png">
-                                <img src="/frontend/resources/score/star.png">
-                                <img src="/frontend/resources/score/star.png">
-                                <img src="/frontend/resources/score/star.png">
-                            </div>
-                            <p>เปิด-ปิด: 9.00 - 18.00 น.</p>
-                            <div class="specific">
-                                <div class="tag">
-                                    <div class="pic"><img src="/frontend/resources/icon/coffee-cup.png" alt="image-icon"></div>
-                                    <div class="text">คั่วเข้ม</div>
-                                </div>
-                                <div class="tag">
-                                    <div class="pic"><img src="/frontend/resources/icon/coffee-cup.png" alt="image-icon"></div>
-                                    <div class="text">Specialty</div>
-                                </div>
-                                <div class="tag">
-                                    <div class="pic"><img src="/frontend/resources/icon/coffee-cup.png" alt="image-icon"></div>
-                                    <div class="text">Cold Brew</div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="#">
-                        <div class="pic">
-                            <img src="/frontend/resources/shop/masonia-cover.jpg">
-                        </div>
-                        <div class="info">
-                            <p>Masonia Tree & Coffee Cafe</p>
-                            <div class="score">
-                                <img src="/frontend/resources/score/star.png">
-                                <img src="/frontend/resources/score/star.png">
-                                <img src="/frontend/resources/score/star.png">
-                                <img src="/frontend/resources/score/star.png">
-                            </div>
-                            <p>เปิด-ปิด: 9.00 - 18.00 น.</p>
-                            <div class="specific">
-                                <div class="tag">
-                                    <div class="pic"><img src="/frontend/resources/icon/coffee-cup.png" alt="image-icon"></div>
-                                    <div class="text">คั่วเข้ม</div>
-                                </div>
-                                <div class="tag">
-                                    <div class="pic"><img src="/frontend/resources/icon/coffee-cup.png" alt="image-icon"></div>
-                                    <div class="text">Specialty</div>
-                                </div>
-                                <div class="tag">
-                                    <div class="pic"><img src="/frontend/resources/icon/coffee-cup.png" alt="image-icon"></div>
-                                    <div class="text">Cold Brew</div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="#">
-                        <div class="pic">
-                            <img src="/frontend/resources/shop/masonia-cover.jpg">
-                        </div>
-                        <div class="info">
-                            <p>Masonia Tree & Coffee Cafe</p>
-                            <div class="score">
-                                <img src="/frontend/resources/score/star.png">
-                                <img src="/frontend/resources/score/star.png">
-                                <img src="/frontend/resources/score/star.png">
-                                <img src="/frontend/resources/score/star.png">
-                            </div>
-                            <p>เปิด-ปิด: 9.00 - 18.00 น.</p>
-                            <div class="specific">
-                                <div class="tag">
-                                    <div class="pic"><img src="/frontend/resources/icon/coffee-cup.png" alt="image-icon"></div>
-                                    <div class="text">คั่วเข้ม</div>
-                                </div>
-                                <div class="tag">
-                                    <div class="pic"><img src="/frontend/resources/icon/coffee-cup.png" alt="image-icon"></div>
-                                    <div class="text">Specialty</div>
-                                </div>
-                                <div class="tag">
-                                    <div class="pic"><img src="/frontend/resources/icon/coffee-cup.png" alt="image-icon"></div>
-                                    <div class="text">Cold Brew</div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                
-            </div>
+            <div id="shop-suggestion"></div>
 
             <div class="main-text article">
                 <p>บทความสุดฮิต</p>
                 <a href="/frontend/pages/article.html" class="more">ดูเพิ่มเติม ></a>
             </div>
-
-            <div class="article-suggestion">
-                <div class="card">
-                    <a href="#">
-                        <div class="pic">
-                            <img src="/frontend/resources/article/espresso5.jpg">
-                        </div>
-                        <div class="info">
-                            <p>ชงกาแฟยังไงให้อร่อยขึ้น</p>
-                            <div class="specific">
-                                <p class="author">อภิเชษฐ์</p>
-                                <p class="date">13 OCT 2025</p>
+            <div class="article-slider">
+                <button class="slider-btn prev" type="button">&#10094;</button>
+                <div class="article-suggestion">
+                    <div class="article-card">
+                        <a href="#">
+                            <div class="pic">
+                                <img src="/frontend/resources/article/espresso5.jpg">
                             </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="#">
-                        <div class="pic">
-                            <img src="/frontend/resources/article/espresso5.jpg">
-                        </div>
-                        <div class="info">
-                            <p>ชงกาแฟยังไงให้อร่อยขึ้น</p>
-                            <div class="specific">
-                                <p class="author">อภิเชษฐ์</p>
-                                <p class="date">13 OCT 2025</p>
+                            <div class="info">
+                                <p>ชงกาแฟยังไงให้อร่อยขึ้น</p>
+                                <div class="specific">
+                                    <p class="author">อภิเชษฐ์</p>
+                                    <p class="date">13 OCT 2025</p>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="#">
-                        <div class="pic">
-                            <img src="/frontend/resources/article/espresso5.jpg">
-                        </div>
-                        <div class="info">
-                            <p>ชงกาแฟยังไงให้อร่อยขึ้น</p>
-                            <div class="specific">
-                                <p class="author">อภิเชษฐ์</p>
-                                <p class="date">13 OCT 2025</p>
+                        </a>
+                    </div>
+                    <div class="article-card">
+                        <a href="#">
+                            <div class="pic">
+                                <img src="/frontend/resources/article/espresso5.jpg">
                             </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="#">
-                        <div class="pic">
-                            <img src="/frontend/resources/article/espresso5.jpg">
-                        </div>
-                        <div class="info">
-                            <p>ชงกาแฟยังไงให้อร่อยขึ้น</p>
-                            <div class="specific">
-                                <p class="author">อภิเชษฐ์</p>
-                                <p class="date">13 OCT 2025</p>
+                            <div class="info">
+                                <p>ชงกาแฟยังไงให้อร่อยขึ้น</p>
+                                <div class="specific">
+                                    <p class="author">อภิเชษฐ์</p>
+                                    <p class="date">13 OCT 2025</p>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="#">
-                        <div class="pic">
-                            <img src="/frontend/resources/article/espresso5.jpg">
-                        </div>
-                        <div class="info">
-                            <p>ชงกาแฟยังไงให้อร่อยขึ้น</p>
-                            <div class="specific">
-                                <p class="author">อภิเชษฐ์</p>
-                                <p class="date">13 OCT 2025</p>
+                        </a>
+                    </div>
+                    <div class="article-card">
+                        <a href="#">
+                            <div class="pic">
+                                <img src="/frontend/resources/article/espresso5.jpg">
                             </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="#">
-                        <div class="pic">
-                            <img src="/frontend/resources/article/espresso5.jpg">
-                        </div>
-                        <div class="info">
-                            <p>ชงกาแฟยังไงให้อร่อยขึ้น</p>
-                            <div class="specific">
-                                <p class="author">อภิเชษฐ์</p>
-                                <p class="date">13 OCT 2025</p>
+                            <div class="info">
+                                <p>ชงกาแฟยังไงให้อร่อยขึ้น</p>
+                                <div class="specific">
+                                    <p class="author">อภิเชษฐ์</p>
+                                    <p class="date">13 OCT 2025</p>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="#">
-                        <div class="pic">
-                            <img src="/frontend/resources/article/espresso5.jpg">
-                        </div>
-                        <div class="info">
-                            <p>ชงกาแฟยังไงให้อร่อยขึ้น</p>
-                            <div class="specific">
-                                <p class="author">อภิเชษฐ์</p>
-                                <p class="date">13 OCT 2025</p>
+                        </a>
+                    </div>
+                    <div class="article-card">
+                        <a href="#">
+                            <div class="pic">
+                                <img src="/frontend/resources/article/espresso5.jpg">
                             </div>
-                        </div>
-                    </a>
+                            <div class="info">
+                                <p>ชงกาแฟยังไงให้อร่อยขึ้น</p>
+                                <div class="specific">
+                                    <p class="author">อภิเชษฐ์</p>
+                                    <p class="date">13 OCT 2025</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="article-card">
+                        <a href="#">
+                            <div class="pic">
+                                <img src="/frontend/resources/article/espresso5.jpg">
+                            </div>
+                            <div class="info">
+                                <p>ชงกาแฟยังไงให้อร่อยขึ้น</p>
+                                <div class="specific">
+                                    <p class="author">อภิเชษฐ์</p>
+                                    <p class="date">13 OCT 2025</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="article-card">
+                        <a href="#">
+                            <div class="pic">
+                                <img src="/frontend/resources/article/espresso5.jpg">
+                            </div>
+                            <div class="info">
+                                <p>ชงกาแฟยังไงให้อร่อยขึ้น</p>
+                                <div class="specific">
+                                    <p class="author">อภิเชษฐ์</p>
+                                    <p class="date">13 OCT 2025</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="article-card">
+                        <a href="#">
+                            <div class="pic">
+                                <img src="/frontend/resources/article/espresso5.jpg">
+                            </div>
+                            <div class="info">
+                                <p>ชงกาแฟยังไงให้อร่อยขึ้น</p>
+                                <div class="specific">
+                                    <p class="author">อภิเชษฐ์</p>
+                                    <p class="date">13 OCT 2025</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
+                <button class="slider-btn next" type="button">&#10095;</button>
             </div>
         </div>
     </div>
@@ -467,7 +253,7 @@
     <footer class="main">
         <div class="container">
             <div class="logo-image">
-                <img src="/frontend/resources/logo/973-removebg-preview.png" alt="image-logo">
+                <img src="/frontend/resources/logo/logo2.png" alt="logo-image" class="logo-image">
             </div>
 
             <div class="nagivator">
@@ -487,5 +273,8 @@
             </div>
         </div>
     </footer>
+
+    <script src="/frontend/scripts/index.js"></script>
 </body>
+
 </html>

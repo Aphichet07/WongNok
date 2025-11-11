@@ -27,7 +27,7 @@ const userService = {
         const password_hash = await bcrypt.hash(password, SALT_ROUNDS)
 
         const queryText = `
-                insert into "user" (username, password, eamil)
+                insert into "user" (username, password, email)
                 values($1,$2,$3)
                 returning id, username, email
         `
@@ -39,11 +39,11 @@ const userService = {
 
     login: async (username, password) => {
         const { rows } = db.query('select * from "user" where username = $1', [username])
-        if (rows.length === 0) {
+        if (!rows) {
             return JSON.stringify({ error: 'Invalid credentials' });
         }
         const user = rows[0]
-
+        console.log(user)
         const isMatch = await bcrypt.compare(password, user.password)
 
         if (!isMatch) {
