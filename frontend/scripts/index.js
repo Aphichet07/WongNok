@@ -1,24 +1,24 @@
 // Recommand part => index.html
 document.addEventListener('DOMContentLoaded', () => {
     console.log("HTML Document is ready. Starting to fetch shops...");
-   
+
     loadAndDisplayShop();
 });
 
 async function loadAndDisplayShop() {
     try {
         const response = await fetch("http://127.0.0.1:3000/shops/recommand");
-        
+
         if (!response.ok) {
             throw new Error(`Response status: ${response.status}`);
         }
-        
+
         const shops = await response.json();
-        console.log("Data received:", shops); 
-        
+        console.log("Data received:", shops);
+
         createShopCards(shops);
 
-    } catch (err) { 
+    } catch (err) {
         console.error("Failed to load shop data:", err.message);
     }
 }
@@ -63,6 +63,22 @@ function buildSingleShopCard(shopData) {
     return cardElement;
 }
 
+// manipulated article slider 
+const slider = document.querySelector('.article-suggestion');
+const prevBtn = document.querySelector('.slider-btn.prev');
+const nextBtn = document.querySelector('.slider-btn.next');
+
+if (slider && prevBtn && nextBtn) {
+    const scrollAmount = () => slider.clientWidth * 0.8; 
+
+    nextBtn.addEventListener('click', () => {
+        slider.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
+    });
+
+    prevBtn.addEventListener('click', () => {
+        slider.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
+    });
+}
 
 
 

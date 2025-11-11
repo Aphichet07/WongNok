@@ -1,147 +1,226 @@
-main{
+
+main {
     width: 100%;
-    height: 2400px;
+    padding-top: 110px;     
+    padding-bottom: 80px;    
+    background: #f7f3ee;
 }
 
-.slider{        /*กล่องสไลด์*/
-    width: 1170px;
-    height: 400px;
-    margin: 50px 160px;
+.slider {                      
+    position: relative;
+    max-width: 1170px;
+    width: 100%;
+    margin: 40px auto 32px;
+    aspect-ratio: 16 / 7;      
+    border-radius: 24px;
     overflow: hidden;
+    box-shadow: 0 16px 35px rgba(0,0,0,0.25);
+    background: #000;
 }
 
-.slides{        /*ในสไลด์*/
-    width: 500%;
-    height: 600px;
+.slides {                      
     display: flex;
+    width: 300%;              
+    height: 100%;
+    transition: margin-left 1.2s ease;
 }
 
-.slides input{      /*ปุ่มกด*/
+.slides input {
     display: none;
 }
 
-.slide{     /*กล่องรูป*/
-    width: 20%;
-    transition: 1.5s;
+.slide {                      
+    width: 33.3333%;
+    height: 100%;
+    flex-shrink: 0;
 }
 
-.slide img{     /*ขนาดรูป*/
-    width: 1170px;
-    height: 400px;
-}
-
-.navigation-manual{     /*ปุ่มเลือกหน้าสไลด์เอง*/
-    position: absolute;
-    width: 1170px;
-    margin-top: -40px;
-    display: flex;
-    justify-content: center;
-}
-
-.manual-btn{        /*แต่ละปุ่ม*/
-    border: 2px solid rgb(255, 255, 255);
-    padding: 5px;
-    cursor: pointer;
-    transition: 1s;
-}
-
-.manual-btn:not(:last-child){       /*ความห่างปุ่ม*/
-    margin-right: 30px;
-}
-
-.manual-btn:hover{
-    background-color: rgb(255, 255, 255);
-}
-
-#radio1:checked ~ .first{       /*กดปุ่ม1*/
-    margin-left: 0;
-}
-
-#radio2:checked ~ .first{       /*กดปุ่ม2*/
-    margin-left: -20%;
-}
-
-#radio3:checked ~ .first{        /*กดปุ่ม3*/
-    margin-left: -40%;
-}
-
-.navigation-auto{           /*ปุ่มเลือกหน้าสไลด์ออโต้*/
-    position: absolute;
-    display: flex;
-    width: 1170px;
-    justify-content: center;
-    margin-top: 360px;
-}
-
-.navigation-auto div{       /*แต่ละปุ่ม*/
-    border: 2px solid rgb(255, 255, 255);
-    padding: 5px;
-    transition: 1s;
-}
-
-.navigation-auto div:not(:last-child){      /*ความห่างปุ่ม*/
-    margin-right: 30px;
-}
-
-#radio1:checked ~ .navigation-auto .auto-btn1{      /*กดปุ่ม1แล้ว*/
-    background-color: rgb(255, 255, 255);
-}
-
-#radio2:checked ~ .navigation-auto .auto-btn2{      /*กดปุ่ม2แล้ว*/
-    background-color: rgb(255, 255, 255);
-}
-
-#radio3:checked ~ .navigation-auto .auto-btn3{      /*กดปุ่ม3แล้ว*/
-    background-color: rgb(255, 255, 255);
-}
-
-main .container{
-    margin: 50px 160px; 
+.slide img {                  
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     display: block;
 }
 
-main .container .main-text{ /*หัวข้อบทความ*/
-    color: #38220F;
-    margin-top: 60px;
-}
-
-main .container .cards{     /*ที่เก็บการ์ด*/
+.navigation-manual {
+    position: absolute;
+    left: 50%;
+    bottom: 16px;
+    transform: translateX(-50%);
     display: flex;
-    gap: 60px;
-    margin-top: 30px;
+    justify-content: center;
+    gap: 16px;
+    z-index: 2;
 }
 
-main .container .cards a{   /*ข้อความในการ์ด*/
-    color: rgb(0, 0, 0);
+.manual-btn {
+    width: 10px;
+    height: 10px;
+    border: 2px solid #ffffff;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.4s ease, transform 0.2s ease;
+}
+
+.manual-btn:hover {
+    background-color: #ffffff;
+    transform: scale(1.1);
+}
+
+.navigation-auto {
+    position: absolute;
+    left: 50%;
+    bottom: 16px;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 16px;
+    z-index: 1;
+}
+
+.navigation-auto div {
+    width: 10px;
+    height: 10px;
+    border: 2px solid #ffffff;
+    border-radius: 999px;
+    transition: background 0.4s ease;
+}
+
+#radio1:checked ~ .first {
+    margin-left: 0;
+}
+
+#radio2:checked ~ .first {
+    margin-left: -33.3333%;
+}
+
+#radio3:checked ~ .first {
+    margin-left: -66.6666%;
+}
+
+#radio1:checked ~ .navigation-auto .auto-btn1 {
+    background-color: #ffffff;
+}
+#radio2:checked ~ .navigation-auto .auto-btn2 {
+    background-color: #ffffff;
+}
+#radio3:checked ~ .navigation-auto .auto-btn3 {
+    background-color: #ffffff;
+}
+
+
+main .container {
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 0 16px 0;
+}
+
+main .container .main-text {
+    color: #38220F;
+    margin-top: 56px;
+}
+
+main .container .main-text h1 {
+    font-size: 1.6rem;
+    margin: 0;
+}
+
+main .container .cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 20px;
+}
+
+main .container .cards a {
+    color: inherit;
     text-decoration: none;
 }
 
-main .container .cards a .card{   /*การ์ดแต่ละใบ*/
-    width: 350px;
-    height: 270px;
-    background-color: white;
-    border-radius: 15px 15px 0 0;
-    filter: drop-shadow(0px 4px 5px #5c5c5c);
+main .container .cards a .card {
+    flex: 1 1 calc(33.333% - 24px);  
+    max-width: 360px;
+    min-width: 230px;
+
+    background-color: #ffffff;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-main .container .cards a .card img{     /*รูปในการ์ด*/
+main .container .cards a .card img {
     width: 100%;
     height: 180px;
-    border-radius: 15px 15px 0 0;
+    object-fit: cover;
+    display: block;
 }
 
-main .container .cards a .card .article-name{   /*ชื่อบทความในการ์ด*/
-    height: 45px;
-    margin: 8px 10px 0 10px;
-    font-size: 16px;
+main .container .cards a .card .article-name {
+    margin: 10px 12px 0 12px;
+    font-size: 1rem;
+    line-height: 1.4;
+    color: #1f2933;
+    min-height: 40px;
 }
 
-main .container .cards a .card .information{   /*ผู้เขียนและวัน*/
+main .container .cards a .card .information {
     display: flex;
-    margin: 10px 0 0 10px;
-    font-size: 12px;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 12px 12px;
+    font-size: 0.8rem;
+    color: #6b7280;
 }
 
-main .container .cards a .card .information .author{    /*ผู้เขียน*/
-    width: 260px;
+main .container .cards a .card .information .author {
+    margin-right: 12px;
+}
+
+main .container .cards a .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(0,0,0,0.25);
+}
+
+@media (max-width: 992px) {
+    .slider {
+        margin: 32px auto 24px;
+        aspect-ratio: 16 / 9;
+    }
+
+    main .container .cards a .card {
+        flex: 1 1 calc(50% - 24px);  
+    }
+}
+
+@media (max-width: 640px) {
+    main {
+        padding-top: 90px;
+    }
+
+    .slider {
+        margin: 24px auto 20px;
+        border-radius: 16px;
+        aspect-ratio: 4 / 3;
+    }
+
+    .navigation-manual {
+        bottom: 12px;
+    }
+
+    main .container .main-text h1 {
+        font-size: 1.3rem;
+    }
+
+    main .container .cards {
+        gap: 16px;
+    }
+
+    main .container .cards a .card {
+        flex: 1 1 100%;           
+        max-width: 100%;
+    }
+
+    main .container .cards a .card img {
+        height: 170px;
+    }
 }
