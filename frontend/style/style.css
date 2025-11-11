@@ -275,23 +275,99 @@ main .enter-box button {
     padding-bottom: 25px;
 }
 
+/* การ์ดแต่ละใบในแถว #shop-suggestion */
 .content .container #shop-suggestion .product-card {
-    /*ขนาด/สีแต่ละการ์ด*/
-    width: 200px;
-    height: 260px;
-    font-size: 13px;
-    background-color: #38220F;
-    border-radius: 40px;
+  flex: 0 0 240px;                  /* กว้างการ์ดแต่ละใบ */
+  border-radius: 24px;
+  background: #ffffff;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+  overflow: hidden;                 /* ให้รูปโค้งตามการ์ด */
+  font-size: 13px;
 }
 
+/* ลิงก์ทั้งใบ */
 .content .container #shop-suggestion .product-card a {
-    /*ข้อความในการ์ด*/
-    color: white;
-    text-decoration: none;
+  color: #38220F;                   /* สีตัวอักษรใน info */
+  text-decoration: none;
+  display: block;
 }
 
+/* บล็อกรูปด้านบนของการ์ด */
+.content .container #shop-suggestion .product-card .pic {
+  margin-top: 0;
+  width: 100%;
+  aspect-ratio: 4 / 3;              /* สัดส่วนรูป 4:3 */
+  overflow: hidden;
+}
+
+/* รูปใน card */
+.content .container #shop-suggestion .product-card .pic img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;                /* ครอปให้เต็มกรอบแบบพอดี */
+  border-radius: 24px 24px 0 0;     /* โค้งเฉพาะด้านบนให้ต่อกับตัวการ์ด */
+}
+
+/* บล็อกข้อมูลใต้รูป */
+.content .container #shop-suggestion .product-card .info {
+    padding: 6px 12px 10px 12px;
+}
+
+/* แถวคะแนนดาว */
+.content .container #shop-suggestion .product-card .info .score {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    height: 22px;
+    margin: 4px 0;
+}
+
+/* รูปดาว */
+.content .container #shop-suggestion .product-card .info .score img {
+    width: 15px;
+    height: 15px;
+}
+
+/* บล็อกแท็กของร้าน */
+.content .container #shop-suggestion .product-card .info .specific {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+    margin-top: 6px;
+    font-size: 10px;
+}
+
+/* แต่ละแท็ก */
+.content .container #shop-suggestion .product-card .info .specific .tag {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 18px;
+    padding: 0 6px;
+    background-color: #D9794C;
+    border-radius: 8px;
+    color: #ffffff;
+}
+
+/* บล็อกรูปในแท็ก */
+.content .container #shop-suggestion .product-card .info .specific .tag .pic {
+    margin: 0 4px 0 0;
+}
+
+/* รูปในแท็ก */
+.content .container #shop-suggestion .product-card .info .specific .tag .pic img {
+    width: 12px;
+    height: 12px;
+}
+
+/* ข้อความในแท็ก */
+.content .container #shop-suggestion .product-card .info .specific .tag .text {
+    margin-top: 1px;
+}
+
+/* scrollbar ของ #shop-suggestion (ถ้ายังใช้เลื่อนแนวนอนอยู่) */
 .content .container #shop-suggestion::-webkit-scrollbar {
-    /* scrollbar*/
     height: 7px;
 }
 
@@ -300,76 +376,6 @@ main .enter-box button {
     border-radius: 50px;
 }
 
-.content .container #shop-suggestion .product-card .pic {
-    /* บล็อกรูปภาพในการ์ด*/
-    margin-top: 0px;
-}
-
-.content .container #shop-suggestion .product-card .pic img {
-    /* ขนาดรูปหัวการ์ด*/
-    width: 200px;
-    border-radius: 40px 40px 0 0;
-}
-
-.content .container #shop-suggestion .product-card .info {
-    /* บล็อกข้อมูลในการ์ด*/
-    padding: 5px 0 0 15px;
-}
-
-.content .container #shop-suggestion .product-card .info .score {
-    /*บล็อกรูปดาว*/
-    display: flex;
-    width: 150px;
-    height: 25px;
-    gap: 7px;
-}
-
-.content .container #shop-suggestion .product-card .info .score img {
-    /*ขนาดรูปดาว*/
-    width: 15px;
-    height: 15px;
-}
-
-.content .container #shop-suggestion .product-card .info .specific {
-    /*บล็อกแท็กของร้าน*/
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    width: 170px;
-    font-size: 10px;
-    gap: 5px;
-    margin-top: 5px;
-}
-
-.content .container #shop-suggestion .product-card .info .specific .tag {
-    /* แต่ละแท็ก*/
-    display: flex;
-    width: 80px;
-    height: 18px;
-    text-align: center;
-    padding-top: 2px;
-    background-color: #D9794C;
-    border-radius: 8px;
-}
-
-.content .container #shop-suggestion .product-card .info .specific .tag .pic {
-    /* บล็อกรูปในแท็ก*/
-    margin-left: 9px;
-    margin-top: 2px;
-}
-
-.content .container #shop-suggestion .product-card .info .specific .tag .pic img {
-    /*รูปในแท็กร้าน*/
-    width: 12px;
-    height: 12px;
-}
-
-
-.content .container #shop-suggestion .product-product-card .info .specific .tag .text {
-    /* บล็อกข้อความในแท็ก*/
-    margin-left: 7px;
-    margin-top: 3px;
-}
 
 
 .content .container .article-suggestion {

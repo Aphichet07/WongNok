@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   console.log("HTML Document is ready. Starting to fetch shops...");
 
-  // loadAndDisplayShop();
+  loadAndDisplayShop();
   renderAuthNav();
 });
 
@@ -45,14 +45,14 @@ function buildSingleShopCard(shopData) {
   cardElement.innerHTML = `
     <a href="/shop/${shopData.id}">
         <div class="pic">
-            <img src="${shopData.coverImage}"> 
+            <img src="${shopData.cover_image_url}"> 
         </div>
         <div class="info">
             <p>${shopData.name}</p>
             <div class="score">
-               
+               เรตติ้ง $${shopData.average_rating}
             </div>
-            <p>เปิด-ปิด: ${shopData.hours}</p>
+            <p>${shopData.description}</p>
             <div class="specific">
                
             </div>
