@@ -7,6 +7,8 @@
     <title>WongNok</title>
     <link rel="stylesheet" href="/frontend/style/headfoot-style.css">
     <link rel="stylesheet" href="/frontend/style/style.css">
+    <link rel="icon" type="image/x-icon" href="/frontend/resources/icon/icon.ico">
+
 
 </head>
 
@@ -56,9 +58,9 @@
                 </div>
                 <div class="nav-bar2">
                     <ul class="ul-navbar2">
-                        <li><a href="#">signin</a></li>
+                        <li><a href="#" id="open-signin">signin</a></li>
                         <li>|</li>
-                        <li><a href="#">signup</a></li>
+                        <li><a href="#" id="open-signup">signup</a></li>
                     </ul>
                 </div>
             </div>
@@ -128,9 +130,9 @@
                         <div class="pic"><img src="/frontend/resources/icon/coffee-cup.png" alt="image-icon"></div>
                         <div class="text">Cold Brew</div>
                     </a></button>
-                
+
             </div>
-       
+
 
             <div class="main-text shop">
                 <p>ร้านแนะนำประจำสัปดาห์</p>
@@ -273,6 +275,47 @@
             </div>
         </div>
     </footer>
+
+    <div id="auth-modal" class="auth-modal">
+        <div class="auth-modal__overlay"></div>
+
+        <div class="auth-modal__content">
+            <button class="auth-modal__close" aria-label="ปิดหน้าต่าง">&times;</button>
+
+            <div class="auth-modal__tabs">
+                <button class="tab-btn active" data-tab="signin">Sign in</button>
+                <button class="tab-btn" data-tab="signup">Sign up</button>
+            </div>
+
+            <form class="auth-form active" id="signin-form">
+                <label>
+                    ชื่อผู้ใช้
+                    <input type="username" name="username" placeholder="Bank007" required>
+                </label>
+                <label>
+                    รหัสผ่าน
+                    <input type="password" name="password" placeholder="••••••••" required>
+                </label>
+                <button type="submit" class="auth-submit">เข้าสู่ระบบ</button>
+            </form>
+
+            <form class="auth-form" id="signup-form">
+                <label>
+                    ชื่อผู้ใช้
+                    <input type="text" name="username" placeholder="ชื่อที่จะแสดงในระบบ" required>
+                </label>
+                <label>
+                    อีเมล
+                    <input type="email" name="email" placeholder="you@example.com" required>
+                </label>
+                <label>
+                    รหัสผ่าน
+                    <input type="password" name="password" placeholder="อย่างน้อย 8 ตัวอักษร" required>
+                </label>
+                <button type="submit" class="auth-submit">สมัครสมาชิก</button>
+            </form>
+        </div>
+    </div>
 
     <script src="/frontend/scripts/index.js"></script>
 </body>

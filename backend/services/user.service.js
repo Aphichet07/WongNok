@@ -8,7 +8,7 @@ const SECRET_KEY = "guruwamuengmairu"
 const userService = {
     getAlluser: async () => {
         const queryText = `select id, username from "user"`
-        const { rows } = db.query(queryText)
+        const { rows } = await db.query(queryText)
         if (!rows) {
             return false
         }
@@ -17,28 +17,47 @@ const userService = {
     },
 
     regist: async (username, password, email) => {
-        const checkQuery = 'select * from "user" where email = $1'
-        const { rows: existingUsers } = await db.query(checkQuery, [email])
+        const checkQuery = 'SELECT * FROM "user" WHERE email = $1';
+        const { rows: existingUsers } = await db.query(checkQuery, [email]);
 
         if (existingUsers.length > 0) {
             return JSON.stringify({ error: 'This email is already registered.' });
         }
 
-        const password_hash = await bcrypt.hash(password, SALT_ROUNDS)
+        const password_hash = await bcrypt.hash(password, SALT_ROUNDS);
 
         const queryText = `
-                insert into "user" (username, password, email)
-                values($1,$2,$3)
-                returning id, username, email
-        `
-        const values = [username, password_hash, email]
-        const { rows } = await db.query(queryText, values)
-        console.log(rows)
-        return JSON.stringify(rows[1])
-    },
+    INSERT INTO "user" (username, password, email)
+    VALUES ($1, $2, $3)
+    RETURNING id, username, email
+  `;
+        const values = [username, password_hash, email];
+        const { rows } = await db.query(queryText, values);
+
+        const user = rows[0];
+        console.log(user);
+
+        const token = jwt.sign(
+            {
+                userId: user.id,
+                email: user.email,
+            },
+            SECRET_KEY,
+            { expiresIn: '1h' }
+        );
+
+        return {
+            message: 'Register successful!',
+            token,
+            user,
+        };
+    }
+    ,
 
     login: async (username, password) => {
-        const { rows } = db.query('select * from "user" where username = $1', [username])
+        const query = `SELECT * FROM "user" WHERE username = $1`
+        const { rows } = await db.query(query, [username])
+        console.log(rows)
         if (!rows) {
             return JSON.stringify({ error: 'Invalid credentials' });
         }
@@ -56,17 +75,17 @@ const userService = {
         },
             SECRET_KEY,
             { expiresIn: '1h' })
-
-        return JSON.stringify({ message: 'Login successful!', token: token });
+        console.log(token)
+        return { message: 'Login successful!', token: token , user: username}
     },
 
     findUser: async (userID) => {
-        const {rows} = db.query('select * from "user" where id = $1', [userID])
+        const { rows } = db.query('select * from "user" where id = $1', [userID])
 
-        if (rows.length === 0){
+        if (rows.length === 0) {
             return JSON.stringify({ error: 'Invalid credentials' });
         }
-        return JSON.stringify({rows})
+        return JSON.stringify({ rows })
     }
 
 }
