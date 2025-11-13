@@ -32,9 +32,11 @@ const shopController = {
 
     filterShopAll: async (req, res) => {
         try {
+            console.log("Hello from controller")
             const filters = req.query;
+            console.log(filters)
             const shops = await shopService.filterShop(filters);
-
+            console.log(shops)
             res.status(200).json(shops);
         } catch (err) {
             res.status(500).json({ message: "Internal server error" });

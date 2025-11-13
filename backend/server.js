@@ -14,8 +14,6 @@ app.use(express.json());
 app.use(router)
 
 
-console.log("ENV")
-console.log(process.env.CONNECTION_STRING)
 
 
 app.use("/frontend", express.static(path.join(__dirname, "..", "frontend")));
