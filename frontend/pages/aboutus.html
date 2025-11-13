@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Article</title>
-    <link rel="stylesheet" href="/frontend/style/headfoot-style.css">
+    <link rel="stylesheet" href="/frontend/style/nav.css">
+    <link rel="stylesheet" href="/frontend/style/footer.css">
     <link rel="stylesheet" href="/frontend/style/aboutus-style.css">
 </head>
+
 <body>
     <header id="main-nav-bar">
         <div class="container">
@@ -26,9 +29,9 @@
                 </div>
                 <div class="nav-bar2">
                     <ul class="ul-navbar2">
-                        <li><a href="#">signin</a></li>
+                        <li><a href="#" id="open-signin">signin</a></li>
                         <li>|</li>
-                        <li><a href="#">signup</a></li>
+                        <li><a href="#" id="open-signup">signup</a></li>
                     </ul>
                 </div>
             </div>
@@ -47,21 +50,24 @@
                     <div class="pic"><img src="../resources/aboutus/aboutus.png"></div>
                     <article>
                         <h2>เพราะกาแฟที่ดี ไม่ใช่แค่เรื่องของรสชาติ แต่คือเรื่องราวที่อยู่รอบถ้วยนั้นด้วย</h2>
-                        <p>WongNok เกิดจากความหลงใหลในกลิ่นหอมของกาแฟและบรรยากาศของร้านกาแฟที่อบอุ่นในทุกมุมของกรุงเทพฯเราอยากให้ที่นี่เป็นพื้นที่เล็กๆ สำหรับคนที่รักกาแฟเหมือนกัน ไม่ว่าคุณจะเป็นสายคั่วเข้ม คั่วกลาง หรือคั่วอ่อน หรือแค่กำลังเริ่มต้นจิบกาแฟถ้วยแรกในชีวิต</p><br>
+                        <p>WongNok
+                            เกิดจากความหลงใหลในกลิ่นหอมของกาแฟและบรรยากาศของร้านกาแฟที่อบอุ่นในทุกมุมของกรุงเทพฯเราอยากให้ที่นี่เป็นพื้นที่เล็กๆ
+                            สำหรับคนที่รักกาแฟเหมือนกัน ไม่ว่าคุณจะเป็นสายคั่วเข้ม คั่วกลาง หรือคั่วอ่อน
+                            หรือแค่กำลังเริ่มต้นจิบกาแฟถ้วยแรกในชีวิต</p><br>
                         <p>ที่ WongNok เรารวบรวม</p>
                         <ul>
                             <li>ร้านกาแฟน่าสนใจทั่วกรุงเทพฯ ที่เราอยากให้คุณได้ลอง</li>
                             <li>เรื่องราวของแต่ละร้าน ทั้งบรรยากาศ รสชาติ และเอกลักษณ์เฉพาะตัว</li>
                             <li>บทความเกี่ยวกับกาแฟ ที่เล่าด้วยภาษาง่ายๆ แต่เต็มไปด้วยความรู้และความอบอุ่น</li>
                         </ul><br>
-                        <p>WongNok อยากเป็นเพื่อนคนนั้นของคุณ เพื่อนที่คอยแนะนำร้านกาแฟดีๆ ให้คุณได้ไปสัมผัสด้วยตัวเอง และเล่าเรื่องกาแฟในแบบที่ทำให้หัวใจคุณอบอุ่นขึ้น</p>
+                        <p>WongNok อยากเป็นเพื่อนคนนั้นของคุณ เพื่อนที่คอยแนะนำร้านกาแฟดีๆ ให้คุณได้ไปสัมผัสด้วยตัวเอง
+                            และเล่าเรื่องกาแฟในแบบที่ทำให้หัวใจคุณอบอุ่นขึ้น</p>
                         <p>ขอบคุณที่แวะมา และขอให้ทุกการจิบของคุณเต็มไปด้วยความสุข</p>
                     </article>
                 </div>
             </div>
-        </div>  
+        </div>
     </main>
-
     <footer class="main">
         <div class="container">
             <div class="logo-image">
@@ -70,7 +76,7 @@
 
             <div class="nagivator">
                 <ul class="nav-link">
-                    <li><a href="../pages/aboutus.html">About us</a></li>
+                    <li><a href="../frontend/pages/aboutus.html">About us</a></li>
                     <li><a href="#">Contact us</a></li>
                     <li><a href="#">FB logo</a></li>
                     <li><a href="#">IG logo</a></li>
@@ -83,8 +89,51 @@
             <div class="terms">
                 <p>Terms and Conditions | Return Policy | Privacy Policy | Cookie Policy</p>
             </div>
-
         </div>
     </footer>
+
+    <div id="auth-modal" class="auth-modal">
+        <div class="auth-modal__overlay"></div>
+
+        <div class="auth-modal__content">
+            <button class="auth-modal__close" aria-label="ปิดหน้าต่าง">&times;</button>
+
+            <div class="auth-modal__tabs">
+                <button class="tab-btn active" data-tab="signin">Sign in</button>
+                <button class="tab-btn" data-tab="signup">Sign up</button>
+            </div>
+
+            <form class="auth-form active" id="signin-form">
+                <label>
+                    ชื่อผู้ใช้
+                    <input type="username" name="username" placeholder="Bank007" required>
+                </label>
+                <label>
+                    รหัสผ่าน
+                    <input type="password" name="password" placeholder="••••••••" required>
+                </label>
+                <button type="submit" class="auth-submit">เข้าสู่ระบบ</button>
+            </form>
+
+            <form class="auth-form" id="signup-form">
+                <label>
+                    ชื่อผู้ใช้
+                    <input type="text" name="username" placeholder="ชื่อที่จะแสดงในระบบ" required>
+                </label>
+                <label>
+                    อีเมล
+                    <input type="email" name="email" placeholder="you@example.com" required>
+                </label>
+                <label>
+                    รหัสผ่าน
+                    <input type="password" name="password" placeholder="อย่างน้อย 8 ตัวอักษร" required>
+                </label>
+                <button type="submit" class="auth-submit">สมัครสมาชิก</button>
+            </form>
+        </div>
+    </div>
+    <script src="/frontend/scripts/auth.js"></script>
+    <script src="/frontend/scripts/nav.js"></script>
 </body>
+
 </html>

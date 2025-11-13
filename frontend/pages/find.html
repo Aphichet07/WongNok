@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>search</title>
-    <link rel="stylesheet" href="../style/headfoot-style.css">
+    <link rel="stylesheet" href="/frontend/style/nav.css">
+    <link rel="stylesheet" href="/frontend/style/footer.css">
     <link rel="stylesheet" href="../style/search-page.css">
 </head>
 
@@ -28,9 +29,9 @@
                 </div>
                 <div class="nav-bar2">
                     <ul class="ul-navbar2">
-                        <li><a href="#">signin</a></li>
+                        <li><a href="#" id="open-signin">signin</a></li>
                         <li>|</li>
-                        <li><a href="#">signup</a></li>
+                        <li><a href="#" id="open-signup">signup</a></li>
                     </ul>
                 </div>
             </div>
@@ -38,141 +39,237 @@
         </div>
     </header>
 
-    <section id="main">
-        <div class="search-container">
-            <div class="search-bar">
-                <input type="text" name="shopname" id="search" placeholder="ค้นหาร้าน">
-            </div>
-
-            <form id="filter-form">
-
-                <div class="filter-section">
-                    <h2>ราคา</h2>
-                    <div class="price-inputs">
-                        <input type="number" id="min-price" name="minPrice" placeholder="Min" value="60">
-                        <span>—</span>
-                        <input type="number" id="max-price" name="maxPrice" placeholder="Max" value="500">
-                    </div>
-                </div>
-
-                <div class="filter-section">
-                    <h2>คะแนน</h2>
-                    <div class="star-rating">
-                        <input type="radio" id="star-5" name="rating" value="5"><label for="star-5">★</label>
-                        <input type="radio" id="star-4" name="rating" value="4"><label for="star-4">★</label>
-                        <input type="radio" id="star-3" name="rating" value="3"><label for="star-3">★</label>
-                        <input type="radio" id="star-2" name="rating" value="2"><label for="star-2">★</label>
-                        <input type="radio" id="star-1" name="rating" value="1"><label for="star-1">★</label>
-                    </div>
-                </div>
-
-                <div class="filter-section">
-                    <h2>สไตล์กาแฟ</h2>
-
-                    <fieldset>
-                        <h3>ระดับการคั่ว</h3>
-                        <div class="filter-option">
-                            <input type="checkbox" id="roast-light" name="roast" value="light">
-                            <label for="roast-light">คั่วอ่อน</label>
-                        </div>
-                        <div class="filter-option">
-                            <input type="checkbox" id="roast-medium" name="roast" value="medium">
-                            <label for="roast-medium">คั่วกลาง</label>
-                        </div>
-                        <div class="filter-option">
-                            <input type="checkbox" id="roast-dark" name="roast" value="dark">
-                            <label for="roast-dark">คั่วเข้ม</label>
-                        </div>
-                    </fieldset>
-
-                    <fieldset>
-                        <h3>วิธีการชง</h3>
-                        <div class="filter-option">
-                            <input type="checkbox" id="brew-espresso" name="brew" value="espresso">
-                            <label for="brew-espresso">Espresso-Based</label>
-                        </div>
-                        <div class="filter-option">
-                            <input type="checkbox" id="brew-drip" name="brew" value="drip">
-                            <label for="brew-drip">Drip / Pour-over</label>
-                        </div>
-                        <div class="filter-option">
-                            <input type="checkbox" id="brew-coldbrew" name="brew" value="coldbrew">
-                            <label for="brew-coldbrew">Cold Brew</label>
-                        </div>
-                    </fieldset>
-
-                    <fieldset>
-                        <h3>โปรไฟล์รสชาติ</h3>
-                        <div class="filter-option">
-                            <input type="checkbox" id="profile-classic" name="profile" value="classic">
-                            <label for="profile-classic">Classic & Balanced</label>
-                        </div>
-                        <div class="filter-option">
-                            <input type="checkbox" id="profile-fruity" name="profile" value="fruity">
-                            <label for="profile-fruity">Fruity & Floral</label>
-                        </div>
-                        <div class="filter-option">
-                            <input type="checkbox" id="profile-funky" name="profile" value="funky">
-                            <label for="profile-funky">Funky & Fermented</label>
-                        </div>
-                        <div class="filter-option">
-                            <input type="checkbox" id="profile-spicy" name="profile" value="spicy">
-                            <label for="profile-spicy">Spicy & Earthy</label>
-                        </div>
-                    </fieldset>
-
-                    <fieldset>
-                        <h3>แหล่งปลูก</h3>
-                        <div class="filter-option">
-                            <input type="checkbox" id="origin-thai" name="origin" value="thai">
-                            <label for="origin-thai">เมล็ดไทย</label>
-                        </div>
-                        <div class="filter-option">
-                            <input type="checkbox" id="origin-africa" name="origin" value="africa">
-                            <label for="origin-africa">เมล็ดแอฟริกา</label>
-                        </div>
-                        <div class="filter-option">
-                            <input type="checkbox" id="origin-sa" name="origin" value="sa">
-                            <label for="origin-sa">เมล็ดอเมริกาใต้/กลาง</label>
-                        </div>
-                    </fieldset>
-                </div>
-
-                <div class="filter-section">
-                    <h2>บรรยากาศ</h2>
-                    <div class="filter-option">
-                        <input type="checkbox" id="vibe-work" name="vibe" value="work">
-                        <label for="vibe-work">เหมาะกับการทำงาน</label>
-                    </div>
-                    <div class="filter-option">
-                        <input type="checkbox" id="vibe-pet" name="vibe" value="pet">
-                        <label for="vibe-pet">Pet-Friendly</label>
-                    </div>
-                    <div class="filter-option">
-                        <input type="checkbox" id="vibe-parking" name="vibe" value="parking">
-                        <label for="vibe-parking">มีที่จอดรถ</label>
-                    </div>
-                </div>
-
-                <div class="filter-section">
-                    <h2>อื่นๆ</h2>
-                    <div class="filter-option">
-                        <input type="checkbox" id="other-roastery" name="other" value="roastery">
-                        <label for="other-roastery">มีโรงคั่วในร้าน</label>
-                    </div>
-                    <div class="filter-option">
-                        <input type="checkbox" id="other-champ" name="other" value="champ">
-                        <label for="other-champ">บาริสต้าดีกรีแชมป์</label>
-                    </div>
-                </div>
-                <div class="gogobtn">
-                    <button type="submit" id="gogobtn">Enter</button>
-                </div>
+    <section id="hero" class="hero" aria-label="Coffee Hero">
+        <div class="hero__overlay"></div>
+        <div class="hero__content">
+            <h1>วันนี้คุณดื่มกาแฟแล้วหรือยัง?</h1>
+            <form class="hero__search" id="hero-search-form">
+                <input type="text" id="hero-search-input" placeholder="ค้นหารส/สไตล์กาแฟหรือชื่อเมนู"
+                    aria-label="ค้นหากาแฟ">
+                <button type="submit" class="btn-primary">ค้นหา</button>
             </form>
-
+            <a class="hero__scroll" href="#filters" aria-label="เลื่อนไปส่วนฟิลเตอร์">▼</a>
         </div>
     </section>
-    <script src="../scripts/index.js" defer></script>
+
+    <main id="filters" class="main-wrap">
+        <div class="container grid">
+
+            <!-- Sidebar filter -->
+            <aside class="sidebar">
+                <div class="search-bar">
+                    <input type="text" name="shopname" id="search" placeholder="ค้นหาร้าน" aria-label="ค้นหาร้าน">
+                </div>
+
+                <form id="filter-form" role="search" aria-label="ฟิลเตอร์กาแฟ">
+                    <div class="filter-section">
+                        <h2>ราคา</h2>
+                        <div class="price-inputs">
+                            <input type="number" id="min-price" name="minPrice" placeholder="Min" value="60"
+                                aria-label="ราคาขั้นต่ำ">
+                            <span>—</span>
+                            <input type="number" id="max-price" name="maxPrice" placeholder="Max" value="500"
+                                aria-label="ราคาขั้นสูง">
+                        </div>
+                    </div>
+
+                    <div class="filter-section">
+                        <div class="group-star">
+                            <h2>คะแนน</h2>
+                            <div class="star-rating" aria-label="กรองตามคะแนน">
+                                <input type="radio" id="star-5" name="rating" value="5"><label for="star-5">★</label>
+                                <input type="radio" id="star-4" name="rating" value="4"><label for="star-4">★</label>
+                                <input type="radio" id="star-3" name="rating" value="3"><label for="star-3">★</label>
+                                <input type="radio" id="star-2" name="rating" value="2"><label for="star-2">★</label>
+                                <input type="radio" id="star-1" name="rating" value="1"><label for="star-1">★</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="filter-section">
+                        <h2>สไตล์กาแฟ</h2>
+
+                        <fieldset>
+                            <legend>ระดับการคั่ว</legend>
+                            <div class="filter-option">
+                                <input type="checkbox" id="roast-light" name="roast" value="light">
+                                <label for="roast-light">คั่วอ่อน</label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="roast-medium" name="roast" value="medium">
+                                <label for="roast-medium">คั่วกลาง</label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="roast-dark" name="roast" value="dark">
+                                <label for="roast-dark">คั่วเข้ม</label>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>วิธีการชง</legend>
+                            <div class="filter-option">
+                                <input type="checkbox" id="brew-espresso" name="brew" value="espresso">
+                                <label for="brew-espresso">Espresso-Based</label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="brew-drip" name="brew" value="drip">
+                                <label for="brew-drip">Drip / Pour-over</label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="brew-coldbrew" name="brew" value="coldbrew">
+                                <label for="brew-coldbrew">Cold Brew</label>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>โปรไฟล์รสชาติ</legend>
+                            <div class="filter-option">
+                                <input type="checkbox" id="profile-classic" name="profile" value="classic">
+                                <label for="profile-classic">Classic & Balanced</label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="profile-fruity" name="profile" value="fruity">
+                                <label for="profile-fruity">Fruity & Floral</label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="profile-funky" name="profile" value="funky">
+                                <label for="profile-funky">Funky & Fermented</label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="profile-spicy" name="profile" value="spicy">
+                                <label for="profile-spicy">Spicy & Earthy</label>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>แหล่งปลูก</legend>
+                            <div class="filter-option">
+                                <input type="checkbox" id="origin-thai" name="origin" value="thai">
+                                <label for="origin-thai">เมล็ดไทย</label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="origin-africa" name="origin" value="africa">
+                                <label for="origin-africa">เมล็ดแอฟริกา</label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="origin-sa" name="origin" value="sa">
+                                <label for="origin-sa">เมล็ดอเมริกาใต้/กลาง</label>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <div class="filter-section">
+                        <h2>บรรยากาศ</h2>
+                        <div class="filter-option">
+                            <input type="checkbox" id="vibe-work" name="vibe" value="work">
+                            <label for="vibe-work">เหมาะกับการทำงาน</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="vibe-pet" name="vibe" value="pet">
+                            <label for="vibe-pet">Pet-Friendly</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="vibe-parking" name="vibe" value="parking">
+                            <label for="vibe-parking">มีที่จอดรถ</label>
+                        </div>
+                    </div>
+
+                    <div class="filter-section">
+                        <h2>อื่นๆ</h2>
+                        <div class="filter-option">
+                            <input type="checkbox" id="other-roastery" name="other" value="roastery">
+                            <label for="other-roastery">มีโรงคั่วในร้าน</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="other-champ" name="other" value="champ">
+                            <label for="other-champ">บาริสต้าดีกรีแชมป์</label>
+                        </div>
+                    </div>
+
+                    <div class="gogobtn">
+                        <button type="submit" id="gogobtn" class="btn-primary">ค้นหา</button>
+                    </div>
+                </form>
+            </aside>
+
+            <!-- Results -->
+            <section id="shop-result" aria-live="polite"></section>
+        </div>
+
+        <nav id="pagination" class="pagination-inline" aria-label="หน้า"></nav>
+    </main>
+
+
+    <footer class="main">
+        <div class="container">
+            <div class="logo-image">
+                <img src="/frontend/resources/logo/logo2.png" alt="logo-image" class="logo-image">
+            </div>
+
+            <div class="nagivator">
+                <ul class="nav-link">
+                    <li><a href="../frontend/pages/aboutus.html">About us</a></li>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">FB logo</a></li>
+                    <li><a href="#">IG logo</a></li>
+                    <li><a href="#">X logo</a></li>
+                    <li><a href="#">Line logo</a></li>
+                    <li><a href="#">Youtube logo</a></li>
+                </ul>
+            </div>
+
+            <div class="terms">
+                <p>Terms and Conditions | Return Policy | Privacy Policy | Cookie Policy</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <div id="auth-modal" class="auth-modal">
+        <div class="auth-modal__overlay"></div>
+
+        <div class="auth-modal__content">
+            <button class="auth-modal__close" aria-label="ปิดหน้าต่าง">&times;</button>
+
+            <div class="auth-modal__tabs">
+                <button class="tab-btn active" data-tab="signin">Sign in</button>
+                <button class="tab-btn" data-tab="signup">Sign up</button>
+            </div>
+
+            <form class="auth-form active" id="signin-form">
+                <label>
+                    ชื่อผู้ใช้
+                    <input type="username" name="username" placeholder="Bank007" required>
+                </label>
+                <label>
+                    รหัสผ่าน
+                    <input type="password" name="password" placeholder="••••••••" required>
+                </label>
+                <button type="submit" class="auth-submit">เข้าสู่ระบบ</button>
+            </form>
+
+            <form class="auth-form" id="signup-form">
+                <label>
+                    ชื่อผู้ใช้
+                    <input type="text" name="username" placeholder="ชื่อที่จะแสดงในระบบ" required>
+                </label>
+                <label>
+                    อีเมล
+                    <input type="email" name="email" placeholder="you@example.com" required>
+                </label>
+                <label>
+                    รหัสผ่าน
+                    <input type="password" name="password" placeholder="อย่างน้อย 8 ตัวอักษร" required>
+                </label>
+                <button type="submit" class="auth-submit">สมัครสมาชิก</button>
+            </form>
+        </div>
+    </div>
+
+
+    <script src="../scripts/search_page.js" defer></script>
+    <script src="../scripts/nav.js"></script>
+    <script src="../scripts/auth.js"></script>
 </body>
 
 </html>
