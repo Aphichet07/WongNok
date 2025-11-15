@@ -42,7 +42,7 @@ function buildSingleShopCard(shopData) {
   cardElement.className = 'product-card';
 
   cardElement.innerHTML = `
-    <a href="/shop/${shopData.id}">
+    <a href="#" class="shop-card-link">
         <div class="pic">
             <img src="${shopData.cover_image_url}"> 
         </div>
@@ -58,7 +58,13 @@ function buildSingleShopCard(shopData) {
         </div>
     </a>
   `;
+  const link = cardElement.querySelector(".shop-card-link");
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    openShopPopup(shopData);
+  });
 
+  return cardElement;
 
   return cardElement;
 }
@@ -78,4 +84,71 @@ if (slider && prevBtn && nextBtn) {
   prevBtn.addEventListener('click', () => {
     slider.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
   });
+}
+
+function buildPopup(shop) {
+  // ลบ popup เดิมถ้ายังค้างอยู่
+  const old = document.querySelector(".popup-overlay");
+  if (old) old.remove();
+
+  const overlay = document.createElement("div");
+  overlay.className = "popup-overlay";
+
+  const pop = document.createElement("div");
+  pop.className = "popCard";
+
+  pop.innerHTML = `
+    <button class="popup-close" type="button">✕</button>
+    <div class="left"> 
+      <div class="pic">
+        <img src="${shop.cover_image_url || "/frontend/resources/noimage.jpg"}" alt="${shop.name}">
+      </div>
+      <div class="info">
+        <p class="shop-name">${shop.name}</p>
+        <div class="score">⭐ ${shop.average_rating ?? "-"}</div>
+        <p class="desc">${shop.description ?? ""}</p>
+      </div>
+    </div>
+    <div class="right"> 
+      <div class="comment">
+        <div class="profile-image">
+          <img src="${shop.cover_image_url || "/frontend/resources/noimage.jpg"}" alt="${shop.name}">
+        </div>
+        <div class="about-text">
+          <p class="username">${shop.username ?? "Guest"}</p>
+          <p class="text-comment">${shop.comment ?? "ยังไม่มีรีวิว"}</p>
+        </div>
+      </div>
+    </div>
+  `;
+
+  overlay.appendChild(pop);
+  document.body.appendChild(overlay);
+
+  const closeBtn = pop.querySelector(".popup-close");
+
+  const escHandler = (e) => {
+    if (e.key === "Escape") {
+      close();
+    }
+  };
+
+  function close() {
+    overlay.remove();
+    window.removeEventListener("keydown", escHandler);
+  }
+
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) close();
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener("click", close);
+  }
+
+  window.addEventListener("keydown", escHandler);
+}
+
+function openShopPopup(shop) {
+  buildPopup(shop);
 }

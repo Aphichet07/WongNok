@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/frontend/style/nav.css">
     <link rel="stylesheet" href="/frontend/style/footer.css">
     <link rel="stylesheet" href="../style/search-page.css">
+    <link rel="icon" type="image/x-icon" href="/frontend/resources/icon/icon.ico">
 </head>
 
 <body>
@@ -44,9 +45,9 @@
         <div class="hero__content">
             <h1>วันนี้คุณดื่มกาแฟแล้วหรือยัง?</h1>
             <form class="hero__search" id="hero-search-form">
-                <input type="text" id="hero-search-input" placeholder="ค้นหารส/สไตล์กาแฟหรือชื่อเมนู"
+                <input type="text" id="hero-search-input" name="search" placeholder="ค้นหารส/สไตล์กาแฟหรือชื่อเมนู"
                     aria-label="ค้นหากาแฟ">
-                <button type="submit" class="btn-primary">ค้นหา</button>
+                <button type="submit" class="btn-primary" onclick="window.location.href='#filters'">ค้นหา</button>
             </form>
             <a class="hero__scroll" href="#filters" aria-label="เลื่อนไปส่วนฟิลเตอร์">▼</a>
         </div>
@@ -92,15 +93,15 @@
                         <fieldset>
                             <legend>ระดับการคั่ว</legend>
                             <div class="filter-option">
-                                <input type="checkbox" id="roast-light" name="roast" value="light">
+                                <input type="checkbox" id="roast-light" name="roast" value="Light">
                                 <label for="roast-light">คั่วอ่อน</label>
                             </div>
                             <div class="filter-option">
-                                <input type="checkbox" id="roast-medium" name="roast" value="medium">
+                                <input type="checkbox" id="roast-medium" name="roast" value="Medium">
                                 <label for="roast-medium">คั่วกลาง</label>
                             </div>
                             <div class="filter-option">
-                                <input type="checkbox" id="roast-dark" name="roast" value="dark">
+                                <input type="checkbox" id="roast-dark" name="roast" value="Dark">
                                 <label for="roast-dark">คั่วเข้ม</label>
                             </div>
                         </fieldset>
