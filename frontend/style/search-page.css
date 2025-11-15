@@ -467,3 +467,209 @@ legend {
     user-select: none
 }
 
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .5);
+    display: grid;
+    place-items: center;
+    z-index: 999;
+}
+
+.popCard {
+    width: min(860px, 96vw);
+    max-height: 86vh;
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, .25);
+    padding: 18px 18px 20px;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 16px;
+    position: relative;
+    overflow: auto;
+}
+
+.popup-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    border: 0;
+    background: #f1f5f9;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.popCard .left .pic {
+    aspect-ratio: 4/3;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #f1f5f9;
+}
+
+.popCard .left .pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.popCard .info {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.popCard .shop-name {
+    font-weight: 800;
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.popCard .score {
+    display: inline-block;
+    background: #d1fae5;
+    color: #065f46;
+    border: 1px solid #34d399;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: .9rem;
+}
+
+.popCard .desc {
+    margin: 0;
+    color: #475569;
+}
+
+.popCard .right .comment {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.profile-image {
+    width: 46px;
+    height: 46px;
+    border-radius: 999px;
+    overflow: hidden;
+    background: #e2e8f0;
+    flex-shrink: 0;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-text .username {
+    font-weight: 700;
+    margin: 0 0 4px;
+}
+
+.about-text .text-comment {
+    margin: 0;
+    color: #334155;
+}
+
+@media (max-width: 800px) {
+    .popCard {
+        grid-template-columns: 1fr;
+    }
+}
+
+.comment-form {
+    margin-top: 16px;
+    border-top: 1px solid #eee;
+    padding-top: 12px;
+}
+
+.comment-form h3 {
+    margin: 0 0 8px;
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.rating-input {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 8px;
+}
+
+.rating-label {
+    font-size: 0.85rem;
+    color: #4b5563;
+}
+
+.rating-stars {
+    display: inline-flex;
+    flex-direction: row-reverse;
+    /* ทำให้ hover จากขวาไปซ้าย */
+    gap: 4px;
+    direction: rtl;
+}
+
+.rating-stars input {
+    display: none;
+}
+
+.rating-stars label {
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: #d1d5db;
+    transition: color 0.15s ease;
+}
+
+/* hover + active effect */
+.rating-stars input:checked~label,
+.rating-stars label:hover,
+.rating-stars label:hover~label {
+    color: #facc15;
+    /* สีทอง ๆ */
+}
+
+/* textarea + input + button เดิม */
+.comment-form textarea {
+    width: 100%;
+    resize: vertical;
+    border-radius: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    font-size: .9rem;
+    margin-top: 4px;
+}
+
+.comment-form input[name="username"] {
+    width: 100%;
+    margin-top: 8px;
+    border-radius: 999px;
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    font-size: .85rem;
+}
+
+.send-comment {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background: #c26b3d;
+    color: white;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    font-size: .9rem;
+    font-weight: 600;
+}
+
+.send-comment:hover {
+    filter: brightness(.92);
+}
+
+.comment-status {
+    margin-top: 8px;
+    font-size: .8rem;
+}

@@ -4,7 +4,7 @@ const shopRouter = (route) => {
     route.get("/test", shopController.test)
     route.get("/recommand", shopController.getRecommandShop)
     route.get("/filter", shopController.filterShopAll)
-    route.get("/:name", shopController.getShopbyName)
+    route.post("/name", shopController.getShopbyName)
     
 }
 

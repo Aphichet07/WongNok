@@ -41,6 +41,7 @@ const userService = {
             {
                 userId: user.id,
                 email: user.email,
+                username: user.username
             },
             SECRET_KEY,
             { expiresIn: '1h' }
@@ -71,12 +72,21 @@ const userService = {
 
         const token = jwt.sign({
             userId: user.id,
-            email: user.email
+            email: user.email,
+            username: user.username
         },
             SECRET_KEY,
             { expiresIn: '1h' })
         console.log(token)
-        return { message: 'Login successful!', token: token , user: username}
+        return {
+            message: 'Login successful!', 
+            token: token, 
+            user: {
+                id: user.id,
+                username: user.username,
+                email: user.email
+            }
+        }
     },
 
     findUser: async (userID) => {
