@@ -18,11 +18,12 @@ const shopController = {
 
     getShopbyName: async (req, res) => {
         try {
-            const name = req.body
+            const {name} = req.body
             const shop = await shopService.getShopByName(name)
             if (!shop){
                 res.status(500).json({message: "can not found"})
             }
+            console.log("Shop : ", shop)
             res.status(200).json(shop)
 
         }catch(err){
