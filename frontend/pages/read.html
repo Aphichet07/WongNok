@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <title>อ่านบทความ</title>
+    <link rel="stylesheet" href="/frontend/style/read.css" />
+    <link rel="stylesheet" href="/frontend/style/footer.css" />
+    <link rel="stylesheet" href="/frontend/style/nav.css" />
+  </head>
+  <body>
+    <header id="main-nav-bar">
+      <div class="container">
+        <div class="nav-logo">
+          <img
+            src="/frontend/resources/logo/logo2.png"
+            alt="logo-image"
+            class="logo-image"
+          />
+        </div>
+
+        <div class="sub-nav-bar">
+          <div class="nav-bar1">
+            <ul class="ul-navbar1">
+              <li><a href="/frontend/index.html">Home</a></li>
+              <li><a href="/frontend/pages/find.html">Search</a></li>
+              <li><a href="/frontend/pages/article.html">Article</a></li>
+              <li><a href="/frontend/pages/aboutus.html">About us</a></li>
+            </ul>
+          </div>
+          <div class="nav-bar2">
+            <ul class="ul-navbar2">
+              <li><a href="#" id="open-signin">signin</a></li>
+              <li>|</li>
+              <li><a href="#" id="open-signup">signup</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="article-container">
+      <a href="javascript:history.back()" class="back-btn">← ย้อนกลับ</a>
+
+      <h1 id="article-title">กำลังโหลดบทความ...</h1>
+
+      <div class="image-container">
+        <img id="article-image" src="" alt="" style="display: none" />
+      </div>
+
+      <div id="article-content"></div>
+    </main>
+
+    <footer class="main">
+      <div class="container">
+        <div class="logo-image">
+          <img
+            src="/frontend/resources/logo/logo2.png"
+            alt="logo-image"
+            class="logo-image"
+          />
+        </div>
+
+        <div class="nagivator">
+          <ul class="nav-link">
+            <li><a href="../frontend/pages/aboutus.html">About us</a></li>
+            <li><a href="#">Contact us</a></li>
+            <li><a href="#">FB logo</a></li>
+            <li><a href="#">IG logo</a></li>
+            <li><a href="#">X logo</a></li>
+            <li><a href="#">Line logo</a></li>
+            <li><a href="#">Youtube logo</a></li>
+          </ul>
+        </div>
+
+        <div class="terms">
+          <p>
+            Terms and Conditions | Return Policy | Privacy Policy | Cookie
+            Policy
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", async () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const articleId = urlParams.get("id");
+
+        if (!articleId) {
+          document.getElementById("article-title").innerText =
+            "ไม่พบรหัสบทความ";
+          return;
+        }
+
+        try {
+          const response = await fetch(`/article/${articleId}/read`);
+
+          if (!response.ok) throw new Error("โหลดข้อมูลไม่สำเร็จ");
+
+          const article = await response.json();
+
+          document.getElementById("article-title").innerText = article.title;
+
+          document.getElementById("article-content").innerText =
+            article.content;
+
+          document.title = article.title;
+
+          const img = document.getElementById("article-image");
+          if (article.cover_image) {
+            img.src = article.cover_image;
+            img.style.display = "inline-block"; 
+          } else {
+            img.style.display = "none";
+          }
+        } catch (err) {
+          console.error(err);
+          document.querySelector(".article-container").innerHTML =
+            "<h1 style='text-align:center; color:red;'>ไม่พบข้อมูลบทความนี้ หรือระบบขัดข้อง</h1>";
+        }
+      });
+    </script>
+    <script src="/frontend/scripts/auth.js"></script>
+    <script src="/frontend/scripts/nav.js"></script>
+  </body>
+</html>
