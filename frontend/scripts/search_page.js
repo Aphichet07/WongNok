@@ -119,6 +119,7 @@ function renderPage(page) {
 // ========= CARD + POPUP =========
 function buildShopCard(shop) {
   const el = document.createElement("div");
+  el.key = shop.id
   el.className = "shop-card";
 
   el.innerHTML = `
