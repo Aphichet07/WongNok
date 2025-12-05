@@ -7,7 +7,7 @@ const SECRET_KEY = "guruwamuengmairu"
 
 const userService = {
     getAlluser: async () => {
-        const queryText = `select id, username from "user"`
+        const queryText = `select id, username from "users"`
         const { rows } = await db.query(queryText)
         if (!rows) {
             return false
@@ -17,7 +17,7 @@ const userService = {
     },
 
     regist: async (username, password, email) => {
-        const checkQuery = 'SELECT * FROM "user" WHERE email = $1';
+        const checkQuery = 'SELECT * FROM "users" WHERE email = $1';
         const { rows: existingUsers } = await db.query(checkQuery, [email]);
 
         if (existingUsers.length > 0) {
@@ -27,7 +27,7 @@ const userService = {
         const password_hash = await bcrypt.hash(password, SALT_ROUNDS);
 
         const queryText = `
-    INSERT INTO "user" (username, password, email)
+    INSERT INTO "users" (username, password, email)
     VALUES ($1, $2, $3)
     RETURNING id, username, email
   `;
@@ -56,7 +56,7 @@ const userService = {
     ,
 
     login: async (username, password) => {
-        const query = `SELECT * FROM "user" WHERE username = $1`
+        const query = `SELECT * FROM "users" WHERE username = $1`
         const { rows } = await db.query(query, [username])
         console.log(rows)
         if (!rows) {
@@ -90,7 +90,7 @@ const userService = {
     },
 
     findUser: async (userID) => {
-        const { rows } = db.query('select * from "user" where id = $1', [userID])
+        const { rows } = db.query('select * from "users" where id = $1', [userID])
 
         if (rows.length === 0) {
             return JSON.stringify({ error: 'Invalid credentials' });
