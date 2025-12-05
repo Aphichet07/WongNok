@@ -1,334 +1,368 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Article</title>
-    <link rel="stylesheet" href="/frontend/style/article-style.css">
-    <link rel="stylesheet" href="/frontend/style/nav.css">
-    <link rel="stylesheet" href="/frontend/style/footer.css">
+    <link rel="stylesheet" href="/frontend/style/article-style.css" />
+    <link rel="stylesheet" href="/frontend/style/nav.css" />
+    <link rel="stylesheet" href="/frontend/style/footer.css" />
     <script defer src="../scripts/article.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <header id="main-nav-bar">
-        <div class="container">
-            <div class="nav-logo">
-                <img src="/frontend/resources/logo/logo2.png" alt="logo-image" class="logo-image">
-            </div>
-
-
-            <div class="sub-nav-bar">
-                <div class="nav-bar1">
-                    <ul class="ul-navbar1">
-                        <li><a href="/frontend/index.html">Home</a></li>
-                        <li><a href="/frontend/pages/find.html">Search</a></li>
-                        <li><a href="/frontend/pages/article.html">Article</a></li>
-                        <li><a href="/frontend/pages/aboutus.html">About us</a></li>
-                    </ul>
-                </div>
-                <div class="nav-bar2">
-                    <ul class="ul-navbar2">
-                        <li><a href="#" id="open-signin">signin</a></li>
-                        <li>|</li>
-                        <li><a href="#" id="open-signup">signup</a></li>
-                    </ul>
-                </div>
-            </div>
-
+      <div class="container">
+        <div class="nav-logo">
+          <img
+            src="/frontend/resources/logo/logo2.png"
+            alt="logo-image"
+            class="logo-image"
+          />
         </div>
+
+        <div class="sub-nav-bar">
+          <div class="nav-bar1">
+            <ul class="ul-navbar1">
+              <li><a href="/frontend/index.html">Home</a></li>
+              <li><a href="/frontend/pages/find.html">Search</a></li>
+              <li><a href="/frontend/pages/article.html">Article</a></li>
+              <li><a href="/frontend/pages/aboutus.html">About us</a></li>
+            </ul>
+          </div>
+          <div class="nav-bar2">
+            <ul class="ul-navbar2">
+              <li><a href="#" id="open-signin">signin</a></li>
+              <li>|</li>
+              <li><a href="#" id="open-signup">signup</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </header>
 
     <main>
-        <div id="top-recommend" class="slider">
-            <!-- <div class="slides">
-                <input type="radio" name="radio-btn" id="radio1">
-                <input type="radio" name="radio-btn" id="radio2">recommend
-                <input type="radio" name="radio-btn" id="radio3">
+      <div id="top-recommend" class="slider"></div>
 
-                <div class="slide first">
-                    <img src="../resources/article/robusta.png" alt="acticle picture">
-                </div>
-                <div class="slide">
-                    <img src="../resources/article/espresso5.jpg" alt="acticle picture">
-                </div>
-                <div class="slide">
-                    <img src="../resources/article/roast.jpg" alt="acticle picture">
-                </div>
-
-                <div class="navigation-auto">
-                    <div class="auto-btn1"></div>
-                    <div class="auto-btn2"></div>
-                    <div class="auto-btn3"></div>
-                </div>
-
+      <div class="container">
+        <div class="cards">
+          <a href="#">
+            <div class="card">
+              <img
+                src="../resources/article/start-with-coffee.jpg"
+                alt="article-picture"
+              />
+              <p class="article-name">เริ่มต้นมื้อเช้าด้วยกาแฟ</p>
+              <div class="information">
+                <p class="author">อภิเชษฐ์</p>
+                <p class="date">13 OCT 2568</p>
+              </div>
             </div>
+          </a>
 
-            <div class="navigation-manual">
-                <label for="radio1" class="manual-btn"></label>
-                <label for="radio2" class="manual-btn"></label>
-                <label for="radio3" class="manual-btn"></label>
-            </div> -->
+          <a href="#">
+            <div class="card">
+              <img src="../resources/article/roast.jpg" alt="article-picture" />
+              <p class="article-name">คั่วกาแฟยังไงให้หอมกรุ่น</p>
+              <div class="information">
+                <p class="author">อภิเชษฐ์</p>
+                <p class="date">13 OCT 2568</p>
+              </div>
+            </div>
+          </a>
+
+          <a href="#">
+            <div class="card">
+              <img
+                src="../resources/article/cup_of_coffee.jpg"
+                alt="article-picture"
+              />
+              <p class="article-name">ทำไมคนถึงหลงรักอเมริกาโน่</p>
+              <div class="information">
+                <p class="author">อภิเชษฐ์</p>
+                <p class="date">13 OCT 2568</p>
+              </div>
+            </div>
+          </a>
         </div>
 
-        <div class="container">
-            <div class="cards">
-                <a href="#">
-                    <div class="card">
-                        <img src="../resources/article/start-with-coffee.jpg" alt="article-picture">
-                        <p class="article-name">เริ่มต้นมื้อเช้าด้วยกาแฟ</p>
-                        <div class="information">
-                            <p class="author">อภิเชษฐ์</p>
-                            <p class="date">13 OCT 2568</p>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="#">
-                    <div class="card">
-                        <img src="../resources/article/roast.jpg" alt="article-picture">
-                        <p class="article-name">คั่วกาแฟยังไงให้หอมกรุ่น</p>
-                        <div class="information">
-                            <p class="author">อภิเชษฐ์</p>
-                            <p class="date">13 OCT 2568</p>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="#">
-                    <div class="card">
-                        <img src="../resources/article/cup_of_coffee.jpg" alt="article-picture">
-                        <p class="article-name">ทำไมคนถึงหลงรักอเมริกาโน่</p>
-                        <div class="information">
-                            <p class="author">อภิเชษฐ์</p>
-                            <p class="date">13 OCT 2568</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="main-text">
-                <h1>Coffee 101 (สำหรับมือใหม่หัดดื่ม)</h1>
-            </div>
-            <div class="cards">
-                <a href="#">
-                    <div class="card">
-                        <img src="../resources/article/start-with-coffee.jpg" alt="article-picture">
-                        <p class="article-name">เริ่มต้นมื้อเช้าด้วยกาแฟ</p>
-                        <div class="information">
-                            <p class="author">อภิเชษฐ์</p>
-                            <p class="date">13 OCT 2568</p>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="#">
-                    <div class="card">
-                        <img src="../resources/article/roast.jpg" alt="article-picture">
-                        <p class="article-name">คั่วกาแฟยังไงให้หอมกรุ่น</p>
-                        <div class="information">
-                            <p class="author">อภิเชษฐ์</p>
-                            <p class="date">13 OCT 2568</p>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="#">
-                    <div class="card">
-                        <img src="../resources/article/cup_of_coffee.jpg" alt="article-picture">
-                        <p class="article-name">ทำไมคนถึงหลงรักอเมริกาโน่</p>
-                        <div class="information">
-                            <p class="author">อภิเชษฐ์</p>
-                            <p class="date">13 OCT 2568</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="main-text">
-                <h1>Local Guides & Lifestyle (แนะนำร้านและไลฟ์สไตล์)</h1>
-            </div>
-            <div class="cards">
-                <a href="#">
-                    <div class="card">
-                        <img src="../resources/article/start-with-coffee.jpg" alt="article-picture">
-                        <p class="article-name">เริ่มต้นมื้อเช้าด้วยกาแฟ</p>
-                        <div class="information">
-                            <p class="author">อภิเชษฐ์</p>
-                            <p class="date">13 OCT 2568</p>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="#">
-                    <div class="card">
-                        <img src="../resources/article/roast.jpg" alt="article-picture">
-                        <p class="article-name">คั่วกาแฟยังไงให้หอมกรุ่น</p>
-                        <div class="information">
-                            <p class="author">อภิเชษฐ์</p>
-                            <p class="date">13 OCT 2568</p>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="#">
-                    <div class="card">
-                        <img src="../resources/article/cup_of_coffee.jpg" alt="article-picture">
-                        <p class="article-name">ทำไมคนถึงหลงรักอเมริกาโน่</p>
-                        <div class="information">
-                            <p class="author">อภิเชษฐ์</p>
-                            <p class="date">13 OCT 2568</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="main-text">
-                <h1>Deep Dive (เจาะลึกเรื่องกาแฟ)</h1>
-            </div>
-            <div class="cards">
-                <a href="#">
-                    <div class="card">
-                        <img src="../resources/article/start-with-coffee.jpg" alt="article-picture">
-                        <p class="article-name">เริ่มต้นมื้อเช้าด้วยกาแฟ</p>
-                        <div class="information">
-                            <p class="author">อภิเชษฐ์</p>
-                            <p class="date">13 OCT 2568</p>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="#">
-                    <div class="card">
-                        <img src="../resources/article/roast.jpg" alt="article-picture">
-                        <p class="article-name">คั่วกาแฟยังไงให้หอมกรุ่น</p>
-                        <div class="information">
-                            <p class="author">อภิเชษฐ์</p>
-                            <p class="date">13 OCT 2568</p>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="#">
-                    <div class="card">
-                        <img src="../resources/article/cup_of_coffee.jpg" alt="article-picture">
-                        <p class="article-name">ทำไมคนถึงหลงรักอเมริกาโน่</p>
-                        <div class="information">
-                            <p class="author">อภิเชษฐ์</p>
-                            <p class="date">13 OCT 2568</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="main-text">
-                <h1>Behind the Cup (เรื่องราวเบื้องหลังแก้วกาแฟ)</h1>
-            </div>
-            <div class="cards">
-                <a href="#">
-                    <div class="card">
-                        <img src="../resources/article/start-with-coffee.jpg" alt="article-picture">
-                        <p class="article-name">เริ่มต้นมื้อเช้าด้วยกาแฟ</p>
-                        <div class="information">
-                            <p class="author">อภิเชษฐ์</p>
-                            <p class="date">13 OCT 2568</p>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="#">
-                    <div class="card">
-                        <img src="../resources/article/roast.jpg" alt="article-picture">
-                        <p class="article-name">คั่วกาแฟยังไงให้หอมกรุ่น</p>
-                        <div class="information">
-                            <p class="author">อภิเชษฐ์</p>
-                            <p class="date">13 OCT 2568</p>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="#">
-                    <div class="card">
-                        <img src="../resources/article/cup_of_coffee.jpg" alt="article-picture">
-                        <p class="article-name">ทำไมคนถึงหลงรักอเมริกาโน่</p>
-                        <div class="information">
-                            <p class="author">อภิเชษฐ์</p>
-                            <p class="date">13 OCT 2568</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
+        <div class="main-text">
+          <h1>Coffee 101 (สำหรับมือใหม่หัดดื่ม)</h1>
         </div>
+        <div class="cards">
+          <a href="#">
+            <div class="card">
+              <img
+                src="../resources/article/start-with-coffee.jpg"
+                alt="article-picture"
+              />
+              <p class="article-name">เริ่มต้นมื้อเช้าด้วยกาแฟ</p>
+              <div class="information">
+                <p class="author">อภิเชษฐ์</p>
+                <p class="date">13 OCT 2568</p>
+              </div>
+            </div>
+          </a>
+
+          <a href="#">
+            <div class="card">
+              <img src="../resources/article/roast.jpg" alt="article-picture" />
+              <p class="article-name">คั่วกาแฟยังไงให้หอมกรุ่น</p>
+              <div class="information">
+                <p class="author">อภิเชษฐ์</p>
+                <p class="date">13 OCT 2568</p>
+              </div>
+            </div>
+          </a>
+
+          <a href="#">
+            <div class="card">
+              <img
+                src="../resources/article/cup_of_coffee.jpg"
+                alt="article-picture"
+              />
+              <p class="article-name">ทำไมคนถึงหลงรักอเมริกาโน่</p>
+              <div class="information">
+                <p class="author">อภิเชษฐ์</p>
+                <p class="date">13 OCT 2568</p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="main-text">
+          <h1>Local Guides & Lifestyle (แนะนำร้านและไลฟ์สไตล์)</h1>
+        </div>
+        <div class="cards">
+          <a href="#">
+            <div class="card">
+              <img
+                src="../resources/article/start-with-coffee.jpg"
+                alt="article-picture"
+              />
+              <p class="article-name">เริ่มต้นมื้อเช้าด้วยกาแฟ</p>
+              <div class="information">
+                <p class="author">อภิเชษฐ์</p>
+                <p class="date">13 OCT 2568</p>
+              </div>
+            </div>
+          </a>
+
+          <a href="#">
+            <div class="card">
+              <img src="../resources/article/roast.jpg" alt="article-picture" />
+              <p class="article-name">คั่วกาแฟยังไงให้หอมกรุ่น</p>
+              <div class="information">
+                <p class="author">อภิเชษฐ์</p>
+                <p class="date">13 OCT 2568</p>
+              </div>
+            </div>
+          </a>
+
+          <a href="#">
+            <div class="card">
+              <img
+                src="../resources/article/cup_of_coffee.jpg"
+                alt="article-picture"
+              />
+              <p class="article-name">ทำไมคนถึงหลงรักอเมริกาโน่</p>
+              <div class="information">
+                <p class="author">อภิเชษฐ์</p>
+                <p class="date">13 OCT 2568</p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="main-text">
+          <h1>Deep Dive (เจาะลึกเรื่องกาแฟ)</h1>
+        </div>
+        <div class="cards">
+          <a href="#">
+            <div class="card">
+              <img
+                src="../resources/article/start-with-coffee.jpg"
+                alt="article-picture"
+              />
+              <p class="article-name">เริ่มต้นมื้อเช้าด้วยกาแฟ</p>
+              <div class="information">
+                <p class="author">อภิเชษฐ์</p>
+                <p class="date">13 OCT 2568</p>
+              </div>
+            </div>
+          </a>
+
+          <a href="#">
+            <div class="card">
+              <img src="../resources/article/roast.jpg" alt="article-picture" />
+              <p class="article-name">คั่วกาแฟยังไงให้หอมกรุ่น</p>
+              <div class="information">
+                <p class="author">อภิเชษฐ์</p>
+                <p class="date">13 OCT 2568</p>
+              </div>
+            </div>
+          </a>
+
+          <a href="#">
+            <div class="card">
+              <img
+                src="../resources/article/cup_of_coffee.jpg"
+                alt="article-picture"
+              />
+              <p class="article-name">ทำไมคนถึงหลงรักอเมริกาโน่</p>
+              <div class="information">
+                <p class="author">อภิเชษฐ์</p>
+                <p class="date">13 OCT 2568</p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="main-text">
+          <h1>Behind the Cup (เรื่องราวเบื้องหลังแก้วกาแฟ)</h1>
+        </div>
+        <div class="cards">
+          <a href="#">
+            <div class="card">
+              <img
+                src="../resources/article/start-with-coffee.jpg"
+                alt="article-picture"
+              />
+              <p class="article-name">เริ่มต้นมื้อเช้าด้วยกาแฟ</p>
+              <div class="information">
+                <p class="author">อภิเชษฐ์</p>
+                <p class="date">13 OCT 2568</p>
+              </div>
+            </div>
+          </a>
+
+          <a href="#">
+            <div class="card">
+              <img src="../resources/article/roast.jpg" alt="article-picture" />
+              <p class="article-name">คั่วกาแฟยังไงให้หอมกรุ่น</p>
+              <div class="information">
+                <p class="author">อภิเชษฐ์</p>
+                <p class="date">13 OCT 2568</p>
+              </div>
+            </div>
+          </a>
+
+          <a href="#">
+            <div class="card">
+              <img
+                src="../resources/article/cup_of_coffee.jpg"
+                alt="article-picture"
+              />
+              <p class="article-name">ทำไมคนถึงหลงรักอเมริกาโน่</p>
+              <div class="information">
+                <p class="author">อภิเชษฐ์</p>
+                <p class="date">13 OCT 2568</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
     </main>
     <footer class="main">
-        <div class="container">
-            <div class="logo-image">
-                <img src="/frontend/resources/logo/logo2.png" alt="logo-image" class="logo-image">
-            </div>
-
-            <div class="nagivator">
-                <ul class="nav-link">
-                    <li><a href="../frontend/pages/aboutus.html">About us</a></li>
-                    <li><a href="#">Contact us</a></li>
-                    <li><a href="#">FB logo</a></li>
-                    <li><a href="#">IG logo</a></li>
-                    <li><a href="#">X logo</a></li>
-                    <li><a href="#">Line logo</a></li>
-                    <li><a href="#">Youtube logo</a></li>
-                </ul>
-            </div>
-
-            <div class="terms">
-                <p>Terms and Conditions | Return Policy | Privacy Policy | Cookie Policy</p>
-            </div>
+      <div class="container">
+        <div class="logo-image">
+          <img
+            src="/frontend/resources/logo/logo2.png"
+            alt="logo-image"
+            class="logo-image"
+          />
         </div>
+
+        <div class="nagivator">
+          <ul class="nav-link">
+            <li><a href="../frontend/pages/aboutus.html">About us</a></li>
+            <li><a href="#">Contact us</a></li>
+            <li><a href="#">FB logo</a></li>
+            <li><a href="#">IG logo</a></li>
+            <li><a href="#">X logo</a></li>
+            <li><a href="#">Line logo</a></li>
+            <li><a href="#">Youtube logo</a></li>
+          </ul>
+        </div>
+
+        <div class="terms">
+          <p>
+            Terms and Conditions | Return Policy | Privacy Policy | Cookie
+            Policy
+          </p>
+        </div>
+      </div>
     </footer>
 
     <div id="auth-modal" class="auth-modal">
-        <div class="auth-modal__overlay"></div>
+      <div class="auth-modal__overlay"></div>
 
-        <div class="auth-modal__content">
-            <button class="auth-modal__close" aria-label="ปิดหน้าต่าง">&times;</button>
+      <div class="auth-modal__content">
+        <button class="auth-modal__close" aria-label="ปิดหน้าต่าง">
+          &times;
+        </button>
 
-            <div class="auth-modal__tabs">
-                <button class="tab-btn active" data-tab="signin">Sign in</button>
-                <button class="tab-btn" data-tab="signup">Sign up</button>
-            </div>
-
-            <form class="auth-form active" id="signin-form">
-                <label>
-                    ชื่อผู้ใช้
-                    <input type="username" name="username" placeholder="Bank007" required>
-                </label>
-                <label>
-                    รหัสผ่าน
-                    <input type="password" name="password" placeholder="••••••••" required>
-                </label>
-                <button type="submit" class="auth-submit">เข้าสู่ระบบ</button>
-            </form>
-
-            <form class="auth-form" id="signup-form">
-                <label>
-                    ชื่อผู้ใช้
-                    <input type="text" name="username" placeholder="ชื่อที่จะแสดงในระบบ" required>
-                </label>
-                <label>
-                    อีเมล
-                    <input type="email" name="email" placeholder="you@example.com" required>
-                </label>
-                <label>
-                    รหัสผ่าน
-                    <input type="password" name="password" placeholder="อย่างน้อย 8 ตัวอักษร" required>
-                </label>
-                <button type="submit" class="auth-submit">สมัครสมาชิก</button>
-            </form>
+        <div class="auth-modal__tabs">
+          <button class="tab-btn active" data-tab="signin">Sign in</button>
+          <button class="tab-btn" data-tab="signup">Sign up</button>
         </div>
+
+        <form class="auth-form active" id="signin-form">
+          <label>
+            ชื่อผู้ใช้
+            <input
+              type="username"
+              name="username"
+              placeholder="Bank007"
+              required
+            />
+          </label>
+          <label>
+            รหัสผ่าน
+            <input
+              type="password"
+              name="password"
+              placeholder="••••••••"
+              required
+            />
+          </label>
+          <button type="submit" class="auth-submit">เข้าสู่ระบบ</button>
+        </form>
+
+        <form class="auth-form" id="signup-form">
+          <label>
+            ชื่อผู้ใช้
+            <input
+              type="text"
+              name="username"
+              placeholder="ชื่อที่จะแสดงในระบบ"
+              required
+            />
+          </label>
+          <label>
+            อีเมล
+            <input
+              type="email"
+              name="email"
+              placeholder="you@example.com"
+              required
+            />
+          </label>
+          <label>
+            รหัสผ่าน
+            <input
+              type="password"
+              name="password"
+              placeholder="อย่างน้อย 8 ตัวอักษร"
+              required
+            />
+          </label>
+          <button type="submit" class="auth-submit">สมัครสมาชิก</button>
+        </form>
+      </div>
     </div>
     <script src="/frontend/scripts/auth.js"></script>
     <script src="/frontend/scripts/nav.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
-</body>
-
+  </body>
 </html>

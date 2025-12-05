@@ -24,7 +24,7 @@ const articleService = {
         SELECT id, title, cover_image, view_count, created_at, category
         FROM articles
         WHERE category ILIKE $1
-        ORDER BY created_at DESC`;
+        ORDER BY view_count DESC`;
 
       const { rows } = await db.query(query, [category]);
       return rows;

@@ -42,9 +42,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const filter_form = document.getElementById("filter-form");
   if (filter_form) filter_form.addEventListener("submit", handleFilter);
-  
+
   const lenis = new Lenis({
-    duration: 1.2, // ความหนืด (ยิ่งเยอะยิ่งลื่น)
+    duration: 1.2, 
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
   });
 
