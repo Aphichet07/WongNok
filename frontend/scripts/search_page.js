@@ -37,11 +37,23 @@ if (searchform) {
 
 // ========= SIDE BAR FILTER =========
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("Heleo")
+  console.log("Heleo");
   const currentUser = getCurrentUserFromToken();
 
   const filter_form = document.getElementById("filter-form");
   if (filter_form) filter_form.addEventListener("submit", handleFilter);
+  
+  const lenis = new Lenis({
+    duration: 1.2, // ความหนืด (ยิ่งเยอะยิ่งลื่น)
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+  });
+
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+
+  requestAnimationFrame(raf);
 });
 
 async function handleFilter(e) {
@@ -105,13 +117,17 @@ function renderPage(page) {
     return b;
   };
 
-  pager.appendChild(mkBtn("‹ Prev", CURRENT_PAGE - 1, { disabled: CURRENT_PAGE === 1 }));
+  pager.appendChild(
+    mkBtn("‹ Prev", CURRENT_PAGE - 1, { disabled: CURRENT_PAGE === 1 })
+  );
 
   for (let p = 1; p <= totalPages; p++) {
     pager.appendChild(mkBtn(String(p), p, { active: p === CURRENT_PAGE }));
   }
 
-  pager.appendChild(mkBtn("Next ›", CURRENT_PAGE + 1, { disabled: CURRENT_PAGE === totalPages }));
+  pager.appendChild(
+    mkBtn("Next ›", CURRENT_PAGE + 1, { disabled: CURRENT_PAGE === totalPages })
+  );
 
   container.appendChild(pager);
 }
@@ -119,13 +135,15 @@ function renderPage(page) {
 // ========= CARD + POPUP =========
 function buildShopCard(shop) {
   const el = document.createElement("div");
-  el.key = shop.id
+  el.key = shop.id;
   el.className = "shop-card";
 
   el.innerHTML = `
     <a href="#" class="shop-card-link">
       <div class="pic">
-        <img src="${shop.cover_image_url || "/frontend/resources/noimage.jpg"}" alt="${shop.name}">
+        <img src="${
+          shop.cover_image_url || "/frontend/resources/noimage.jpg"
+        }" alt="${shop.name}">
       </div>
       <div class="info">
         <p class="shop-name">${shop.name}</p>
@@ -153,16 +171,18 @@ function buildPopup(shop) {
   const pop = document.createElement("div");
   pop.className = "popCard";
 
-  const currentUser = getCurrentUserFromToken();  
-  console.log("Hello : ", currentUser)
-  const currentName = currentUser.username  || "unknown";
+  const currentUser = getCurrentUserFromToken();
+  console.log("Hello : ", currentUser);
+  const currentName = currentUser.username || "unknown";
 
   pop.innerHTML = `
     <button class="popup-close" type="button">✕</button>
 
     <div class="left"> 
       <div class="pic">
-        <img src="${shop.cover_image_url || "/frontend/resources/noimage.jpg"}" alt="${shop.name}">
+        <img src="${
+          shop.cover_image_url || "/frontend/resources/noimage.jpg"
+        }" alt="${shop.name}">
       </div>
       <div class="info">
         <p class="shop-name">${shop.name}</p>
@@ -177,7 +197,9 @@ function buildPopup(shop) {
       <!-- รีวิวล่าสุด -->
       <div class="comment">
         <div class="profile-image">
-          <img src="${shop.cover_image_url || "/frontend/resources/noimage.jpg"}" alt="${shop.name}">
+          <img src="${
+            shop.cover_image_url || "/frontend/resources/noimage.jpg"
+          }" alt="${shop.name}">
         </div>
         <div class="about-text">
           <p class="username">${shop.username ?? "Guest"}</p>
@@ -212,7 +234,9 @@ function buildPopup(shop) {
 
           <!-- แสดงชื่อ user จาก token (อ่านอย่างเดียว) -->
           <p class="current-user-line">
-            เขียนในนาม: <strong>${currentUser ? currentName : "กรุณาเข้าสู่ระบบก่อน"}</strong>
+            เขียนในนาม: <strong>${
+              currentUser ? currentName : "กรุณาเข้าสู่ระบบก่อน"
+            }</strong>
           </p>
 
           <button type="submit" class="send-comment">ส่งรีวิว</button>
@@ -286,7 +310,7 @@ function buildPopup(shop) {
       shop_id: shop.id,
       comment,
       rating,
-      user_id : currentUser.id
+      user_id: currentUser.id,
     };
 
     try {
@@ -294,7 +318,7 @@ function buildPopup(shop) {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${token}`,   // <<<< สำคัญ
+          Authorization: `Bearer ${token}`, // <<<< สำคัญ
         },
         body: JSON.stringify(payload),
       });
@@ -324,11 +348,9 @@ function openShopPopup(shop) {
   buildPopup(shop);
 }
 
-
 function getAuthToken() {
-  return localStorage.getItem("authToken")  // เปลี่ยนชื่อ key ตามที่คุณใช้จริง
+  return localStorage.getItem("authToken"); // เปลี่ยนชื่อ key ตามที่คุณใช้จริง
 }
-
 
 function getCurrentUserFromToken() {
   const token = localStorage.getItem("authToken");
@@ -343,7 +365,7 @@ function getCurrentUserFromToken() {
     return {
       id: payload.userId,
       email: payload.email,
-      username: payload.username
+      username: payload.username,
     };
   } catch (err) {
     console.error("Decode token error:", err);

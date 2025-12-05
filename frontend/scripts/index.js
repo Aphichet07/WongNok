@@ -1,7 +1,16 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const lenis = new Lenis({
+    duration: 1.2, // ความหนืด (ยิ่งเยอะยิ่งลื่น)
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+  });
 
-document.addEventListener('DOMContentLoaded', () => {
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+
+  requestAnimationFrame(raf);
   console.log("HTML Document is ready. Starting to fetch shops...");
-
   loadAndDisplayShop();
 });
 
@@ -17,7 +26,6 @@ async function loadAndDisplayShop() {
     console.log("Data received:", shops);
 
     createShopCards(shops);
-
   } catch (err) {
     console.error("Failed to load shop data:", err.message);
   }
@@ -31,15 +39,15 @@ function createShopCards(shops) {
     return;
   }
 
-  shops.forEach(shop => {
+  shops.forEach((shop) => {
     const singleCard = buildSingleShopCard(shop);
     shop_card_container.appendChild(singleCard);
   });
 }
 
 function buildSingleShopCard(shopData) {
-  const cardElement = document.createElement('div');
-  cardElement.className = 'product-card';
+  const cardElement = document.createElement("div");
+  cardElement.className = "product-card";
 
   cardElement.innerHTML = `
     <a href="#" class="shop-card-link">
@@ -69,20 +77,20 @@ function buildSingleShopCard(shopData) {
   return cardElement;
 }
 
-// manipulated article slider 
-const slider = document.querySelector('.article-suggestion');
-const prevBtn = document.querySelector('.slider-btn.prev');
-const nextBtn = document.querySelector('.slider-btn.next');
+// manipulated article slider
+const slider = document.querySelector(".article-suggestion");
+const prevBtn = document.querySelector(".slider-btn.prev");
+const nextBtn = document.querySelector(".slider-btn.next");
 
 if (slider && prevBtn && nextBtn) {
   const scrollAmount = () => slider.clientWidth * 0.8;
 
-  nextBtn.addEventListener('click', () => {
-    slider.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
+  nextBtn.addEventListener("click", () => {
+    slider.scrollBy({ left: scrollAmount(), behavior: "smooth" });
   });
 
-  prevBtn.addEventListener('click', () => {
-    slider.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
+  prevBtn.addEventListener("click", () => {
+    slider.scrollBy({ left: -scrollAmount(), behavior: "smooth" });
   });
 }
 
@@ -101,7 +109,9 @@ function buildPopup(shop) {
     <button class="popup-close" type="button">✕</button>
     <div class="left"> 
       <div class="pic">
-        <img src="${shop.cover_image_url || "/frontend/resources/noimage.jpg"}" alt="${shop.name}">
+        <img src="${
+          shop.cover_image_url || "/frontend/resources/noimage.jpg"
+        }" alt="${shop.name}">
       </div>
       <div class="info">
         <p class="shop-name">${shop.name}</p>
@@ -112,7 +122,9 @@ function buildPopup(shop) {
     <div class="right"> 
       <div class="comment">
         <div class="profile-image">
-          <img src="${shop.cover_image_url || "/frontend/resources/noimage.jpg"}" alt="${shop.name}">
+          <img src="${
+            shop.cover_image_url || "/frontend/resources/noimage.jpg"
+          }" alt="${shop.name}">
         </div>
         <div class="about-text">
           <p class="username">${shop.username ?? "Guest"}</p>

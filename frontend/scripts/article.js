@@ -17,6 +17,17 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.getElementById("top-recommend").innerHTML =
       "<p>ไม่สามารถโหลดข้อมูลได้</p>";
   }
+  const lenis = new Lenis({
+    duration: 1.2, // ความหนืด (ยิ่งเยอะยิ่งลื่น)
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+  });
+
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+
+  requestAnimationFrame(raf);
 });
 
 let counter = 1;
