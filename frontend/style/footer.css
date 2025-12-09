@@ -1,111 +1,126 @@
-
+/* ตั้งค่าพื้นฐาน */
 footer {
-    margin-top: 60px;
     width: 100%;
-    background-color: #38220F;
+    background-color: #38220F; /* สี Dark Roast */
     color: #ECECEC;
+    font-family: 'Prompt', sans-serif; /* ใช้ Font Prompt */
+    border-top: 4px solid #c08a53; /* เส้นขอบทองด้านบนเพิ่มมิติ */
 }
 
 footer .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 24px 16px 20px;
+    padding: 40px 24px; /* เพิ่ม Padding ให้ดูโปร่งขึ้น */
 
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    gap: 32px;
-    flex-wrap: wrap;              
+    align-items: center; /* จัดให้อยู่กึ่งกลางแนวตั้ง */
+    gap: 24px;
+    flex-wrap: wrap;
 }
 
+/* --- Logo --- */
 footer .container .logo-image {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    flex: 0 0 auto;
 }
 
 footer .container .logo-image img {
-    width: 70px;
-    height: 70px;
+    width: 64px;
+    height: 64px;
     object-fit: cover;
     border-radius: 50%;
+    border: 2px solid #c08a53; /* เพิ่มขอบทองให้โลโก้ */
 }
 
-footer .container .nagivator {
+/* --- Navigator --- */
+footer .container .navigator {
+    flex: 1; /* ยืดกินพื้นที่ตรงกลาง */
+    display: flex;
+    justify-content: center; /* จัด Links ให้อยู่กลาง container */
+}
+
+footer .container .navigator .nav-link {
     margin: 0;
-}
-
-footer .container .nagivator .nav-link {
     padding: 0;
     list-style: none;
     display: flex;
-    gap: 6px;
+    align-items: center;
+    gap: 20px; /* ระยะห่างระหว่างไอคอน */
+    flex-wrap: wrap; /* ให้ปัดบรรทัดใหม่ได้ถ้าจอเล็ก */
+    justify-content: center;
 }
 
-footer .container .nagivator .nav-link li a {
-    color: #ECECEC;
-    font-size: 14px;
+/* ลิงก์ข้อความ (About, Contact) */
+footer .container .navigator .nav-link li a.text-link {
+    font-weight: 500;
+    font-size: 15px;
+    color: #f5efe7;
+    position: relative;
     text-decoration: none;
-    letter-spacing: 0.02em;
-    transition: color 0.15s ease, transform 0.15s ease;
 }
 
-footer .container .nagivator .nav-link li a:hover {
-    color: #F6C88F;               
-    transform: translateX(2px);
+/* เส้นขีดคั่นระหว่าง Text กับ Icon */
+footer .container .navigator .nav-link li.separator {
+    width: 1px;
+    height: 16px;
+    background-color: rgba(255,255,255,0.2);
+    margin: 0 8px;
 }
 
+/* ไอคอน Social */
+footer .container .navigator .nav-link li a {
+    color: #d1c4b8;
+    text-decoration: none;
+    display: flex; /* เพื่อจัด SVG กึ่งกลาง */
+    transition: all 0.2s ease;
+}
+
+/* Hover Effects */
+footer .container .navigator .nav-link li a:hover {
+    color: #F6C88F; /* สีทองสว่าง */
+    transform: translateY(-3px); /* ลอยขึ้นเล็กน้อย */
+}
+
+/* --- Terms --- */
 footer .container .terms {
-    max-width: 400px;
-    margin-top: 18px;
+    flex: 0 0 auto;
+    text-align: right; /* ชิดขวา */
 }
 
 footer .container .terms p {
-    margin: 0;
+    margin: 4px 0;
     font-size: 12px;
-    line-height: 1.5;
-    color: #ECECEC;
-    opacity: 0.9;
+    color: rgba(255, 255, 255, 0.6); /* สีจางลงเพื่อไม่แย่งซีน */
+    line-height: 1.4;
 }
 
-footer::before {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 1px;
-    background: linear-gradient(to right, transparent, #69452A, transparent);
-}
-
-
+/* --- Responsive (Mobile) --- */
 @media (max-width: 768px) {
     footer .container {
-        height: 100vh;
-        flex-direction: column;
+        flex-direction: column; /* เรียงแนวตั้ง */
         align-items: center;
         text-align: center;
-        gap: 20px;
+        gap: 24px;
+        padding: 30px 16px;
+        /* เอา height: 100vh ออก เพื่อไม่ให้สูงเกินจำเป็น */
     }
 
-    footer .container .nagivator .nav-link {
-        align-items: center;
+    footer .container .navigator {
+        width: 100%;
+    }
+    
+    footer .container .navigator .nav-link {
+        gap: 16px;
+        justify-content: center;
+    }
+
+    /* ซ่อนตัวคั่นบนมือถือเพื่อความสวยงาม */
+    footer .container .navigator .nav-link li.separator {
+        display: none; 
     }
 
     footer .container .terms {
-        max-width: 100%;
-    }
-}
-
-@media (max-width: 480px) {
-    footer .container .logo-image img {
-        width: 60px;
-        height: 60px;
-    }
-
-    footer .container .nagivator .nav-link li a {
-        font-size: 13px;
-    }
-
-    footer .container .terms p {
-        font-size: 11px;
+        text-align: center; /* จัดกลางบนมือถือ */
+        order: 3; /* มั่นใจว่าอยู่ล่างสุด */
     }
 }

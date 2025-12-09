@@ -1,15 +1,18 @@
 import articleController from "../controllers/article.controller.js";
+import userMiddleware from "../middlewares/user.middleware.js"
 
 const articleRouter = (route) => {
-  route.get("/test", articleController.test);
-  route.get("/recommend", articleController.recommandArticle); 
-  
-  route.get("/category", articleController.searchByCategory); 
+  route.get("/recommend", articleController.recommandArticle);
+  route.get("/search", articleController.searchByTag); 
+  route.get("/:id", articleController.readArticle);
+  route.put("/:id/view", articleController.updateViewer);
 
-  route.get("/:id/read", articleController.readArticle);
-  route.get("/:id/view", articleController.updateViewer);
-  route.get("/:id/getcomment", articleController.getComment);
-  route.post("/:id/comment", articleController.comment);
+  route.get("/:id/comments", articleController.getComment);
+  route.post(
+    "/:id/comments",
+    userMiddleware.authMiddleware,
+    articleController.comment
+  );
 };
 
 export default articleRouter;

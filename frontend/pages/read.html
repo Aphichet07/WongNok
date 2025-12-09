@@ -2,6 +2,7 @@
 <html lang="th">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>อ่านบทความ</title>
     <link rel="stylesheet" href="/frontend/style/read.css" />
     <link rel="stylesheet" href="/frontend/style/footer.css" />
@@ -13,11 +14,10 @@
         <div class="nav-logo">
           <img
             src="/frontend/resources/logo/logo2.png"
-            alt="logo-image"
+            alt="logo"
             class="logo-image"
           />
         </div>
-
         <div class="sub-nav-bar">
           <div class="nav-bar1">
             <ul class="ul-navbar1">
@@ -29,9 +29,9 @@
           </div>
           <div class="nav-bar2">
             <ul class="ul-navbar2">
-              <li><a href="#" id="open-signin">signin</a></li>
+              <li><a href="#" id="open-signin">SignIn</a></li>
               <li>|</li>
-              <li><a href="#" id="open-signup">signup</a></li>
+              <li><a href="#" id="open-signup">SignUp</a></li>
             </ul>
           </div>
         </div>
@@ -39,89 +39,134 @@
     </header>
 
     <main class="article-container">
-      <a href="javascript:history.back()" class="back-btn">← ย้อนกลับ</a>
+      <div class="content-wrapper">
+        <a href="/frontend/pages/article.html" class="back-btn"
+          >← กลับไปหน้ารวมบทความ</a
+        >
 
-      <h1 id="article-title">กำลังโหลดบทความ...</h1>
+        <header class="article-header">
+          <div class="article-meta">
+            <span id="article-tag" class="tag-badge">General</span>
+            <span id="article-date">Loading...</span>
+          </div>
+          <h1 id="article-title">กำลังโหลด...</h1>
+          <div class="author-info">
+            <img
+              src="/frontend/resources/avatar-placeholder.png"
+              alt="author"
+              class="author-avatar"
+            />
+            <div class="author-text">
+              <span id="article-author">Unknown Author</span>
+              <span id="article-views">0 views</span>
+            </div>
+          </div>
+        </header>
 
-      <div class="image-container">
-        <img id="article-image" src="" alt="" style="display: none" />
+        <div class="image-container">
+          <img id="article-cover" src="" alt="Cover Image" />
+        </div>
+
+        <article id="article-content" class="article-body"></article>
+
+        <hr class="divider" />
+
+        <section class="comment-section">
+          <h3>ความคิดเห็น (<span id="comment-count">0</span>)</h3>
+
+          <div class="comment-form-box">
+            <form id="comment-form">
+              <textarea
+                name="comment"
+                placeholder="แสดงความคิดเห็นของคุณ..."
+                rows="3"
+              ></textarea>
+              <div class="form-footer">
+                <span id="current-user-name">กรุณาเข้าสู่ระบบก่อนคอมเมนต์</span>
+                <button type="submit" class="btn-submit">ส่งคอมเมนต์</button>
+              </div>
+            </form>
+          </div>
+
+          <div id="comment-list">
+            <p class="loading-text">กำลังโหลดความคิดเห็น...</p>
+          </div>
+        </section>
       </div>
-
-      <div id="article-content"></div>
     </main>
 
-    <footer class="main">
-      <div class="container">
-        <div class="logo-image">
-          <img
-            src="/frontend/resources/logo/logo2.png"
-            alt="logo-image"
-            class="logo-image"
-          />
+    <footer class="main"></footer>
+
+    <div id="auth-modal" class="auth-modal">
+      <div class="auth-modal__overlay"></div>
+
+      <div class="auth-modal__content">
+        <button class="auth-modal__close" aria-label="ปิดหน้าต่าง">
+          &times;
+        </button>
+
+        <div class="auth-modal__tabs">
+          <button class="tab-btn active" data-tab="signin">Sign in</button>
+          <button class="tab-btn" data-tab="signup">Sign up</button>
         </div>
 
-        <div class="nagivator">
-          <ul class="nav-link">
-            <li><a href="../frontend/pages/aboutus.html">About us</a></li>
-            <li><a href="#">Contact us</a></li>
-            <li><a href="#">FB logo</a></li>
-            <li><a href="#">IG logo</a></li>
-            <li><a href="#">X logo</a></li>
-            <li><a href="#">Line logo</a></li>
-            <li><a href="#">Youtube logo</a></li>
-          </ul>
-        </div>
+        <form class="auth-form active" id="signin-form">
+          <label>
+            ชื่อผู้ใช้
+            <input
+              type="username"
+              name="username"
+              placeholder="Bank007"
+              required
+            />
+          </label>
+          <label>
+            รหัสผ่าน
+            <input
+              type="password"
+              name="password"
+              placeholder="••••••••"
+              required
+            />
+          </label>
+          <button type="submit" class="auth-submit">เข้าสู่ระบบ</button>
+        </form>
 
-        <div class="terms">
-          <p>
-            Terms and Conditions | Return Policy | Privacy Policy | Cookie
-            Policy
-          </p>
-        </div>
+        <form class="auth-form" id="signup-form">
+          <label>
+            ชื่อผู้ใช้
+            <input
+              type="text"
+              name="username"
+              placeholder="ชื่อที่จะแสดงในระบบ"
+              required
+            />
+          </label>
+          <label>
+            อีเมล
+            <input
+              type="email"
+              name="email"
+              placeholder="you@example.com"
+              required
+            />
+          </label>
+          <label>
+            รหัสผ่าน
+            <input
+              type="password"
+              name="password"
+              placeholder="อย่างน้อย 8 ตัวอักษร"
+              required
+            />
+          </label>
+          <button type="submit" class="auth-submit">สมัครสมาชิก</button>
+        </form>
       </div>
-    </footer>
+    </div>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", async () => {
-        const urlParams = new URLSearchParams(window.location.search);
-        const articleId = urlParams.get("id");
-
-        if (!articleId) {
-          document.getElementById("article-title").innerText =
-            "ไม่พบรหัสบทความ";
-          return;
-        }
-
-        try {
-          const response = await fetch(`/article/${articleId}/read`);
-
-          if (!response.ok) throw new Error("โหลดข้อมูลไม่สำเร็จ");
-
-          const article = await response.json();
-
-          document.getElementById("article-title").innerText = article.title;
-
-          document.getElementById("article-content").innerText =
-            article.content;
-
-          document.title = article.title;
-
-          const img = document.getElementById("article-image");
-          if (article.cover_image) {
-            img.src = article.cover_image;
-            img.style.display = "inline-block"; 
-          } else {
-            img.style.display = "none";
-          }
-        } catch (err) {
-          console.error(err);
-          document.querySelector(".article-container").innerHTML =
-            "<h1 style='text-align:center; color:red;'>ไม่พบข้อมูลบทความนี้ หรือระบบขัดข้อง</h1>";
-        }
-      });
-    </script>
     <script src="/frontend/scripts/auth.js"></script>
     <script src="/frontend/scripts/nav.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <script type="module" src="/frontend/scripts/pages/read.js"></script>
   </body>
 </html>

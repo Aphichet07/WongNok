@@ -7,13 +7,16 @@ main {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+  background-position: center center;
   width: 100%;
-  height: 700px;
+  min-height: 700px;
+  height: auto;
 
   display: flex;
   align-items: center;
   justify-content: center;
   padding-top: 80px;
+  padding-bottom: 40px;
 }
 
 main .container {
@@ -23,8 +26,10 @@ main .container {
 main p {
   color: white;
   font-size: 56px;
+  font-weight: 600;
   margin-top: 70px;
   margin-bottom: 50px;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
 main .find {
@@ -73,16 +78,125 @@ main .enter-box button {
   }
 }
 
+.hero__search {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+
+  /* Glassmorphism Effect */
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.hero__search input {
+  width: min(64vw, 520px);
+  max-width: 520px;
+  height: 48px;
+  padding: 0 24px;
+
+  border-radius: 999px;
+  border: 1px solid transparent;
+  outline: none;
+
+  background: rgba(255, 255, 255, 0.9);
+  color: #38220f;
+  font-size: 16px;
+  transition: all 0.2s;
+}
+
+.hero__search input:focus {
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(192, 138, 83, 0.3);
+}
+
+.btn-primary {
+  height: 48px;
+  padding: 0 28px;
+  border-radius: 999px;
+  border: 0;
+
+  background: linear-gradient(135deg, #d9794c 0%, #bf6236 100%);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+
+  box-shadow: 0 4px 12px rgba(217, 121, 76, 0.4);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px); /* ลอยขึ้นเมื่อเอาเมาส์ชี้ */
+  box-shadow: 0 6px 16px rgba(217, 121, 76, 0.5);
+  filter: brightness(1.05);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+@media (max-width: 640px) {
+  main {
+    min-height: 500px;
+  }
+
+  main p {
+    font-size: 32px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    line-height: 1.4;
+    padding: 0 16px;
+  }
+
+  .hero__search {
+    flex-direction: row;
+    width: 92%;
+    padding: 6px;
+  }
+
+  .hero__search input {
+    flex: 1;
+    width: auto;
+    min-width: 0;
+
+    background: #ffffff;
+    height: 46px;
+    padding: 0 16px;
+    font-size: 16px;
+  }
+
+  .btn-primary {
+    width: auto;
+    flex-shrink: 0;
+    padding: 0 20px;
+    height: 46px;
+    font-size: 16px;
+  }
+}
+
 .content {
-  width: 100%;
-  height: 1200px;
+  min-height: 100vh;
+  height: auto;
+  padding-bottom: 40px;
 }
 
 .content .container {
-  margin: 50px 70px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 0 20px;
+  box-sizing: border-box;
   display: block;
 }
 
+@media (max-width: 640px) {
+  .content .container {
+    margin: 30px auto;
+    padding: 0 16px;
+  }
+}
 .content .container div {
   margin-top: 5px;
 }
@@ -92,28 +206,36 @@ main .enter-box button {
   color: #38220f;
   font-size: 28px;
 }
-
-.content .container .shop {
-  /*ข้อความหลักร้านแนะนำ*/
-  display: flex;
-  gap: 1025px;
-  margin-top: 50px;
-}
-
+.content .container .shop,
 .content .container .article {
-  /*ข้อความหลัดบทความ*/
   display: flex;
-  gap: 1135px;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
   margin-top: 50px;
+  gap: 10px;
 }
 
-/* ค้นหาสไตล์กาแฟ */
+.content .container .main-text p {
+  margin: 0;
+  font-weight: 600;
+}
+
+@media (max-width: 480px) {
+  .content .container .main-text {
+    font-size: 22px;
+  }
+
+  .content .container .main-text a.more {
+    font-size: 14px;
+    white-space: nowrap;
+  }
+}
 
 .content .container .main-text p {
   display: block;
 }
 
-/* แถบเก็บปุ่มสไตล์กาแฟ */
 .content .container .filter-bar {
   display: flex;
   flex-wrap: nowrap;
@@ -121,91 +243,113 @@ main .enter-box button {
   height: 100px;
   align-items: center;
   justify-content: flex-start;
-  gap: 47px;
-  font-size: 17px;
+  gap: 24px;
+  padding: 0 24px;
   overflow-x: auto;
   overflow-y: hidden;
-  padding: 0 24px;
   scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+
   scrollbar-width: thin;
-  scrollbar-color: #c49a6c #f5efe7;
+  scrollbar-color: #c08a53 #f5efe7;
 }
 
-/* แต่ละปุ่ม */
 .content .container .filter-bar button {
   flex: 0 0 auto;
-  min-width: 152px;
-  height: 47px;
+  min-width: 140px;
+  height: 48px;
   border-radius: 50px;
-  border: none;
-  background-color: rgb(148, 114, 84);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  background: linear-gradient(135deg, #947254 0%, #7a5a3d 100%);
+
   cursor: pointer;
-  padding: 0;
+  padding: 0 4px;
+
+  box-shadow: 0 4px 10px rgba(69, 46, 29, 0.15);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .content .container .filter-bar button a {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 10px;
   width: 100%;
   height: 100%;
-  color: #ffffff;
   text-decoration: none;
-  font: inherit;
+  font-family: sans-serif;
+}
+
+.content .container .filter-bar button a .text {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  padding-top: 2px; /* จัดกึ่งกลาง optical visual */
+  transition: color 0.3s ease;
+}
+
+.content .container .filter-bar button a .pic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content .container .filter-bar button a .pic img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .content .container .filter-bar button:hover {
-  background-color: rgb(248, 241, 233);
-  border: 2px solid rgb(148, 114, 84);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  background: #ffffff;
+  border-color: #947254;
+
+  transform: translateY(-4px);
+  /* box-shadow: 0 8px 20px rgba(56, 34, 15, 0.2); */
 }
 
-/* สีตัวอักษร hover */
-.content .container .filter-bar button:hover a {
-  color: rgb(148, 114, 84);
+.content .container .filter-bar button:hover a .text {
+  color: #7a5a3d;
+  font-weight: 600;
 }
 
-/* บล็อกรูปภาพในปุ่ม */
-.content .container .filter-bar button a .pic {
-  padding-bottom: 4px;
+.content .container .filter-bar button:hover a .pic img {
+  transform: scale(1.1) rotate(-5deg); /* ลูกเล่นขยับไอคอน */
+
+  filter: brightness(0) saturate(100%) invert(35%) sepia(19%) saturate(1069%)
+    hue-rotate(348deg) brightness(96%) contrast(89%);
 }
 
-/* ขนาดรูปภาพ */
-.content .container .filter-bar button a .pic img {
-  width: 30px;
-  height: 30px;
-}
-
-.content .container .filter-bar button a p {
-  padding-top: 6px;
+.content .container .filter-bar button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 5px rgba(56, 34, 15, 0.2);
+  background: #fdfaf6;
 }
 
 .content .container .filter-bar::-webkit-scrollbar {
-  height: 7px;
+  height: 6px;
 }
 
 .content .container .filter-bar::-webkit-scrollbar-track {
   background: #f5efe7;
-  border-radius: 999px;
-  margin-inline: 40px;
+  border-radius: 10px;
+  margin: 0 20px;
 }
 
 .content .container .filter-bar::-webkit-scrollbar-thumb {
-  background: linear-gradient(90deg, #c08a53, #a87345);
-  border-radius: 999px;
-  border: 2px solid #f5efe7;
+  background: linear-gradient(90deg, #c08a53, #8f5b2f);
+  border-radius: 10px;
 }
 
 .content .container .filter-bar::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(90deg, #aa7440, #8f5b2f);
+  background: #7a4b26;
 }
 
-/* ร้านแนะนำ */
-
 .content .container .main-text a.more {
-  /* ดูเพิ่มเติม*/
   font-size: 17px;
   padding-top: 12px;
   text-decoration: none;
@@ -213,426 +357,338 @@ main .enter-box button {
 }
 
 .content .container #shop-suggestion {
-  /* บล็อกแสดงการ์ดร้าน*/
   width: 100%;
   display: flex;
-  overflow-x: scroll;
-  min-height: 140px;
-  gap: 35px;
-  margin-top: 30px;
-  padding-bottom: 25px;
-}
-
-/* การ์ดแต่ละใบในแถว #shop-suggestion */
-.content .container #shop-suggestion .product-card {
-  flex: 0 0 240px; /* กว้างการ์ดแต่ละใบ */
-  border-radius: 24px;
-  background: #ffffff;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
-  overflow: hidden; /* ให้รูปโค้งตามการ์ด */
-  font-size: 13px;
-}
-
-/* ลิงก์ทั้งใบ */
-.content .container #shop-suggestion .product-card a {
-  color: #38220f; /* สีตัวอักษรใน info */
-  text-decoration: none;
-  display: block;
-}
-
-/* บล็อกรูปด้านบนของการ์ด */
-.content .container #shop-suggestion .product-card .pic {
-  margin-top: 0;
-  width: 100%;
-  aspect-ratio: 4 / 3; /* สัดส่วนรูป 4:3 */
-  overflow: hidden;
-}
-
-/* รูปใน card */
-.content .container #shop-suggestion .product-card .pic img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover; /* ครอปให้เต็มกรอบแบบพอดี */
-  border-radius: 24px 24px 0 0; /* โค้งเฉพาะด้านบนให้ต่อกับตัวการ์ด */
-}
-
-/* บล็อกข้อมูลใต้รูป */
-.content .container #shop-suggestion .product-card .info {
-  padding: 6px 12px 10px 12px;
-}
-
-/* แถวคะแนนดาว */
-.content .container #shop-suggestion .product-card .info .score {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  height: 22px;
-  margin: 4px 0;
-}
-
-/* รูปดาว */
-.content .container #shop-suggestion .product-card .info .score img {
-  width: 15px;
-  height: 15px;
-}
-
-/* บล็อกแท็กของร้าน */
-.content .container #shop-suggestion .product-card .info .specific {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 5px;
-  margin-top: 6px;
-  font-size: 10px;
-}
-
-/* แต่ละแท็ก */
-.content .container #shop-suggestion .product-card .info .specific .tag {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 18px;
-  padding: 0 6px;
-  background-color: #d9794c;
-  border-radius: 8px;
-  color: #ffffff;
-}
-
-/* บล็อกรูปในแท็ก */
-.content .container #shop-suggestion .product-card .info .specific .tag .pic {
-  margin: 0 4px 0 0;
-}
-
-/* รูปในแท็ก */
-.content
-  .container
-  #shop-suggestion
-  .product-card
-  .info
-  .specific
-  .tag
-  .pic
-  img {
-  width: 12px;
-  height: 12px;
-}
-
-/* ข้อความในแท็ก */
-.content .container #shop-suggestion .product-card .info .specific .tag .text {
-  margin-top: 1px;
-}
-
-/* scrollbar ของ #shop-suggestion (ถ้ายังใช้เลื่อนแนวนอนอยู่) */
-.content .container #shop-suggestion::-webkit-scrollbar {
-  height: 7px;
-}
-
-.content .container #shop-suggestion::-webkit-scrollbar-thumb {
-  background-color: #6a6a6a;
-  border-radius: 50px;
-}
-
-.content .container .article-suggestion {
-  display: flex;
-  gap: 24px;
-  width: 100%;
-  margin-top: 24px;
-  padding: 8px 4px 18px;
-
   overflow-x: auto;
-  overflow-y: hidden;
+  min-height: 360px;
+  gap: 24px;
+  margin-top: 20px;
+  padding: 10px 4px 40px;
+
   scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
+
+  scrollbar-width: thin;
+  scrollbar-color: #c08a53 #f5efe7;
 }
 
-.content .container .article-suggestion::-webkit-scrollbar {
-  height: 7px;
-}
+.content .container #shop-suggestion .shop-card {
+  flex: 0 0 260px;
+  border-radius: 16px;
+  background: #ffffff;
 
-.content .container .article-suggestion::-webkit-scrollbar-track {
-  background-color: #f5efe7;
-  border-radius: 999px;
-}
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.03);
 
-.content .container .article-suggestion::-webkit-scrollbar-thumb {
-  background: linear-gradient(90deg, #c08a53, #8f5b2f);
-  border-radius: 999px;
-}
-
-.content .container .article-suggestion .article-card {
-  flex: 0 0 220px;
-  height: 340px;
-  background: #38220f;
-  border-radius: 20px;
   overflow: hidden;
-  font-size: 13px;
-  color: #fff;
-
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
-  scroll-snap-align: start;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
 }
 
-.content .container .article-suggestion .article-card a {
+.content .container #shop-suggestion .shop-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(56, 34, 15, 0.15);
+}
+
+.content .container #shop-suggestion .shop-card a {
+  color: #38220f;
+  text-decoration: none;
   display: flex;
   flex-direction: column;
   height: 100%;
-  color: inherit;
-  text-decoration: none;
 }
 
-.content .container .article-suggestion .article-card .pic {
-  margin: 0;
-  height: 60%;
+.content .container #shop-suggestion .shop-card .pic {
+  width: 100%;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
+  position: relative;
 }
 
-.content .container .article-suggestion .article-card .pic img {
+.content .container #shop-suggestion .shop-card .pic img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
-  transition: transform 0.25s ease;
+  transition: transform 0.5s ease;
 }
 
-.content .container .article-suggestion .article-card .info {
-  padding: 10px 12px 12px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 40%;
-}
-
-.content .container .article-suggestion .article-card .info > p {
-  font-size: 0.9rem;
-  line-height: 1.4;
-  margin: 0;
-}
-
-.content .container .article-suggestion .article-card .info .specific {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.7rem;
-  margin-top: 14px;
-  opacity: 0.85;
-}
-
-.content .container .article-suggestion .article-card .info .specific .author {
-  font-weight: 500;
-}
-
-.content .container .article-suggestion .article-card .info .specific .date {
-  margin: 0;
-}
-
-.content .container .article-suggestion .article-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.45);
-}
-
-.content .container .article-suggestion .article-card:hover .pic img {
+.content .container #shop-suggestion .shop-card:hover .pic img {
   transform: scale(1.08);
 }
 
-@media (max-width: 992px) {
-  .content .container .article-suggestion {
-    gap: 18px;
-  }
-
-  .content .container .article-suggestion .article-card {
-    flex: 0 0 240px;
-    height: 330px;
-  }
+.content .container #shop-suggestion .shop-card .info {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 8px;
 }
 
-@media (max-width: 640px) {
-  .content .container .article-suggestion {
-    gap: 16px;
-    padding-inline: 4px;
-  }
+.content .container #shop-suggestion .shop-card .info p {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.4;
+  color: #1f2937;
 
-  .content .container .article-suggestion .article-card {
-    flex: 0 0 75vw;
-    max-width: 320px;
-    height: 320px;
-  }
-
-  .content .container .article-suggestion .article-card .info > p {
-    font-size: 0.85rem;
-  }
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-@media (min-width: 1200px) {
-  .content .container .article-suggestion {
-    flex-wrap: wrap;
-    overflow-x: visible;
-    justify-content: space-between;
-  }
+.content .container #shop-suggestion .shop-card .info .score {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #4b5563;
+}
 
-  .content .container .article-suggestion .article-card {
-    flex: 0 1 calc(33.333% - 24px);
-    max-width: 260px;
-  }
+.content .container #shop-suggestion .shop-card .info .score .star {
+  width: 25px;
+  height: 25px;
+  color: rgb(228, 228, 46);
+}
+
+.content .container #shop-suggestion .shop-card .info .score .rating {
+  color: #c08a53;
+  font-weight: 700;
+  margin-left: 60px;
+}
+
+.content .container #shop-suggestion .shop-card .info .specific {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 12px;
+}
+
+.content .container #shop-suggestion .shop-card .info .specific .tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 26px;
+  padding: 0 10px;
+
+  background-color: #f5ebe1;
+  border: 1px solid #eaddd0;
+
+  border-radius: 99px;
+  color: #5e3a18;
+  font-size: 0.75rem;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.content .container #shop-suggestion .shop-card .info .specific .tag:hover {
+  background-color: #eaddd0;
+}
+
+.content .container #shop-suggestion .shop-card .info .specific .tag .pic {
+  width: auto;
+  height: auto;
+  margin: 0;
+  aspect-ratio: auto;
+  display: flex;
+}
+
+.content .container #shop-suggestion .shop-card .info .specific .tag .pic img {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+  opacity: 0.8;
+  border-radius: 0;
+}
+
+.content .container #shop-suggestion .shop-card .info .specific .tag .text {
+  margin: 0;
+  line-height: 1;
+}
+
+.content .container #shop-suggestion::-webkit-scrollbar {
+  height: 8px;
+}
+
+.content .container #shop-suggestion::-webkit-scrollbar-track {
+  background: #f5efe7;
+  border-radius: 10px;
+  margin: 0 20px;
+}
+
+.content .container #shop-suggestion::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #c08a53, #8f5b2f);
+  border-radius: 10px;
+}
+
+.content .container #shop-suggestion::-webkit-scrollbar-thumb:hover {
+  background: #7a4b26;
+}
+
+.article-slider * {
+  box-sizing: border-box;
+  font-family: "Prompt", sans-serif;
 }
 
 .article-slider {
   position: relative;
-  margin-top: 16px;
-  margin-bottom: 60px;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
 }
 
-.content .container .article-suggestion {
+.article-suggestion {
   display: flex;
-  flex-wrap: nowrap;
   gap: 24px;
-  width: 100%;
-  margin-top: 8px;
-  padding: 8px 40px 40px;
-
   overflow-x: auto;
-  overflow-y: hidden;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
+  padding: 20px 4px 40px;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
-.content .container .article-suggestion::-webkit-scrollbar {
-  height: 7px;
+.article-suggestion::-webkit-scrollbar {
+  display: none;
 }
 
-.content .container .article-suggestion::-webkit-scrollbar-track {
-  background-color: #f5efe7;
-  border-radius: 999px;
-}
-
-.content .container .article-suggestion::-webkit-scrollbar-thumb {
-  background: linear-gradient(90deg, #c08a53, #8f5b2f);
-  border-radius: 999px;
-}
-
-.content .container .article-suggestion .article-card {
-  flex: 0 0 220px;
-  height: 340px;
+.article-card {
+  flex: 0 0 calc(25% - 18px);
+  height: 360px;
   background: #38220f;
-  border-radius: 20px;
+  border-radius: 16px;
   overflow: hidden;
-  font-size: 13px;
   color: #fff;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
   scroll-snap-align: start;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+    box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.content .container .article-suggestion .article-card a {
+.article-card a {
   display: flex;
   flex-direction: column;
   height: 100%;
-  color: inherit;
   text-decoration: none;
+  color: inherit;
 }
 
-.content .container .article-suggestion .article-card .pic {
-  margin: 0;
+.article-card .pic {
   height: 60%;
   overflow: hidden;
+  position: relative;
 }
 
-.content .container .article-suggestion .article-card .pic img {
+.article-card .pic img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
-  transition: transform 0.25s ease;
+  transition: transform 0.5s ease;
 }
 
-.content .container .article-suggestion .article-card .info {
-  padding: 10px 12px 12px;
+.article-card .info {
+  padding: 16px;
+  height: 40%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 40%;
+  background: linear-gradient(to bottom, #38220f 0%, #2a1a0b 100%);
 }
 
-.content .container .article-suggestion .article-card .info > p {
-  font-size: 0.9rem;
-  line-height: 1.4;
+.article-card .info .title {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
   margin: 0;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-.content .container .article-suggestion .article-card .info .specific {
+.article-card .info .specific {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.7rem;
-  margin-top: 14px;
-  opacity: 0.85;
+  font-size: 0.75rem;
+  color: #d1c4b8;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.content .container .article-suggestion .article-card .info .specific .author {
-  font-weight: 500;
+.article-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
 }
 
-.content .container .article-suggestion .article-card .info .specific .date {
-  margin: 0;
-}
-
-.content .container .article-suggestion .article-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.45);
-}
-
-.content .container .article-suggestion .article-card:hover .pic img {
+.article-card:hover .pic img {
   transform: scale(1.08);
 }
 
-.article-slider .slider-btn {
+.slider-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 34px;
-  height: 34px;
-  border-radius: 999px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
   border: none;
-  background: rgba(56, 34, 15, 0.92);
-  color: #f9fafb;
-  display: inline-flex;
+  background: #f5efe7;
+  color: #38220f;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease;
+
+  display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
-  z-index: 5;
-  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.article-slider .slider-btn.prev {
-  left: 4px;
+.slider-btn:hover {
+  background: #c08a53;
+  color: #fff;
+  transform: translateY(-50%) scale(1.1);
 }
 
-.article-slider .slider-btn.next {
-  right: 4px;
+.slider-btn.prev {
+  left: -30px;
+}
+.slider-btn.next {
+  right: -30px;
 }
 
-.article-slider .slider-btn:hover {
-  background: rgba(88, 54, 24, 0.98);
-  transform: translateY(-50%) scale(1.05);
+@media (max-width: 992px) {
+  .article-card {
+    flex: 0 0 calc(45% - 12px);
+  }
 }
 
-@media (max-width: 640px) {
-  .article-slider .slider-btn {
-    display: none;
+@media (max-width: 600px) {
+  .article-slider {
+    padding: 0;
+    margin: 24px 0;
   }
 
-  .content .container .article-suggestion {
-    padding-inline: 4px;
+  .article-suggestion {
+    padding: 20px 20px 40px;
     gap: 16px;
   }
 
-  .content .container .article-suggestion .article-card {
-    flex: 0 0 75vw;
-    max-width: 320px;
-    height: 320px;
+  .article-card {
+    flex: 0 0 85%;
+    height: 340px;
+  }
+
+  .slider-btn {
+    display: none;
   }
 }
 
@@ -832,117 +888,307 @@ main .enter-box button {
   text-decoration: underline;
 }
 
+
 .popup-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6); /* มืดลงอีกนิดเพื่อเน้น Popup */
+  backdrop-filter: blur(6px); /* เบลอฉากหลังให้ดูแพง */
   display: grid;
   place-items: center;
   z-index: 999;
+  animation: fadeIn 0.2s ease-out;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* --- Card Container --- */
 .popCard {
-  width: min(860px, 96vw);
-  max-height: 86vh;
-  background: #ffffff;
-  border-radius: 18px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
-  padding: 18px 18px 20px;
+  width: min(900px, 94vw);
+  max-height: 90vh;
+  background: #fff;
+  border-radius: 24px; /* โค้งมนมากขึ้น */
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  padding: 32px; /* เพิ่มพื้นที่ภายใน */
   display: grid;
-  grid-template-columns: 1.3fr 1fr;
-  gap: 16px;
+  grid-template-columns: 1.2fr 1fr; /* ปรับสัดส่วนให้ซ้ายกว้างกว่านิดหน่อย */
+  gap: 32px;
   position: relative;
-  overflow: auto;
+  overflow-y: auto;
+
+  /* Scrollbar สวยๆ */
+  scrollbar-width: thin;
+  scrollbar-color: #d1d5db transparent;
 }
 
+.popCard::-webkit-scrollbar {
+  width: 6px;
+}
+.popCard::-webkit-scrollbar-track {
+  background: transparent;
+}
+.popCard::-webkit-scrollbar-thumb {
+  background-color: #d1d5db;
+  border-radius: 20px;
+}
+
+/* --- Close Button --- */
 .popup-close {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 32px;
-  height: 32px;
-  border-radius: 999px;
-  border: 0;
-  background: #f1f5f9;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: #f3f4f6;
+  color: #4b5563;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  z-index: 10;
 }
 
+.popup-close:hover {
+  background: #e5e7eb;
+  transform: rotate(90deg); /* ลูกเล่นหมุนตอนชี้ */
+  color: #111;
+}
+
+/* --- Left Side (Shop Info) --- */
 .popCard .left .pic {
-  aspect-ratio: 4/3;
-  border-radius: 12px;
+  aspect-ratio: 16 / 10; /* ปรับสัดส่วนให้ดู cinematic ขึ้น */
+  border-radius: 16px;
   overflow: hidden;
-  background: #f1f5f9;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
 }
 
 .popCard .left .pic img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.popCard .left .pic:hover img {
+  transform: scale(1.05);
 }
 
 .popCard .info {
-  margin-top: 10px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 12px;
 }
 
 .popCard .shop-name {
-  font-weight: 800;
-  font-size: 1.2rem;
+  font-weight: 700;
+  font-size: 1.8rem; /* ชื่อร้านใหญ่ชัด */
+  color: #1f2937;
   margin: 0;
+  line-height: 1.2;
 }
 
 .popCard .score {
-  display: inline-block;
-  background: #d1fae5;
-  color: #065f46;
-  border: 1px solid #34d399;
-  padding: 4px 10px;
-  border-radius: 999px;
-  font-weight: 700;
-  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #ecfdf5; /* พื้นเขียวอ่อน */
+  color: #047857; /* ตัวหนังสือเขียวเข้ม */
+  border: 1px solid #a7f3d0;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  width: fit-content;
 }
 
 .popCard .desc {
   margin: 0;
-  color: #475569;
+  color: #4b5563;
+  line-height: 1.6;
+  font-size: 1rem;
 }
 
+/* --- Right Side (Review Section) --- */
+.popCard .right {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* รีวิวล่าสุด (ทำให้ดูเหมือนกล่องคำพูด) */
 .popCard .right .comment {
   display: flex;
-  gap: 10px;
+  gap: 16px;
   align-items: flex-start;
+  background: #f9fafb; /* พื้นหลังเทาจางๆ */
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid #f3f4f6;
 }
 
 .profile-image {
-  width: 46px;
-  height: 46px;
-  border-radius: 999px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  background: #e2e8f0;
   flex-shrink: 0;
 }
 
-.profile-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 .about-text .username {
-  font-weight: 700;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #111;
   margin: 0 0 4px;
 }
 
 .about-text .text-comment {
   margin: 0;
-  color: #334155;
+  color: #555;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.comment-form {
+  border-top: 2px dashed #e5e7eb;
+  padding-top: 20px;
+  margin-top: auto;
+}
+
+.comment-form h3 {
+  margin: 0 0 16px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.rating-input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  background: #fff;
+}
+
+.rating-label {
+  font-size: 0.9rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.rating-stars {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  gap: 6px;
+}
+
+.rating-stars label {
+  font-size: 1.8rem; /* ดาวใหญ่ขึ้น กดง่าย */
+  cursor: pointer;
+  color: #e5e7eb; /* สีเทาตอนยังไม่เลือก */
+  transition: transform 0.2s, color 0.2s;
+}
+
+.rating-stars label:hover {
+  transform: scale(1.2);
+}
+
+.rating-stars input {
+  display: none;
+}
+
+.rating-stars input:checked ~ label,
+.rating-stars label:hover,
+.rating-stars label:hover ~ label {
+  color: #fbbf24; /* สีทอง */
+  text-shadow: 0 2px 4px rgba(251, 191, 36, 0.3);
+}
+
+.comment-form textarea {
+  width: 100%;
+  resize: none;
+  border-radius: 12px;
+  padding: 12px 16px;
+  border: 1px solid #d1d5db;
+  font-family: inherit;
+  font-size: 0.95rem;
+  margin-top: 8px;
+  background: #f9fafb;
+  transition: all 0.2s;
+}
+
+.comment-form textarea:focus {
+  outline: none;
+  background: #fff;
+  border-color: #c08a53;
+  box-shadow: 0 0 0 3px rgba(192, 138, 83, 0.15);
+}
+
+.current-user-line {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin: 8px 0 12px;
+  text-align: right;
+}
+
+.send-comment {
+  width: 100%;
+  padding: 12px 0;
+  background: linear-gradient(135deg, #c08a53 0%, #8f5b2f 100%); /* ไล่เฉดสี */
+  color: white;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.2s;
+  box-shadow: 0 4px 10px rgba(192, 138, 83, 0.3);
+}
+
+.send-comment:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 15px rgba(192, 138, 83, 0.4);
+}
+
+.send-comment:active {
+  transform: translateY(0);
+}
+
+.comment-status {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  text-align: center;
+  font-weight: 500;
 }
 
 @media (max-width: 800px) {
   .popCard {
     grid-template-columns: 1fr;
+    padding: 24px;
+    gap: 24px;
+    max-height: 95vh;
+  }
+
+  .popCard .left .pic {
+    aspect-ratio: 16/9;
+  }
+
+  .popCard .shop-name {
+    font-size: 1.5rem;
   }
 }

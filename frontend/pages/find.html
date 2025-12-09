@@ -1,277 +1,574 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>search</title>
-    <link rel="stylesheet" href="/frontend/style/nav.css">
-    <link rel="stylesheet" href="/frontend/style/footer.css">
-    <link rel="stylesheet" href="../style/search-page.css">
-    <link rel="icon" type="image/x-icon" href="/frontend/resources/icon/icon.ico">
-</head>
+    <link rel="stylesheet" href="/frontend/style/nav.css" />
+    <link rel="stylesheet" href="/frontend/style/footer.css" />
+    <link rel="stylesheet" href="../style/search-page.css" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/frontend/resources/icon/icon.ico"
+    />
+  </head>
 
-<body>
+  <body>
     <header id="main-nav-bar">
-        <div class="container">
-            <div class="nav-logo">
-                <img src="/frontend/resources/logo/logo2.png" alt="logo-image" class="logo-image">
-            </div>
-
-
-            <div class="sub-nav-bar">
-                <div class="nav-bar1">
-                    <ul class="ul-navbar1">
-                        <li><a href="/frontend/index.html">Home</a></li>
-                        <li><a href="/frontend/pages/find.html">Search</a></li>
-                        <li><a href="/frontend/pages/article.html">Article</a></li>
-                        <li><a href="/frontend/pages/aboutus.html">About us</a></li>
-                    </ul>
-                </div>
-                <div class="nav-bar2">
-                    <ul class="ul-navbar2">
-                        <li><a href="#" id="open-signin">signin</a></li>
-                        <li>|</li>
-                        <li><a href="#" id="open-signup">signup</a></li>
-                    </ul>
-                </div>
-            </div>
-
+      <div class="container">
+        <div class="nav-logo">
+          <img
+            src="/frontend/resources/logo/logo2.png"
+            alt="logo-image"
+            class="logo-image"
+          />
         </div>
+
+        <div class="sub-nav-bar">
+          <div class="nav-bar1">
+            <ul class="ul-navbar1">
+              <li><a href="/frontend/index.html">Home</a></li>
+              <li><a href="/frontend/pages/find.html">Search</a></li>
+              <li><a href="/frontend/pages/article.html">Article</a></li>
+              <li><a href="/frontend/pages/aboutus.html">About us</a></li>
+            </ul>
+          </div>
+          <div class="nav-bar2">
+            <ul class="ul-navbar2">
+              <li><a href="#" id="open-signin">SignIn</a></li>
+              <li>|</li>
+              <li><a href="#" id="open-signup">SignUp</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </header>
 
     <section id="hero" class="hero" aria-label="Coffee Hero">
-        <div class="hero__overlay"></div>
-        <div class="hero__content">
-            <h1>วันนี้คุณดื่มกาแฟแล้วหรือยัง?</h1>
-            <form class="hero__search" id="hero-search-form">
-                <input type="text" id="hero-search-input" name="search" placeholder="ค้นหารส/สไตล์กาแฟหรือชื่อเมนู"
-                    aria-label="ค้นหากาแฟ">
-                <button type="submit" class="btn-primary" onclick="window.location.href='#filters'">ค้นหา</button>
-            </form>
-            <a class="hero__scroll" href="#filters" aria-label="เลื่อนไปส่วนฟิลเตอร์">▼</a>
+      <div class="hero__overlay"></div>
+      <div class="hero__content">
+        <h1>วันนี้คุณดื่ม<span class="highlight">กาแฟ</span>แล้วหรือยัง?</h1>
+
+        <p class="hero-subtitle">ค้นหาร้านกาแฟที่ใช่ ในบรรยากาศที่คุณชอบ</p>
+
+        <form class="hero__search" id="hero-search-form">
+          <div class="search-icon">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#9ca3af"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </div>
+
+          <input
+            type="text"
+            id="hero-search-input"
+            name="search"
+            placeholder="ค้นหาร้าน, ย่าน, หรือเมนู (เช่น Dirty Coffee)"
+            aria-label="ค้นหากาแฟ"
+          />
+
+          <button
+            type="submit"
+            class="btn-primary"
+            onclick="window.location.href='#filters'"
+          >
+            ค้นหา
+          </button>
+        </form>
+
+        <div class="hero-tags">
+          <span>ยอดฮิต:</span>
+          <div class="tag">#Specialty</div>
+          <div class="tag">#WorkFriendly</div>
+          <div class="tag">#PetAllowed</div>
         </div>
+      </div>
     </section>
 
     <main id="filters" class="main-wrap">
-        <div class="container grid">
+      <div class="container grid">
+        <!-- Sidebar filter -->
+        <aside class="sidebar">
+          <div class="search-bar">
+            <input
+              type="text"
+              name="shopname"
+              id="search"
+              placeholder="ค้นหาร้าน"
+              aria-label="ค้นหาร้าน"
+            />
+          </div>
 
-            <!-- Sidebar filter -->
-            <aside class="sidebar">
-                <div class="search-bar">
-                    <input type="text" name="shopname" id="search" placeholder="ค้นหาร้าน" aria-label="ค้นหาร้าน">
+          <form id="filter-form" role="search" aria-label="ฟิลเตอร์กาแฟ">
+            <div class="filter-section">
+              <h2>ราคา</h2>
+              <div class="price-inputs">
+                <input
+                  type="number"
+                  id="min-price"
+                  name="minPrice"
+                  placeholder="Min"
+                  value="60"
+                  aria-label="ราคาขั้นต่ำ"
+                />
+                <span>—</span>
+                <input
+                  type="number"
+                  id="max-price"
+                  name="maxPrice"
+                  placeholder="Max"
+                  value="500"
+                  aria-label="ราคาขั้นสูง"
+                />
+              </div>
+            </div>
+
+            <div class="filter-section">
+              <div class="group-star">
+                <h2>คะแนน</h2>
+                <div class="star-rating" aria-label="กรองตามคะแนน">
+                  <input
+                    type="radio"
+                    id="star-5"
+                    name="rating"
+                    value="5"
+                  /><label for="star-5">★</label>
+                  <input
+                    type="radio"
+                    id="star-4"
+                    name="rating"
+                    value="4"
+                  /><label for="star-4">★</label>
+                  <input
+                    type="radio"
+                    id="star-3"
+                    name="rating"
+                    value="3"
+                  /><label for="star-3">★</label>
+                  <input
+                    type="radio"
+                    id="star-2"
+                    name="rating"
+                    value="2"
+                  /><label for="star-2">★</label>
+                  <input
+                    type="radio"
+                    id="star-1"
+                    name="rating"
+                    value="1"
+                  /><label for="star-1">★</label>
                 </div>
+              </div>
+            </div>
 
-                <form id="filter-form" role="search" aria-label="ฟิลเตอร์กาแฟ">
-                    <div class="filter-section">
-                        <h2>ราคา</h2>
-                        <div class="price-inputs">
-                            <input type="number" id="min-price" name="minPrice" placeholder="Min" value="60"
-                                aria-label="ราคาขั้นต่ำ">
-                            <span>—</span>
-                            <input type="number" id="max-price" name="maxPrice" placeholder="Max" value="500"
-                                aria-label="ราคาขั้นสูง">
-                        </div>
-                    </div>
+            <div class="filter-section">
+              <h2>สไตล์กาแฟ</h2>
 
-                    <div class="filter-section">
-                        <div class="group-star">
-                            <h2>คะแนน</h2>
-                            <div class="star-rating" aria-label="กรองตามคะแนน">
-                                <input type="radio" id="star-5" name="rating" value="5"><label for="star-5">★</label>
-                                <input type="radio" id="star-4" name="rating" value="4"><label for="star-4">★</label>
-                                <input type="radio" id="star-3" name="rating" value="3"><label for="star-3">★</label>
-                                <input type="radio" id="star-2" name="rating" value="2"><label for="star-2">★</label>
-                                <input type="radio" id="star-1" name="rating" value="1"><label for="star-1">★</label>
-                            </div>
-                        </div>
-                    </div>
+              <fieldset>
+                <legend>ระดับการคั่ว</legend>
+                <div class="filter-option">
+                  <input
+                    type="checkbox"
+                    id="roast-light"
+                    name="roast"
+                    value="Light"
+                  />
+                  <label for="roast-light">คั่วอ่อน</label>
+                </div>
+                <div class="filter-option">
+                  <input
+                    type="checkbox"
+                    id="roast-medium"
+                    name="roast"
+                    value="Medium"
+                  />
+                  <label for="roast-medium">คั่วกลาง</label>
+                </div>
+                <div class="filter-option">
+                  <input
+                    type="checkbox"
+                    id="roast-dark"
+                    name="roast"
+                    value="Dark"
+                  />
+                  <label for="roast-dark">คั่วเข้ม</label>
+                </div>
+              </fieldset>
 
-                    <div class="filter-section">
-                        <h2>สไตล์กาแฟ</h2>
+              <fieldset>
+                <legend>วิธีการชง</legend>
+                <div class="filter-option">
+                  <input
+                    type="checkbox"
+                    id="brew-espresso"
+                    name="brew"
+                    value="espresso"
+                  />
+                  <label for="brew-espresso">Espresso-Based</label>
+                </div>
+                <div class="filter-option">
+                  <input
+                    type="checkbox"
+                    id="brew-drip"
+                    name="brew"
+                    value="drip"
+                  />
+                  <label for="brew-drip">Drip / Pour-over</label>
+                </div>
+                <div class="filter-option">
+                  <input
+                    type="checkbox"
+                    id="brew-coldbrew"
+                    name="brew"
+                    value="coldbrew"
+                  />
+                  <label for="brew-coldbrew">Cold Brew</label>
+                </div>
+              </fieldset>
 
-                        <fieldset>
-                            <legend>ระดับการคั่ว</legend>
-                            <div class="filter-option">
-                                <input type="checkbox" id="roast-light" name="roast" value="Light">
-                                <label for="roast-light">คั่วอ่อน</label>
-                            </div>
-                            <div class="filter-option">
-                                <input type="checkbox" id="roast-medium" name="roast" value="Medium">
-                                <label for="roast-medium">คั่วกลาง</label>
-                            </div>
-                            <div class="filter-option">
-                                <input type="checkbox" id="roast-dark" name="roast" value="Dark">
-                                <label for="roast-dark">คั่วเข้ม</label>
-                            </div>
-                        </fieldset>
+              <fieldset>
+                <legend>โปรไฟล์รสชาติ</legend>
+                <div class="filter-option">
+                  <input
+                    type="checkbox"
+                    id="profile-classic"
+                    name="profile"
+                    value="classic"
+                  />
+                  <label for="profile-classic">Classic & Balanced</label>
+                </div>
+                <div class="filter-option">
+                  <input
+                    type="checkbox"
+                    id="profile-fruity"
+                    name="profile"
+                    value="fruity"
+                  />
+                  <label for="profile-fruity">Fruity & Floral</label>
+                </div>
+                <div class="filter-option">
+                  <input
+                    type="checkbox"
+                    id="profile-funky"
+                    name="profile"
+                    value="funky"
+                  />
+                  <label for="profile-funky">Funky & Fermented</label>
+                </div>
+                <div class="filter-option">
+                  <input
+                    type="checkbox"
+                    id="profile-spicy"
+                    name="profile"
+                    value="spicy"
+                  />
+                  <label for="profile-spicy">Spicy & Earthy</label>
+                </div>
+              </fieldset>
 
-                        <fieldset>
-                            <legend>วิธีการชง</legend>
-                            <div class="filter-option">
-                                <input type="checkbox" id="brew-espresso" name="brew" value="espresso">
-                                <label for="brew-espresso">Espresso-Based</label>
-                            </div>
-                            <div class="filter-option">
-                                <input type="checkbox" id="brew-drip" name="brew" value="drip">
-                                <label for="brew-drip">Drip / Pour-over</label>
-                            </div>
-                            <div class="filter-option">
-                                <input type="checkbox" id="brew-coldbrew" name="brew" value="coldbrew">
-                                <label for="brew-coldbrew">Cold Brew</label>
-                            </div>
-                        </fieldset>
+              <fieldset>
+                <legend>แหล่งปลูก</legend>
+                <div class="filter-option">
+                  <input
+                    type="checkbox"
+                    id="origin-thai"
+                    name="origin"
+                    value="thai"
+                  />
+                  <label for="origin-thai">เมล็ดไทย</label>
+                </div>
+                <div class="filter-option">
+                  <input
+                    type="checkbox"
+                    id="origin-africa"
+                    name="origin"
+                    value="africa"
+                  />
+                  <label for="origin-africa">เมล็ดแอฟริกา</label>
+                </div>
+                <div class="filter-option">
+                  <input
+                    type="checkbox"
+                    id="origin-sa"
+                    name="origin"
+                    value="sa"
+                  />
+                  <label for="origin-sa">เมล็ดอเมริกาใต้/กลาง</label>
+                </div>
+              </fieldset>
+            </div>
 
-                        <fieldset>
-                            <legend>โปรไฟล์รสชาติ</legend>
-                            <div class="filter-option">
-                                <input type="checkbox" id="profile-classic" name="profile" value="classic">
-                                <label for="profile-classic">Classic & Balanced</label>
-                            </div>
-                            <div class="filter-option">
-                                <input type="checkbox" id="profile-fruity" name="profile" value="fruity">
-                                <label for="profile-fruity">Fruity & Floral</label>
-                            </div>
-                            <div class="filter-option">
-                                <input type="checkbox" id="profile-funky" name="profile" value="funky">
-                                <label for="profile-funky">Funky & Fermented</label>
-                            </div>
-                            <div class="filter-option">
-                                <input type="checkbox" id="profile-spicy" name="profile" value="spicy">
-                                <label for="profile-spicy">Spicy & Earthy</label>
-                            </div>
-                        </fieldset>
+            <div class="filter-section">
+              <h2>บรรยากาศ</h2>
+              <div class="filter-option">
+                <input
+                  type="checkbox"
+                  id="vibe-work"
+                  name="vibe"
+                  value="work"
+                />
+                <label for="vibe-work">เหมาะกับการทำงาน</label>
+              </div>
+              <div class="filter-option">
+                <input type="checkbox" id="vibe-pet" name="vibe" value="pet" />
+                <label for="vibe-pet">Pet-Friendly</label>
+              </div>
+              <div class="filter-option">
+                <input
+                  type="checkbox"
+                  id="vibe-parking"
+                  name="vibe"
+                  value="parking"
+                />
+                <label for="vibe-parking">มีที่จอดรถ</label>
+              </div>
+            </div>
 
-                        <fieldset>
-                            <legend>แหล่งปลูก</legend>
-                            <div class="filter-option">
-                                <input type="checkbox" id="origin-thai" name="origin" value="thai">
-                                <label for="origin-thai">เมล็ดไทย</label>
-                            </div>
-                            <div class="filter-option">
-                                <input type="checkbox" id="origin-africa" name="origin" value="africa">
-                                <label for="origin-africa">เมล็ดแอฟริกา</label>
-                            </div>
-                            <div class="filter-option">
-                                <input type="checkbox" id="origin-sa" name="origin" value="sa">
-                                <label for="origin-sa">เมล็ดอเมริกาใต้/กลาง</label>
-                            </div>
-                        </fieldset>
-                    </div>
+            <div class="filter-section">
+              <h2>อื่นๆ</h2>
+              <div class="filter-option">
+                <input
+                  type="checkbox"
+                  id="other-roastery"
+                  name="other"
+                  value="roastery"
+                />
+                <label for="other-roastery">มีโรงคั่วในร้าน</label>
+              </div>
+              <div class="filter-option">
+                <input
+                  type="checkbox"
+                  id="other-champ"
+                  name="other"
+                  value="champ"
+                />
+                <label for="other-champ">บาริสต้าดีกรีแชมป์</label>
+              </div>
+            </div>
 
-                    <div class="filter-section">
-                        <h2>บรรยากาศ</h2>
-                        <div class="filter-option">
-                            <input type="checkbox" id="vibe-work" name="vibe" value="work">
-                            <label for="vibe-work">เหมาะกับการทำงาน</label>
-                        </div>
-                        <div class="filter-option">
-                            <input type="checkbox" id="vibe-pet" name="vibe" value="pet">
-                            <label for="vibe-pet">Pet-Friendly</label>
-                        </div>
-                        <div class="filter-option">
-                            <input type="checkbox" id="vibe-parking" name="vibe" value="parking">
-                            <label for="vibe-parking">มีที่จอดรถ</label>
-                        </div>
-                    </div>
+            <div class="gogobtn">
+              <button type="submit" id="gogobtn" class="btn-primary">
+                ค้นหา
+              </button>
+            </div>
+          </form>
+        </aside>
 
-                    <div class="filter-section">
-                        <h2>อื่นๆ</h2>
-                        <div class="filter-option">
-                            <input type="checkbox" id="other-roastery" name="other" value="roastery">
-                            <label for="other-roastery">มีโรงคั่วในร้าน</label>
-                        </div>
-                        <div class="filter-option">
-                            <input type="checkbox" id="other-champ" name="other" value="champ">
-                            <label for="other-champ">บาริสต้าดีกรีแชมป์</label>
-                        </div>
-                    </div>
+        <!-- Results -->
+        <section id="shop-result" aria-live="polite"></section>
+      </div>
 
-                    <div class="gogobtn">
-                        <button type="submit" id="gogobtn" class="btn-primary">ค้นหา</button>
-                    </div>
-                </form>
-            </aside>
-
-            <!-- Results -->
-            <section id="shop-result" aria-live="polite"></section>
-        </div>
-
-        <nav id="pagination" class="pagination-inline" aria-label="หน้า"></nav>
+      <nav id="pagination" class="pagination-inline" aria-label="หน้า"></nav>
     </main>
 
-
     <footer class="main">
-        <div class="container">
-            <div class="logo-image">
-                <img src="/frontend/resources/logo/logo2.png" alt="logo-image" class="logo-image">
-            </div>
-
-            <div class="nagivator">
-                <ul class="nav-link">
-                    <li><a href="../frontend/pages/aboutus.html">About us</a></li>
-                    <li><a href="#">Contact us</a></li>
-                    <li><a href="#">FB logo</a></li>
-                    <li><a href="#">IG logo</a></li>
-                    <li><a href="#">X logo</a></li>
-                    <li><a href="#">Line logo</a></li>
-                    <li><a href="#">Youtube logo</a></li>
-                </ul>
-            </div>
-
-            <div class="terms">
-                <p>Terms and Conditions | Return Policy | Privacy Policy | Cookie Policy</p>
-            </div>
+      <div class="container">
+        <div class="logo-image">
+          <img src="/frontend/resources/logo/logo2.png" alt="Coffee Logo" />
         </div>
+
+        <div class="navigator">
+          <ul class="nav-link">
+            <li>
+              <a href="/frontend/pages/aboutus.html" class="text-link"
+                >About us</a
+              >
+            </li>
+            <li><a href="#" class="text-link">Contact us</a></li>
+
+            <li class="separator"></li>
+
+            <li>
+              <a href="#" aria-label="Facebook">
+                <svg
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  height="20"
+                  width="20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                  ></path>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="#" aria-label="Instagram">
+                <svg
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  height="20"
+                  width="20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path
+                    d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                  ></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="#" aria-label="Twitter/X">
+                <svg
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  height="20"
+                  width="20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M4 4l11.733 16h4.267l-11.733 -16z"></path>
+                  <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="#" aria-label="Line">
+                <svg
+                  stroke="currentColor"
+                  fill="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 16 16"
+                  height="20"
+                  width="20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M8 0c4.411 0 8 2.912 8 6.492 0 1.48-.566 2.874-1.568 4.026.06.315.381 1.343.418 1.488.025.101.006.183-.027.247-.033.065-.091.107-.166.107-.061 0-.129-.015-.175-.027-.367-.094-1.698-.466-1.928-.535-.615.35-1.309.605-2.049.735l-.01.092-.495 2.802c-.15.845-.875 1.573-1.693 1.573H8c-4.411 0-8-2.912-8-6.492S3.589 0 8 0z"
+                  ></path>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="#" aria-label="Youtube">
+                <svg
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  height="20"
+                  width="20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"
+                  ></path>
+                  <polygon
+                    points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"
+                  ></polygon>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="terms">
+          <p>Terms and Conditions | Return Policy</p>
+          <p>Privacy Policy | Cookie Policy</p>
+        </div>
+      </div>
     </footer>
 
 
     <div id="auth-modal" class="auth-modal">
-        <div class="auth-modal__overlay"></div>
+      <div class="auth-modal__overlay"></div>
 
-        <div class="auth-modal__content">
-            <button class="auth-modal__close" aria-label="ปิดหน้าต่าง">&times;</button>
+      <div class="auth-modal__content">
+        <button class="auth-modal__close" aria-label="ปิดหน้าต่าง">
+          &times;
+        </button>
 
-            <div class="auth-modal__tabs">
-                <button class="tab-btn active" data-tab="signin">Sign in</button>
-                <button class="tab-btn" data-tab="signup">Sign up</button>
-            </div>
-
-            <form class="auth-form active" id="signin-form">
-                <label>
-                    ชื่อผู้ใช้
-                    <input type="username" name="username" placeholder="Bank007" required>
-                </label>
-                <label>
-                    รหัสผ่าน
-                    <input type="password" name="password" placeholder="••••••••" required>
-                </label>
-                <button type="submit" class="auth-submit">เข้าสู่ระบบ</button>
-            </form>
-
-            <form class="auth-form" id="signup-form">
-                <label>
-                    ชื่อผู้ใช้
-                    <input type="text" name="username" placeholder="ชื่อที่จะแสดงในระบบ" required>
-                </label>
-                <label>
-                    อีเมล
-                    <input type="email" name="email" placeholder="you@example.com" required>
-                </label>
-                <label>
-                    รหัสผ่าน
-                    <input type="password" name="password" placeholder="อย่างน้อย 8 ตัวอักษร" required>
-                </label>
-                <button type="submit" class="auth-submit">สมัครสมาชิก</button>
-            </form>
+        <div class="auth-modal__tabs">
+          <button class="tab-btn active" data-tab="signin">Sign in</button>
+          <button class="tab-btn" data-tab="signup">Sign up</button>
         </div>
+
+        <form class="auth-form active" id="signin-form">
+          <label>
+            ชื่อผู้ใช้
+            <input
+              type="username"
+              name="username"
+              placeholder="Bank007"
+              required
+            />
+          </label>
+          <label>
+            รหัสผ่าน
+            <input
+              type="password"
+              name="password"
+              placeholder="••••••••"
+              required
+            />
+          </label>
+          <button type="submit" class="auth-submit">เข้าสู่ระบบ</button>
+        </form>
+
+        <form class="auth-form" id="signup-form">
+          <label>
+            ชื่อผู้ใช้
+            <input
+              type="text"
+              name="username"
+              placeholder="ชื่อที่จะแสดงในระบบ"
+              required
+            />
+          </label>
+          <label>
+            อีเมล
+            <input
+              type="email"
+              name="email"
+              placeholder="you@example.com"
+              required
+            />
+          </label>
+          <label>
+            รหัสผ่าน
+            <input
+              type="password"
+              name="password"
+              placeholder="อย่างน้อย 8 ตัวอักษร"
+              required
+            />
+          </label>
+          <button type="submit" class="auth-submit">สมัครสมาชิก</button>
+        </form>
+      </div>
     </div>
 
-
-    <script src="../scripts/search_page.js" defer></script>
+    <!-- <script src="../scripts/search_page.js" defer></script>
+    <script src="../scripts/auth.js"></script> -->
     <script src="../scripts/nav.js"></script>
-    <script src="../scripts/auth.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
-</body>
-
+    <script type="module" src="/frontend/scripts/main.js"></script>
+    <script type="module" src="/frontend/scripts/pages/search.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script> -->
+  </body>
 </html>

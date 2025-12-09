@@ -9,7 +9,7 @@ const shopController = {
 
     getRecommandShop: async (req, res) => {
         try {
-            const shops = await shopService.getShopRecommand()
+            const shops = await shopService.getRecommended()
             res.status(200).json(shops);
         } catch (err) {
             res.status(500).json({ message: "Internal server error" });
@@ -33,7 +33,6 @@ const shopController = {
 
     filterShopAll: async (req, res) => {
         try {
-            console.log("Hello from controller")
             const filters = req.query;
             console.log(filters)
             const shops = await shopService.filterShop(filters);

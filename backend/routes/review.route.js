@@ -1,10 +1,21 @@
-import reviewController from "../controllers/review.controller.js"
-import userMiddleware from "../middlewares/user.middleware.js"
-const reviewRouter = (route) =>{
-    route.get("/get", reviewController.getAll)
-    route.post("/create", userMiddleware.authMiddleware,reviewController.addReview)
-    route.put("/edit", reviewController.editReview)
-    route.delete("/delete", reviewController.deleteReview)
-}
+import reviewController from "../controllers/review.controller.js";
+import userMiddleware from "../middlewares/user.middleware.js";
+const reviewRouter = (route) => {
+  route.get("/shop/:id", reviewController.getReviewsByShop);
 
-export default reviewRouter
+  route.post(
+    "/create",
+    userMiddleware.authMiddleware,
+    reviewController.addReview
+  );
+
+  route.put("/:id", userMiddleware.authMiddleware, reviewController.editReview);
+
+  route.delete(
+    "/:id",
+    userMiddleware.authMiddleware,
+    reviewController.deleteReview
+  );
+};
+
+export default reviewRouter;

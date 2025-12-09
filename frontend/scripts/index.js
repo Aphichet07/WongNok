@@ -14,6 +14,32 @@ document.addEventListener("DOMContentLoaded", () => {
   loadAndDisplayShop();
 });
 
+const searchform = document.getElementById("hero-search-form");
+
+if (searchform) {
+  searchform.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    try {
+      const form = new FormData(e.target);
+      const keyword = form.get("search");
+
+      console.log("hero search:", keyword);
+
+      const value = { name: keyword || "" };
+
+      const response = await fetch(`http://127.0.0.1:3000/shops/name`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(value),
+      });
+
+    } catch (err) {
+      console.error("Hero search error:", err);
+    }
+  });
+}
+
 async function loadAndDisplayShop() {
   try {
     const response = await fetch("http://127.0.0.1:3000/shops/recommand");
@@ -47,7 +73,7 @@ function createShopCards(shops) {
 
 function buildSingleShopCard(shopData) {
   const cardElement = document.createElement("div");
-  cardElement.className = "product-card";
+  cardElement.className = "shop-card";
 
   cardElement.innerHTML = `
     <a href="#" class="shop-card-link">
