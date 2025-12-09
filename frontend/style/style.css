@@ -526,6 +526,68 @@ main .enter-box button {
   background: #7a4b26;
 }
 
+/* ใช้ Class เดียวกับ Article เพื่อความสวยงามที่เหมือนกัน */
+.slider-wrapper {
+  position: relative;
+  padding: 0 10px;
+}
+
+.cards-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px 5px;
+
+  /* ซ่อน Scrollbar */
+  scrollbar-width: none;
+}
+.cards-container::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: #f5efe7;
+  color: #38220f;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav-btn:hover {
+  background: #c08a53;
+  color: white;
+  border-color: #c08a53;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.prev-btn {
+  left: -30px;
+  margin-left: -10px;
+}
+.next-btn {
+  right: -30px;
+  margin-right: -10px;
+}
+
+#shop-suggestion .card {
+  min-width: 280px;
+  max-width: 280px;
+  flex-shrink: 0;
+}
+
 .article-slider * {
   box-sizing: border-box;
   font-family: "Prompt", sans-serif;
@@ -557,7 +619,7 @@ main .enter-box button {
 .article-card {
   flex: 0 0 calc(25% - 18px);
   height: 360px;
-  background: #38220f;
+  background: #ffffff;
   border-radius: 16px;
   overflow: hidden;
   color: #fff;
@@ -596,7 +658,7 @@ main .enter-box button {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: linear-gradient(to bottom, #38220f 0%, #2a1a0b 100%);
+  background: linear-gradient(to bottom, #ffffff 0%, #ffffff 100%);
 }
 
 .article-card .info .title {
@@ -604,7 +666,7 @@ main .enter-box button {
   font-weight: 500;
   line-height: 1.5;
   margin: 0;
-
+  color: #333;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -616,7 +678,7 @@ main .enter-box button {
   justify-content: space-between;
   align-items: center;
   font-size: 0.75rem;
-  color: #d1c4b8;
+  color: #333;
   margin-top: auto;
   padding-top: 12px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -888,12 +950,11 @@ main .enter-box button {
   text-decoration: underline;
 }
 
-
 .popup-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6); /* มืดลงอีกนิดเพื่อเน้น Popup */
-  backdrop-filter: blur(6px); /* เบลอฉากหลังให้ดูแพง */
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
   display: grid;
   place-items: center;
   z-index: 999;
@@ -914,16 +975,15 @@ main .enter-box button {
   width: min(900px, 94vw);
   max-height: 90vh;
   background: #fff;
-  border-radius: 24px; /* โค้งมนมากขึ้น */
+  border-radius: 24px;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  padding: 32px; /* เพิ่มพื้นที่ภายใน */
+  padding: 32px;
   display: grid;
-  grid-template-columns: 1.2fr 1fr; /* ปรับสัดส่วนให้ซ้ายกว้างกว่านิดหน่อย */
+  grid-template-columns: 1.2fr 1fr;
   gap: 32px;
   position: relative;
   overflow-y: auto;
 
-  /* Scrollbar สวยๆ */
   scrollbar-width: thin;
   scrollbar-color: #d1d5db transparent;
 }
@@ -961,13 +1021,13 @@ main .enter-box button {
 
 .popup-close:hover {
   background: #e5e7eb;
-  transform: rotate(90deg); /* ลูกเล่นหมุนตอนชี้ */
+  transform: rotate(90deg);
   color: #111;
 }
 
 /* --- Left Side (Shop Info) --- */
 .popCard .left .pic {
-  aspect-ratio: 16 / 10; /* ปรับสัดส่วนให้ดู cinematic ขึ้น */
+  aspect-ratio: 16 / 10;
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -993,7 +1053,7 @@ main .enter-box button {
 
 .popCard .shop-name {
   font-weight: 700;
-  font-size: 1.8rem; /* ชื่อร้านใหญ่ชัด */
+  font-size: 1.8rem;
   color: #1f2937;
   margin: 0;
   line-height: 1.2;
@@ -1003,8 +1063,8 @@ main .enter-box button {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: #ecfdf5; /* พื้นเขียวอ่อน */
-  color: #047857; /* ตัวหนังสือเขียวเข้ม */
+  background: #ecfdf5;
+  color: #047857;
   border: 1px solid #a7f3d0;
   padding: 6px 12px;
   border-radius: 8px;
@@ -1020,22 +1080,196 @@ main .enter-box button {
   font-size: 1rem;
 }
 
-/* --- Right Side (Review Section) --- */
 .popCard .right {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  height: 550px;
+  max-height: 80vh;
+  overflow: hidden;
 }
 
-/* รีวิวล่าสุด (ทำให้ดูเหมือนกล่องคำพูด) */
+.review-header-box {
+  padding: 20px 20px 10px;
+  background: #fff;
+  border-bottom: 1px solid #f0f0f0;
+  flex-shrink: 0;
+}
+.review-header-box h3 {
+  margin: 0;
+  color: #333;
+}
+
+#review-list-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 20px;
+
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
+}
+
+#review-list-container::-webkit-scrollbar {
+  width: 6px;
+}
+#review-list-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+#review-list-container::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 10px;
+}
+
+.comment-form {
+  flex-shrink: 0;
+  background: #fff;
+  border-top: 1px solid #eee;
+  padding: 20px;
+  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.03);
+  z-index: 5;
+}
+
+@media (max-width: 800px) {
+  .popCard .right {
+    height: auto;
+    max-height: 50vh;
+  }
+}
+
+.comment-form textarea {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  resize: none;
+}
+
 .popCard .right .comment {
   display: flex;
   gap: 16px;
   align-items: flex-start;
-  background: #f9fafb; /* พื้นหลังเทาจางๆ */
+  background: #f9fafb;
   padding: 16px;
   border-radius: 16px;
   border: 1px solid #f3f4f6;
+}
+
+.info-content {
+  padding-right: 10px;
+}
+
+.meta-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.price-badge {
+  background: #f3f4f6;
+  color: #374151;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.divider {
+  border: 0;
+  border-top: 1px solid #e5e7eb;
+  margin: 16px 0;
+}
+
+.section-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 10px;
+}
+
+.spec-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.spec-item {
+  background: #f9fafb;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #f3f4f6;
+}
+
+.spec-item .label {
+  display: block;
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-bottom: 2px;
+}
+
+.spec-item .value {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.tags-group {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.label-icon {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #4b5563;
+  min-width: 60px;
+  margin-top: 4px;
+}
+
+.tags-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag-badge {
+  font-size: 0.8rem;
+  padding: 3px 10px;
+  border-radius: 99px;
+  font-weight: 500;
+}
+
+.tag-flavor {
+  background: #fff7ed;
+  color: #c2410c;
+  border: 1px solid #ffedd5;
+}
+
+.tag-vibe {
+  background: #ecfdf5;
+  color: #047857;
+  border: 1px solid #d1fae5;
+}
+
+.btn-map {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: #3b82f6;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 20px;
+  transition: opacity 0.2s;
+}
+
+.btn-map:hover {
+  opacity: 0.9;
 }
 
 .profile-image {
@@ -1096,9 +1330,9 @@ main .enter-box button {
 }
 
 .rating-stars label {
-  font-size: 1.8rem; /* ดาวใหญ่ขึ้น กดง่าย */
+  font-size: 1.8rem;
   cursor: pointer;
-  color: #e5e7eb; /* สีเทาตอนยังไม่เลือก */
+  color: #e5e7eb;
   transition: transform 0.2s, color 0.2s;
 }
 
@@ -1113,7 +1347,7 @@ main .enter-box button {
 .rating-stars input:checked ~ label,
 .rating-stars label:hover,
 .rating-stars label:hover ~ label {
-  color: #fbbf24; /* สีทอง */
+  color: #fbbf24;
   text-shadow: 0 2px 4px rgba(251, 191, 36, 0.3);
 }
 
@@ -1147,7 +1381,7 @@ main .enter-box button {
 .send-comment {
   width: 100%;
   padding: 12px 0;
-  background: linear-gradient(135deg, #c08a53 0%, #8f5b2f 100%); /* ไล่เฉดสี */
+  background: linear-gradient(135deg, #c08a53 0%, #8f5b2f 100%);
   color: white;
   border-radius: 999px;
   border: none;

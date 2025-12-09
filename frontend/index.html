@@ -80,232 +80,123 @@
           <p>ค้นหาสไตล์กาแฟที่คุณหลงใหล</p>
         </div>
         <div class="filter-bar">
-          <button id="dark-roast">
+          <button class="filter-btn" data-key="roast" data-value="Dark">
             <a href="#">
               <div class="pic">
-                <img
-                  src="/frontend/resources/icon/coffee-cup.png"
-                  alt="image-icon"
-                />
+                <img src="/frontend/resources/icon/coffee-cup.png" alt="icon" />
               </div>
               <div class="text">คั่วเข้ม</div>
             </a>
           </button>
-          <button id="medium-roast">
+          <button class="filter-btn" data-key="roast" data-value="Medium">
             <a href="#">
               <div class="pic">
-                <img
-                  src="/frontend/resources/icon/coffee-cup.png"
-                  alt="image-icon"
-                />
+                <img src="/frontend/resources/icon/coffee-cup.png" alt="icon" />
               </div>
               <div class="text">คั่วกลาง</div>
             </a>
           </button>
-          <button id="light-roast">
+          <button class="filter-btn" data-key="roast" data-value="Light">
             <a href="#">
               <div class="pic">
-                <img
-                  src="/frontend/resources/icon/coffee-cup.png"
-                  alt="image-icon"
-                />
+                <img src="/frontend/resources/icon/coffee-cup.png" alt="icon" />
               </div>
               <div class="text">คั่วอ่อน</div>
             </a>
           </button>
-          <button id="specialty">
+          <button class="filter-btn" data-key="type" data-value="Specialty">
             <a href="#">
               <div class="pic">
-                <img
-                  src="/frontend/resources/icon/coffee-cup.png"
-                  alt="image-icon"
-                />
+                <img src="/frontend/resources/icon/coffee-cup.png" alt="icon" />
               </div>
               <div class="text">Specialty</div>
             </a>
           </button>
-          <button id="chocolate">
+          <button class="filter-btn" data-key="flavor" data-value="Chocolate">
             <a href="#">
               <div class="pic">
-                <img
-                  src="/frontend/resources/icon/coffee-cup.png"
-                  alt="image-icon"
-                />
+                <img src="/frontend/resources/icon/coffee-cup.png" alt="icon" />
               </div>
               <div class="text">Chocolate</div>
             </a>
           </button>
-          <button id="fruity">
+          <button class="filter-btn" data-key="flavor" data-value="Fruity">
             <a href="#">
               <div class="pic">
-                <img
-                  src="/frontend/resources/icon/coffee-cup.png"
-                  alt="image-icon"
-                />
+                <img src="/frontend/resources/icon/coffee-cup.png" alt="icon" />
               </div>
               <div class="text">Fruity</div>
             </a>
           </button>
-          <button id="cold-brew">
+          <button class="filter-btn" data-key="process" data-value="Cold Brew">
             <a href="#">
               <div class="pic">
-                <img
-                  src="/frontend/resources/icon/coffee-cup.png"
-                  alt="image-icon"
-                />
+                <img src="/frontend/resources/icon/coffee-cup.png" alt="icon" />
               </div>
               <div class="text">Cold Brew</div>
             </a>
           </button>
-          <button id="cold-brew">
+          <button class="filter-btn" data-key="menu" data-value="Espresso">
             <a href="#">
               <div class="pic">
-                <img
-                  src="/frontend/resources/icon/coffee-cup.png"
-                  alt="image-icon"
-                />
+                <img src="/frontend/resources/icon/coffee-cup.png" alt="icon" />
               </div>
-              <div class="text">Cold Brew</div>
+              <div class="text">Espresso</div>
             </a>
           </button>
-          <button id="cold-brew">
+          <button class="filter-btn" data-key="menu" data-value="Latte">
             <a href="#">
               <div class="pic">
-                <img
-                  src="/frontend/resources/icon/coffee-cup.png"
-                  alt="image-icon"
-                />
+                <img src="/frontend/resources/icon/coffee-cup.png" alt="icon" />
               </div>
-              <div class="text">Cold Brew</div>
+              <div class="text">Latte</div>
             </a>
           </button>
-          <button id="cold-brew">
+          <button class="filter-btn" data-key="menu" data-value="Non-Coffee">
             <a href="#">
               <div class="pic">
-                <img
-                  src="/frontend/resources/icon/coffee-cup.png"
-                  alt="image-icon"
-                />
+                <img src="/frontend/resources/icon/coffee-cup.png" alt="icon" />
               </div>
-              <div class="text">Cold Brew</div>
+              <div class="text">Non-Coffee</div>
             </a>
           </button>
         </div>
 
-        <div class="main-text shop">
-          <p>ร้านแนะนำประจำสัปดาห์</p>
-          <a href="/frontend/pages/find.html" class="more">ดูเพิ่มเติม ></a>
+        <div class="main-text">
+          <p>ร้านกาแฟแนะนำสำหรับคุณ</p>
         </div>
 
-        <div id="shop-suggestion"></div>
+        <div class="slider-wrapper">
+          <button class="nav-btn prev-btn" id="btn-prev-shop">&#10094;</button>
+
+          <div id="shop-suggestion" class="cards-container">
+            <p style="text-align: center; width: 100%; color: #888">
+              กำลังโหลดร้านแนะนำ...
+            </p>
+          </div>
+
+          <button class="nav-btn next-btn" id="btn-next-shop">&#10095;</button>
+        </div>
 
         <div class="main-text article">
           <p>บทความสุดฮิต</p>
           <a href="/frontend/pages/article.html" class="more">ดูเพิ่มเติม ></a>
         </div>
+
         <div class="article-slider">
-          <button class="slider-btn prev" type="button">&#10094;</button>
-          <div class="article-suggestion">
-            <div class="article-card">
-              <a href="#">
-                <div class="pic">
-                  <img src="/frontend/resources/article/espresso5.jpg" />
-                </div>
-                <div class="info">
-                  <p>ชงกาแฟยังไงให้อร่อยขึ้น</p>
-                  <div class="specific">
-                    <p class="author">อภิเชษฐ์</p>
-                    <p class="date">13 OCT 2025</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="article-card">
-              <a href="#">
-                <div class="pic">
-                  <img src="/frontend/resources/article/espresso5.jpg" />
-                </div>
-                <div class="info">
-                  <p>ชงกาแฟยังไงให้อร่อยขึ้น</p>
-                  <div class="specific">
-                    <p class="author">อภิเชษฐ์</p>
-                    <p class="date">13 OCT 2025</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="article-card">
-              <a href="#">
-                <div class="pic">
-                  <img src="/frontend/resources/article/espresso5.jpg" />
-                </div>
-                <div class="info">
-                  <p>ชงกาแฟยังไงให้อร่อยขึ้น</p>
-                  <div class="specific">
-                    <p class="author">อภิเชษฐ์</p>
-                    <p class="date">13 OCT 2025</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="article-card">
-              <a href="#">
-                <div class="pic">
-                  <img src="/frontend/resources/article/espresso5.jpg" />
-                </div>
-                <div class="info">
-                  <p>ชงกาแฟยังไงให้อร่อยขึ้น</p>
-                  <div class="specific">
-                    <p class="author">อภิเชษฐ์</p>
-                    <p class="date">13 OCT 2025</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="article-card">
-              <a href="#">
-                <div class="pic">
-                  <img src="/frontend/resources/article/espresso5.jpg" />
-                </div>
-                <div class="info">
-                  <p>ชงกาแฟยังไงให้อร่อยขึ้น</p>
-                  <div class="specific">
-                    <p class="author">อภิเชษฐ์</p>
-                    <p class="date">13 OCT 2025</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="article-card">
-              <a href="#">
-                <div class="pic">
-                  <img src="/frontend/resources/article/espresso5.jpg" />
-                </div>
-                <div class="info">
-                  <p>ชงกาแฟยังไงให้อร่อยขึ้น</p>
-                  <div class="specific">
-                    <p class="author">อภิเชษฐ์</p>
-                    <p class="date">13 OCT 2025</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="article-card">
-              <a href="#">
-                <div class="pic">
-                  <img src="/frontend/resources/article/espresso5.jpg" />
-                </div>
-                <div class="info">
-                  <p>ชงกาแฟยังไงให้อร่อยขึ้น</p>
-                  <div class="specific">
-                    <p class="author">อภิเชษฐ์</p>
-                    <p class="date">13 OCT 2025</p>
-                  </div>
-                </div>
-              </a>
-            </div>
+          <button class="slider-btn prev" id="btn-prev-article" type="button">
+            &#10094;
+          </button>
+
+          <div class="article-suggestion" id="recommended-articles-container">
+            <p style="text-align: center; width: 100%; color: #888">
+              กำลังโหลดบทความแนะนำ...
+            </p>
           </div>
-          <button class="slider-btn next" type="button">&#10095;</button>
+
+          <button class="slider-btn next" id="btn-next-article" type="button">
+            &#10095;
+          </button>
         </div>
       </div>
     </div>

@@ -14,36 +14,115 @@ export function openShopPopup(shop) {
     ? currentUser.username || currentUser.email
     : "Guest";
 
+  const renderTags = (tags, colorClass) => {
+    if (!tags || !Array.isArray(tags) || tags.length === 0) return "";
+    return tags
+      .map((tag) => `<span class="tag-badge ${colorClass}">${tag}</span>`)
+      .join("");
+  };
+
+  const mapLink =
+    shop.latitude && shop.longitude
+      ? `https://www.google.com/maps/search/?api=1&query=${shop.latitude},${shop.longitude}`
+      : "#";
+
   overlay.innerHTML = `
     <div class="popCard">
       <button class="popup-close" type="button">✕</button>
+      
       <div class="left"> 
+        
         <div class="pic">
           <img src="${
             shop.cover_image_url || "/frontend/resources/noimage.jpg"
           }" alt="${shop.name}">
         </div>
-        <div class="info">
-          <p class="shop-name">${shop.name}</p>
-          <div class="score">⭐ <span id="popup-score">${
-            shop.average_rating ?? "-"
-          }</span></div>
-          <p class="desc">${shop.description ?? ""}</p>
+
+        <div class="info-content">
+            <h2 class="shop-name">${shop.name}</h2>
+            <div class="meta-row">
+                <div class="score">⭐ <span id="popup-score">${
+                  shop.average_rating ?? "New"
+                }</span> (${shop.total_reviews || 0} รีวิว)</div>
+                <div class="price-badge">${shop.price_range || "-"}</div>
+            </div>
+
+            <p class="desc">${shop.description || "ไม่มีคำอธิบายร้าน"}</p>
+
+            <hr class="divider">
+
+            <h4 class="section-title">Coffee Profile</h4>
+            <div class="spec-grid">
+                <div class="spec-item">
+                    <span class="label">ระดับการคั่ว</span>
+                    <span class="value">${shop.roast_level || "-"}</span>
+                </div>
+                <div class="spec-item">
+                    <span class="label">ประเภทเมล็ด</span>
+                    <span class="value">${shop.bean_type || "-"}</span>
+                </div>
+                <div class="spec-item">
+                    <span class="label">Process</span>
+                    <span class="value">${shop.process || "-"}</span>
+                </div>
+                <div class="spec-item">
+                    <span class="label">แหล่งปลูก</span>
+                    <span class="value">${
+                      (shop.origin && shop.origin[0]) || "Mixed"
+                    }</span>
+                </div>
+            </div>
+
+            ${
+              shop.flavor_notes
+                ? `
+                <div class="tags-group">
+                    <span class="label-icon">Taste:</span>
+                    <div class="tags-wrapper">${renderTags(
+                      shop.flavor_notes,
+                      "tag-flavor"
+                    )}</div>
+                </div>
+            `
+                : ""
+            }
+            
+            ${
+              shop.ambience
+                ? `
+                <div class="tags-group">
+                    <span class="label-icon"> Vibe:</span>
+                    <div class="tags-wrapper">${renderTags(
+                      shop.ambience,
+                      "tag-vibe"
+                    )}</div>
+                </div>
+            `
+                : ""
+            }
+
+            <hr class="divider">
+
+            <div class="contact-info">
+                <p><strong>เวลาเปิด:</strong> ${shop.open_hours || "-"}</p>
+                <p><strong>ที่อยู่:</strong> ${shop.address || "-"}</p>
+            </div>
+
+            <a href="${mapLink}" target="_blank" class="btn-map">
+                ดูแผนที่ร้าน (Google Maps) ↗
+            </a>
         </div>
       </div>
+
       <div class="right"> 
-        
-        <h3 style="margin: 0 0 16px; color:#333;">รีวิวจากสมาชิก</h3>
-
-        <div id="review-list-container" style="max-height: 300px; overflow-y: auto; display: flex; flex-direction: column; gap: 16px; margin-bottom: 20px; padding-right: 8px;">
-            <p style="color:#888; font-size:0.9rem;">กำลังโหลดรีวิว...</p>
+        <div class="review-header-box">
+            <h3>รีวิวจากสมาชิก</h3>
         </div>
-
-        <div id="my-review-section"></div>
-      </div>
-
+        <div id="review-list-container">
+            <p style="color:#888; text-align:center; margin-top:20px;">กำลังโหลดรีวิว...</p>
+        </div>
         <div class="comment-form">
-          <h3>เขียนรีวิวร้านนี้</h3>
+          <h4 style="margin:0 0 10px; font-size:0.9rem; color:#555;">เขียนรีวิวของคุณ</h4>
           <form id="review-form">
             <div class="rating-input">
               <span class="rating-label">ให้คะแนน:</span>
@@ -59,14 +138,20 @@ export function openShopPopup(shop) {
               </div>
             </div>
             <textarea name="comment" placeholder="เขียนคอมเมนต์..." rows="3"></textarea>
-            <p class="current-user-line">เขียนในนาม: <strong>${
-              currentUser ? currentName : "กรุณาเข้าสู่ระบบ"
-            }</strong></p>
-            <button type="submit" class="send-comment">ส่งรีวิว</button>
+            
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px;">
+                <p class="current-user-line" style="margin:0; font-size:0.8rem;">
+                    ในนาม: <strong>${
+                      currentUser ? currentName : "Guest"
+                    }</strong>
+                </p>
+                <button type="submit" class="send-comment">ส่งรีวิว</button>
+            </div>
             <p class="comment-status" hidden></p>
           </form>
         </div>
       </div>
+
     </div>
   `;
 
@@ -79,7 +164,6 @@ export function openShopPopup(shop) {
   const escHandler = (e) => {
     if (e.key === "Escape") close();
   };
-
   overlay.querySelector(".popup-close").addEventListener("click", close);
   overlay.addEventListener("click", (e) => {
     if (e.target === overlay) close();
@@ -93,24 +177,22 @@ export function openShopPopup(shop) {
     e.preventDefault();
     if (!currentUser) {
       statusEl.hidden = false;
-      statusEl.textContent = "ต้องเข้าสู่ระบบก่อน";
+      statusEl.textContent = "กรุณาเข้าสู่ระบบ";
       statusEl.style.color = "red";
       return;
     }
-
     const fd = new FormData(form);
     const comment = fd.get("comment").toString().trim();
     const rating = Number(fd.get("rating"));
 
     if (!rating || !comment) {
       statusEl.hidden = false;
-      statusEl.textContent = "กรุณาใส่คะแนนและคอมเมนต์";
+      statusEl.textContent = "กรุณาให้ดาวและข้อความ";
       statusEl.style.color = "red";
       return;
     }
-
-    statusEl.textContent = "กำลังส่ง...";
     statusEl.hidden = false;
+    statusEl.textContent = "กำลังส่ง...";
     statusEl.style.color = "#666";
 
     try {
@@ -120,54 +202,49 @@ export function openShopPopup(shop) {
         rating,
         user_id: currentUser.id,
       });
-
-      statusEl.textContent = "ส่งรีวิวสำเร็จ!";
+      statusEl.textContent = "สำเร็จ!";
       statusEl.style.color = "green";
       form.reset();
-
       loadShopReviews(shop.id);
     } catch (err) {
-      console.log("Error : ", err);
+      console.error(err);
       statusEl.textContent = "ส่งไม่สำเร็จ";
       statusEl.style.color = "red";
     }
   });
+
   loadShopReviews(shop.id);
 
   async function loadShopReviews(shopId) {
-    console.log("Shop ID : ", shopId)
     const container = document.getElementById("review-list-container");
-    const reviews = await reviewService.getByShopId(shopId);
-
-    container.innerHTML = "";
-
-    if (reviews.length === 0) {
-      container.innerHTML = `<p style="color:#999; text-align:center;">ยังไม่มีรีวิว เป็นคนแรกที่รีวิวเลย!</p>`;
-      return;
+    try {
+      const reviews = await reviewService.getByShopId(shopId);
+      container.innerHTML = "";
+      if (!reviews || reviews.length === 0) {
+        container.innerHTML = `<div style="text-align:center; padding: 20px; color:#ccc;"><p>ยังไม่มีรีวิว</p></div>`;
+        return;
+      }
+      reviews.forEach((review) => {
+        const date = new Date(review.created_at).toLocaleDateString("th-TH");
+        const card = document.createElement("div");
+        card.className = "review-item"; // ต้องมี CSS class นี้
+        card.innerHTML = `
+                <div class="review-avatar">
+                   <img src="/frontend/resources/avatar-placeholder.png" alt="user" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">
+                </div>
+                <div class="review-content">
+                    <div class="review-head">
+                        <span class="r-user" style="font-weight:600;">${review.username}</span>
+                        <span class="r-star" style="color:#f59e0b;">⭐ ${review.rating}</span>
+                    </div>
+                    <p class="r-text" style="margin:4px 0; color:#555;">${review.comment}</p>
+                    <span class="r-date" style="font-size:0.75rem; color:#aaa;">${date}</span>
+                </div>
+            `;
+        container.appendChild(card);
+      });
+    } catch (err) {
+      container.innerHTML = `<p style="color:red; text-align:center;">โหลดไม่สำเร็จ</p>`;
     }
-
-    reviews.forEach((review) => {
-      const card = document.createElement("div");
-      card.className = "comment";
-      card.style.cssText =
-        "background: #f9fafb; padding: 12px; border-radius: 12px; display: flex; gap: 12px; align-items: start;";
-
-      const date = new Date(review.created_at).toLocaleDateString("th-TH");
-
-      card.innerHTML = `
-            <div class="profile-image" style="width:40px; height:40px;">
-               <img src="/frontend/resources/avatar-placeholder.png" alt="user">
-            </div>
-            <div class="about-text" style="flex:1;">
-              <div style="display:flex; justify-content:space-between; align-items:center;">
-                  <p class="username" style="margin:0; font-size:0.9rem; font-weight:600;">${review.username}</p>
-                  <span style="font-size:0.8rem; color:#f59e0b;">⭐ ${review.rating}</span>
-              </div>
-              <p class="text-comment" style="margin:4px 0 0; color:#555; font-size:0.9rem;">${review.comment}</p>
-              <p style="margin:8px 0 0; font-size:0.75rem; color:#aaa;">${date}</p>
-            </div>
-          `;
-      container.appendChild(card);
-    });
   }
 }
