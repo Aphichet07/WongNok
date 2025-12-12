@@ -1,6 +1,7 @@
 import db from '../utils/connectDB.js'
 
 const reviewService = {
+    // ดึงรีวิวเมื่อ user เข้ามาหน้า shop 
     getReviewsByShopId: async (shop_id) => {
         const query = `
             SELECT 
@@ -18,7 +19,7 @@ const reviewService = {
         console.log(rows)
         return rows;
     },
-
+    // สร้าง review เมื่อ user เขียนรีวิว
     addReview: async (shop_id, comment, rating, user_id) => {
         
         const query = `
@@ -30,7 +31,7 @@ const reviewService = {
         const { rows } = await db.query(query, values);
         return rows[0];
     },
-
+    // แก้รีวิว
     editReview: async (review_id, comment, rating, user_id) => {
         const query = `
             UPDATE "reviews"
@@ -43,7 +44,7 @@ const reviewService = {
         
         return rows[0]; 
     },
-
+    // ลบรีวิว
     deleteReview: async (review_id, user_id) => {
         const query = `
             DELETE FROM "reviews"
