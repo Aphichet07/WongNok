@@ -227,7 +227,7 @@ export function openShopPopup(shop) {
       reviews.forEach((review) => {
         const date = new Date(review.created_at).toLocaleDateString("th-TH");
         const card = document.createElement("div");
-        card.className = "review-item"; // ต้องมี CSS class นี้
+        card.className = "review-item"; 
         card.innerHTML = `
                 <div class="review-avatar">
                    <img src="/frontend/resources/avatar-placeholder.png" alt="user" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">

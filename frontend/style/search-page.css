@@ -341,7 +341,6 @@ legend {
   border: 1px solid #ccc;
   border-radius: 6px;
 }
-
 .group-star {
   margin: 0;
 }
@@ -350,7 +349,7 @@ legend {
   display: inline-flex;
   flex-direction: row-reverse;
   gap: 6px;
-  direction: rtl;
+  justify-content: flex-end;
 }
 
 .star-rating input {
@@ -370,6 +369,12 @@ legend {
   color: #f5c518;
 }
 
+.star-rating input:checked + label:hover,
+.star-rating input:checked ~ label:hover,
+.star-rating label:hover ~ input:checked ~ label,
+.star-rating input:checked ~ label:hover ~ label {
+  color: #f5c518;
+}
 .gogobtn {
   display: flex;
   align-items: center;
@@ -773,13 +778,6 @@ legend {
   }
 }
 
-.comment-form textarea {
-  width: 100%;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 10px;
-  resize: none;
-}
 
 .popCard .right .comment {
   display: flex;
@@ -1021,7 +1019,7 @@ legend {
 }
 
 .send-comment {
-  width: 100%;
+  width: 50%;
   padding: 12px 0;
   background: linear-gradient(135deg, #c08a53 0%, #8f5b2f 100%);
   color: white;

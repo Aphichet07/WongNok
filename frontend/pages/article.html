@@ -175,74 +175,8 @@
       </div>
     </footer>
 
-    <div id="auth-modal" class="auth-modal">
-      <div class="auth-modal__overlay"></div>
-
-      <div class="auth-modal__content">
-        <button class="auth-modal__close" aria-label="ปิดหน้าต่าง">
-          &times;
-        </button>
-
-        <div class="auth-modal__tabs">
-          <button class="tab-btn active" data-tab="signin">Sign in</button>
-          <button class="tab-btn" data-tab="signup">Sign up</button>
-        </div>
-
-        <form class="auth-form active" id="signin-form">
-          <label>
-            ชื่อผู้ใช้
-            <input
-              type="username"
-              name="username"
-              placeholder="Bank007"
-              required
-            />
-          </label>
-          <label>
-            รหัสผ่าน
-            <input
-              type="password"
-              name="password"
-              placeholder="••••••••"
-              required
-            />
-          </label>
-          <button type="submit" class="auth-submit">เข้าสู่ระบบ</button>
-        </form>
-
-        <form class="auth-form" id="signup-form">
-          <label>
-            ชื่อผู้ใช้
-            <input
-              type="text"
-              name="username"
-              placeholder="ชื่อที่จะแสดงในระบบ"
-              required
-            />
-          </label>
-          <label>
-            อีเมล
-            <input
-              type="email"
-              name="email"
-              placeholder="you@example.com"
-              required
-            />
-          </label>
-          <label>
-            รหัสผ่าน
-            <input
-              type="password"
-              name="password"
-              placeholder="อย่างน้อย 8 ตัวอักษร"
-              required
-            />
-          </label>
-          <button type="submit" class="auth-submit">สมัครสมาชิก</button>
-        </form>
-      </div>
-    </div>
-    <script src="/frontend/scripts/auth.js"></script>
+   
+    <script type="module" src="/frontend/scripts/main.js"></script>
     <script src="/frontend/scripts/nav.js"></script>
     <script type="module" src="/frontend/scripts/pages/article.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script> -->

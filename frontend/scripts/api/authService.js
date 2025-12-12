@@ -50,10 +50,8 @@ export const authService = {
   },
 
   logout: () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-    
-    alert("Session ของคุณหมดอายุ กรุณาเข้าสู่ระบบใหม่");
+    localStorage.removeItem(TOKEN_KEY); 
+    localStorage.removeItem(USER_KEY); 
     
     window.location.href = "/frontend/index.html"; 
   }

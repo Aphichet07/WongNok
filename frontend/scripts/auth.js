@@ -187,9 +187,9 @@ function renderAuthNav() {
 
     if (!token) {
         navRight.innerHTML = `
-      <li><a href="#" id="open-signin">signin</a></li>
+      <li><a href="#" id="open-signin">SignIn</a></li>
       <li>|</li>
-      <li><a href="#" id="open-signup">signup</a></li>
+      <li><a href="#" id="open-signup">SignUp</a></li>
     `;
 
         const openSignin = document.getElementById("open-signin");

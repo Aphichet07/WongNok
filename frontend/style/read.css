@@ -140,7 +140,15 @@ body {
   margin-bottom: 30px;
 }
 
+#comment-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 #comment-form textarea {
+
   width: 100%;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -157,10 +165,11 @@ body {
 
 .form-footer {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   font-size: 0.9rem;
   color: #666;
+  gap: 40px;
 }
 
 .btn-submit {

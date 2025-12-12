@@ -6,6 +6,7 @@ const SALT_ROUNDS = 10
 const SECRET_KEY = "guruwamuengmairu"
 
 const userService = {
+    // ดึงข้ิอมูล user ทั้งหมด
     getAlluser: async () => {
         const queryText = `select id, username from "users"`
         const { rows } = await db.query(queryText)
@@ -15,7 +16,7 @@ const userService = {
 
         return JSON.stringify(rows)
     },
-
+    // สมัครสมาชิก
     regist: async (username, password, email) => {
         const checkQuery = 'SELECT * FROM "users" WHERE email = $1';
         const { rows: existingUsers } = await db.query(checkQuery, [email]);
@@ -54,7 +55,7 @@ const userService = {
         };
     }
     ,
-
+    // ล็อกอิน
     login: async (username, password) => {
         const query = `SELECT * FROM "users" WHERE username = $1`
         const { rows } = await db.query(query, [username])
@@ -88,7 +89,7 @@ const userService = {
             }
         }
     },
-
+    // ใช้หา user เฉพาะคน
     findUser: async (userID) => {
         const { rows } = db.query('select * from "users" where id = $1', [userID])
 

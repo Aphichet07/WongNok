@@ -6,6 +6,7 @@ const shopService = {
         return JSON.stringify({ message: "Hello from shopService", status: "OK" });
     },
 
+    // ใช้ดึงร้านกาแฟที่แนะนำไปแสดงหน้า recommend
     getRecommended: async () => {
         try {
             const queryText = `
@@ -21,7 +22,7 @@ const shopService = {
         }
     },
 
-
+    // ใช้ค้นหาชื่อร่้านตรงหน้าแรก
     getShopByName: async (name) => {
         try {
             const queryText = `
@@ -37,7 +38,7 @@ const shopService = {
         }
     },
 
-
+    // ไม่ต้องสนใจ
     getShopById: async (id) => {
         try {
             const queryText = `SELECT * FROM shops WHERE id = $1`;
@@ -49,7 +50,7 @@ const shopService = {
         }
     },
 
-  
+    // ใช้ filter ร้านกาแฟตรง filter bar
     filterShop: async (filters) => {
         const { 
             roast, process, bean_type, price_range,

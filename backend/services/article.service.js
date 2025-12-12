@@ -1,6 +1,7 @@
 import db from "../utils/connectDB.js";
 
 const articleService = {
+  //  ค้นหาร้านที่จะเอาไปแสดงที่หน้าแรกเป็น recommendation 
   recommandArticle: async () => {
     try {
       const query = `
@@ -18,6 +19,7 @@ const articleService = {
   },
 
   // Search using JSONB tags (e.g., 'Beginner Guide', 'Deep Dive')
+  // ใช้ฟิลเตอร์เพื่อแยกหมวดหมู่เนื้อหาที่จะแสดงของแจ่ละ หมวดหมู่
   searchByTag: async (tag) => {
     try {
       const query = `
@@ -33,7 +35,7 @@ const articleService = {
       throw err;
     }
   },
-
+  // ใช้เพิ่มยอดคนอ่าน เมื่อมีคนกดอ่าน article
   updateViewer: async (id) => {
     try {
       const query = ` 
@@ -49,7 +51,7 @@ const articleService = {
       throw err;
     }
   },
-
+  // ใช้ดึงข้อมูลของ article ที่ user กดเข้าไปอ่าน เพื่อสร้างหน้าสำหรับอ่าน
   readArticle: async (id) => {
     try {
       const query = `
@@ -66,7 +68,7 @@ const articleService = {
       throw err;
     }
   },
-
+  // สร้างคอมเม้น
   comment: async (articleId, userId, content) => {
     try {
       const query = `
@@ -81,7 +83,7 @@ const articleService = {
       throw err;
     }
   },
-
+  // ดึงคอมเม้นใน article 
   getComment: async (articleId) => {
     try {
       const query = `
