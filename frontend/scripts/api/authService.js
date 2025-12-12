@@ -10,6 +10,7 @@ export const authService = {
 
   getUser() {
     const userJson = localStorage.getItem(USER_KEY);
+    console.log("userJson : ",userJson)
     return userJson ? JSON.parse(userJson) : null;
   },
 
@@ -28,6 +29,7 @@ export const authService = {
     const data = await res.json();
     if (data.token) {
       localStorage.setItem(TOKEN_KEY, data.token);
+      console.log("data.user : ",data.user)
       if (data.user) localStorage.setItem(USER_KEY, JSON.stringify(data.user));
     }
     return data;

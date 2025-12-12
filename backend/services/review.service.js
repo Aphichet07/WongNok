@@ -6,6 +6,7 @@ const reviewService = {
         const query = `
             SELECT 
                 r.id, 
+                r.user_id,
                 r.rating, 
                 r.comment, 
                 r.created_at, 

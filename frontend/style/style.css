@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   background: linear-gradient(135deg, #ececec, #ffffff);
 }
@@ -9,7 +13,7 @@ main {
   background-size: cover;
   background-position: center center;
   width: 100%;
-  min-height: 700px;
+  min-height: 800px;
   height: auto;
 
   display: flex;
@@ -1187,11 +1191,78 @@ main .enter-box button {
   z-index: 5;
 }
 
-@media (max-width: 800px) {
+/* @media (max-width: 800px) {
   .popCard .right {
     height: auto;
     max-height: 50vh;
   }
+} */
+.menu-container {
+  position: relative;
+  margin-left: auto; /* ดันไปขวาสุด */
+}
+
+.dots-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: #999;
+  cursor: pointer;
+  padding: 0 5px;
+}
+.dots-btn:hover {
+  color: #333;
+}
+
+/* --- Dropdown Menu --- */
+.menu-dropdown {
+  display: none; /* ซ่อนก่อน */
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background: #fff;
+  border: 1px solid #eee;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  z-index: 100;
+  min-width: 100px;
+  overflow: hidden;
+}
+
+.menu-dropdown.show {
+  display: block; /* โชว์เมื่อมี class show */
+}
+
+.menu-dropdown button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  color: #333;
+}
+
+.menu-dropdown button:hover {
+  background: #f9fafb;
+}
+
+.menu-dropdown .action-delete {
+  color: #ef4444; /* สีแดง */
+}
+
+/* Edit Input */
+.edit-input {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 8px;
+  font-family: inherit;
+  resize: none;
+}
+.edit-input:focus {
+  outline: 1px solid #c08a53;
 }
 
 .popCard .right .comment {
@@ -1475,5 +1546,229 @@ main .enter-box button {
 
   .popCard .shop-name {
     font-size: 1.5rem;
+  }
+}
+
+body.article-page {
+  background-color: #f9f9f9;
+}
+
+.article-container {
+  max-width: 800px;
+  width: 100%;
+  margin: 120px auto 40px;
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+
+h1#article-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 30px;
+  line-height: 1.4;
+  color: #2c3e50;
+}
+
+.image-container {
+  text-align: center;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+img#article-image {
+  max-width: 100%;
+  height: auto;
+  max-height: 450px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  display: block;
+  margin: 0 auto;
+}
+
+#article-content {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #4a4a4a;
+  white-space: pre-wrap;
+  text-align: left;
+}
+
+.back-btn {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #666;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+.back-btn:hover {
+  color: #c08a53;
+}
+
+.nav-toggle {
+  display: none; /* Hidden on Desktop */
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+}
+
+.nav-toggle .bar {
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 10px;
+  transition: all 0.3s linear;
+}
+
+/* Responsive Nav */
+@media (max-width: 768px) {
+  .nav-inner {
+    flex-wrap: wrap;
+  }
+
+  .nav-toggle {
+    display: flex; /* Show Hamburger */
+  }
+
+  .nav-links {
+    display: none; /* Hide links by default */
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 20px;
+    background: rgba(24, 16, 8, 0.95);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links a {
+    width: 100%;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    min-height: 800px;
+  }
+  .article-container {
+    width: auto;
+    margin: 100px 16px 40px;
+    padding: 24px;
+  }
+
+  h1#article-title {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+
+  img#article-image {
+    max-height: 300px;
+  }
+
+  #article-content {
+    font-size: 1rem;
+  }
+
+  #filter-form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .popCard {
+    width: 95vw;
+    padding: 20px;
+  }
+}
+
+.slider-wrapper,
+.article-slider {
+  position: relative; /* สำคัญมาก: เพื่อให้ปุ่มลอยเทียบกับกล่องนี้ */
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto; /* จัดกึ่งกลางหน้าจอ */
+  padding: 0 20px; /* เว้นขอบซ้ายขวากันปุ่มตกขอบ */
+}
+
+/* 2. สไตล์ร่วมของปุ่มทั้งสองแบบ (.nav-btn ของ Shop และ .slider-btn ของ Article) */
+.nav-btn,
+.slider-btn {
+  position: absolute; /* ลอยอิสระ */
+  top: 50%; /* ดันลงมา 50% ของความสูงกล่อง */
+  transform: translateY(
+    -50%
+  ); /* ดึงกลับขึ้นไป 50% ของขนาดปุ่ม (เพื่อให้กลางเป๊ะ) */
+  z-index: 10; /* ให้ลอยอยู่เหนือรูปภาพ */
+
+  width: 44px; /* ขนาดปุ่ม */
+  height: 44px;
+  border-radius: 50%; /* ทรงกลม */
+
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* เงาให้ดูลอย */
+
+  color: #38220f; /* สีลูกศร */
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Hover Effect */
+.nav-btn:hover,
+.slider-btn:hover {
+  background: #c08a53; /* สีธีมเมื่อชี้ */
+  color: #ffffff;
+  border-color: #c08a53;
+  transform: translateY(-50%) scale(1.1); /* ขยายเล็กน้อยตอนชี้ */
+}
+
+/* 3. จัดตำแหน่งซ้าย-ขวา */
+/* ปุ่มย้อนกลับ (Left) */
+.prev-btn,
+.slider-btn.prev {
+  left: -10px; /* ดันออกไปทางซ้ายเล็กน้อย (ถ้าอยากให้ชิดขอบพอดีใช้ 0) */
+}
+
+/* ปุ่มถัดไป (Right) */
+.next-btn,
+.slider-btn.next {
+  right: -10px; /* ดันออกไปทางขวาเล็กน้อย */
+}
+
+/* 4. ซ่อนปุ่มเมื่ออยู่บนมือถือ (ให้ใช้นิ้วปัดแทน) */
+@media (max-width: 768px) {
+  .nav-btn,
+  .slider-btn {
+    display: none;
+  }
+
+  /* เอาระยะขอบออกเพื่อให้รูปเต็มจอ */
+  .slider-wrapper,
+  .article-slider {
+    padding: 0;
   }
 }

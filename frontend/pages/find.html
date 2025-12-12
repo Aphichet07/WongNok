@@ -17,23 +17,41 @@
   <body>
     <header id="main-nav-bar">
       <div class="container">
-        <div class="nav-logo">
-          <img
-            src="/frontend/resources/logo/logo2.png"
-            alt="logo-image"
-            class="logo-image"
-          />
+        <div class="nav-header">
+          <div class="nav-logo">
+            <img
+              src="/frontend/resources/logo/logo2.png"
+              alt="logo"
+              class="logo-image"
+            />
+          </div>
+
+          <button
+            class="nav-toggle"
+            id="nav-toggle"
+            aria-label="Toggle navigation"
+          >
+            <span class="bar"></span>
+
+            <span class="bar"></span>
+
+            <span class="bar"></span>
+          </button>
         </div>
 
-        <div class="sub-nav-bar">
+        <div class="sub-nav-bar" id="nav-menu">
           <div class="nav-bar1">
             <ul class="ul-navbar1">
               <li><a href="/frontend/index.html">Home</a></li>
+
               <li><a href="/frontend/pages/find.html">Search</a></li>
+
               <li><a href="/frontend/pages/article.html">Article</a></li>
+
               <li><a href="/frontend/pages/aboutus.html">About us</a></li>
             </ul>
           </div>
+
           <div class="nav-bar2">
             <ul class="ul-navbar2">
               <li><a href="#" id="open-signin">SignIn</a></li>
@@ -364,8 +382,11 @@
           </form>
         </aside>
 
-        <!-- Results -->
-        <section id="shop-result" aria-live="polite"></section>
+        <div class="content-area">
+          <h2 class="result-title">ผลลัพธ์การค้นหา</h2>
+
+          <section id="shop-result" aria-live="polite"></section>
+        </div>
       </div>
 
       <nav id="pagination" class="pagination-inline" aria-label="หน้า"></nav>
@@ -494,8 +515,6 @@
         </div>
       </div>
     </footer>
-
-
 
     <script src="../scripts/nav.js"></script>
     <script type="module" src="/frontend/scripts/main.js"></script>

@@ -217,31 +217,154 @@ export function openShopPopup(shop) {
 
   async function loadShopReviews(shopId) {
     const container = document.getElementById("review-list-container");
+    const currentUser = authService.getUser();
+
     try {
       const reviews = await reviewService.getByShopId(shopId);
       container.innerHTML = "";
+
       if (!reviews || reviews.length === 0) {
         container.innerHTML = `<div style="text-align:center; padding: 20px; color:#ccc;"><p>ยังไม่มีรีวิว</p></div>`;
         return;
       }
+
       reviews.forEach((review) => {
         const date = new Date(review.created_at).toLocaleDateString("th-TH");
+        console.log("review.user_id : ",review)
+        const isOwner =
+          currentUser && String(currentUser.id) === String(review.user_id);
+
         const card = document.createElement("div");
-        card.className = "review-item"; 
+        card.className = "review-item";
+        card.dataset.id = review.id;
+
         card.innerHTML = `
                 <div class="review-avatar">
                    <img src="/frontend/resources/avatar-placeholder.png" alt="user" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">
                 </div>
                 <div class="review-content">
                     <div class="review-head">
-                        <span class="r-user" style="font-weight:600;">${review.username}</span>
-                        <span class="r-star" style="color:#f59e0b;">⭐ ${review.rating}</span>
+                        <div style="display:flex; gap:8px; align-items:center;">
+                            <span class="r-user" style="font-weight:600;">${
+                              review.username
+                            }</span>
+                            <span class="r-star" style="color:#f59e0b;">⭐ <span class="r-rating-val">${
+                              review.rating
+                            }</span></span>
+                        </div>
+                        
+                        ${
+                          isOwner
+                            ? `
+                        <div class="menu-container">
+                            <button class="dots-btn">⋮</button>
+                            <div class="menu-dropdown">
+                                <button class="action-edit">แก้ไข</button>
+                                <button class="action-delete">ลบ</button>
+                            </div>
+                        </div>
+                        `
+                            : ""
+                        }
                     </div>
-                    <p class="r-text" style="margin:4px 0; color:#555;">${review.comment}</p>
+                    
+                    <p class="r-text" style="margin:4px 0; color:#555;">${
+                      review.comment
+                    }</p>
                     <span class="r-date" style="font-size:0.75rem; color:#aaa;">${date}</span>
+                    
+                    <div class="edit-box" style="display:none; margin-top:8px;">
+                        <textarea class="edit-input" rows="2" style="width:100%; margin-bottom:5px;">${
+                          review.comment
+                        }</textarea>
+                        <div style="text-align:right; gap:5px;">
+                            <button class="btn-cancel-edit" style="font-size:0.8rem;">ยกเลิก</button>
+                            <button class="btn-save-edit" style="font-size:0.8rem; background:#c08a53; color:white; border:none; padding:2px 8px; border-radius:4px;">บันทึก</button>
+                        </div>
+                    </div>
                 </div>
             `;
+
         container.appendChild(card);
+
+        if (isOwner) {
+          const dotsBtn = card.querySelector(".dots-btn");
+          const dropdown = card.querySelector(".menu-dropdown");
+          const editBtn = card.querySelector(".action-edit");
+          const deleteBtn = card.querySelector(".action-delete");
+
+          const textDisplay = card.querySelector(".r-text");
+          const editBox = card.querySelector(".edit-box");
+          const editInput = card.querySelector(".edit-input");
+          const saveBtn = card.querySelector(".btn-save-edit");
+          const cancelBtn = card.querySelector(".btn-cancel-edit");
+
+          dotsBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            document.querySelectorAll(".menu-dropdown.show").forEach((d) => {
+              if (d !== dropdown) d.classList.remove("show");
+            });
+            dropdown.classList.toggle("show");
+          });
+
+          //ปุ่ม ลบ
+          deleteBtn.addEventListener("click", async () => {
+            if (confirm("ต้องการลบรีวิวนี้ใช่ไหม?")) {
+              try {
+                await reviewService.delete(review.id);
+                card.remove(); // ลบออกจากหน้าจอ
+              } catch (err) {
+                alert("ลบไม่สำเร็จ");
+              }
+            }
+          });
+
+          //ปุ่ม แก้ไข 
+          editBtn.addEventListener("click", () => {
+            textDisplay.style.display = "none"; // ซ่อนข้อความเดิม
+            editBox.style.display = "block"; // โชว์ช่องกรอก
+            dropdown.classList.remove("show"); // ปิดเมนู
+          });
+
+          // ปุ่มยกเลิกแก้ไข
+          cancelBtn.addEventListener("click", () => {
+            textDisplay.style.display = "block";
+            editBox.style.display = "none";
+            editInput.value = review.comment; // คืนค่าเดิม
+          });
+
+          // ปุ่มบันทึก
+          saveBtn.addEventListener("click", async () => {
+            const newText = editInput.value.trim();
+            if (!newText) return;
+
+            saveBtn.textContent = "กำลังบันทึก...";
+            try {
+              await reviewService.update(review.id, {
+                comment: newText,
+                rating: review.rating, // ส่งดาวเดิมกลับไป 
+              });
+
+              // อัปเดตหน้าจอ
+              review.comment = newText; // อัปเดตตัวแปร local
+              textDisplay.textContent = newText;
+              textDisplay.style.display = "block";
+              editBox.style.display = "none";
+              saveBtn.textContent = "บันทึก";
+            } catch (err) {
+              console.error(err);
+              alert("แก้ไขไม่สำเร็จ");
+              saveBtn.textContent = "บันทึก";
+            }
+          });
+        }
+      });
+
+      // คลิกที่อื่นเพื่อปิดเมนู
+      document.addEventListener("click", () => {
+        document
+          .querySelectorAll(".menu-dropdown.show")
+          .forEach((d) => d.classList.remove("show"));
       });
     } catch (err) {
       container.innerHTML = `<p style="color:red; text-align:center;">โหลดไม่สำเร็จ</p>`;

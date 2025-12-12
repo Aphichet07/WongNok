@@ -1,7 +1,6 @@
 import { apiClient } from "../utils/apiClient.js";
 
 export const articleService = {
-  
   /**
    * ดึงบทความแนะนำ 5 อันดับแรก (เรียงตามยอดวิว)
    * GET /article/recommend
@@ -15,7 +14,9 @@ export const articleService = {
    * GET /article/search?tag=...
    */
   searchByTag: async (tag) => {
-    return await apiClient.get(`/article/search?tag=${encodeURIComponent(tag)}`);
+    return await apiClient.get(
+      `/article/search?tag=${encodeURIComponent(tag)}`
+    );
   },
 
   /**
@@ -27,7 +28,7 @@ export const articleService = {
   },
 
   /**
-   * อัปเดตยอดวิว 
+   * อัปเดตยอดวิว
    * PUT /article/:id/view
    */
   updateViewer: async (id) => {
@@ -45,12 +46,22 @@ export const articleService = {
   /**
    * สร้างคอมเมนต์ใหม่ (ต้อง Login)
    * POST /article/:id/comments
-   * หมายเหตุ: apiClient จะแนบ Token ไปให้เองใน Header
    */
   createComment: async (articleId, userId, comment) => {
     return await apiClient.post(`/article/${articleId}/comments`, {
-      userId, // ส่ง userId ไปด้วย 
-      comment
+      userId, // ส่ง userId ไปด้วย
+      comment,
     });
-  }
+  },
+  
+  deleteComment: async (commentId) => {
+    return await apiClient.delete(`/article/comments/${commentId}`);
+  },
+
+  //  เพิ่ม: แก้ไขคอมเมนต์
+  updateComment: async (commentId, newContent) => {
+    return await apiClient.put(`/article/comments/${commentId}`, {
+      comment: newContent, // Backend รอรับ key ชื่อ "comment"
+    });
+  },
 };
