@@ -29,13 +29,14 @@ function initSearchPage() {
   if (searchParam) {
     const searchInput = document.getElementById("hero-search-input");
     if (searchInput) searchInput.value = searchParam;
-    performSearch(() => shopService.searchByName(searchParam));
+    performSearch(() => shopService.search(searchParam));
   } else if (hasFilters) {
     console.log("Found filters from URL:", params.toString());
 
     syncFiltersWithUI(params);
 
     performSearch(() => shopService.filterShops(params.toString()));
+    console.log("0")
   } else {
     loadAllShops();
   }
@@ -46,11 +47,12 @@ function initSearchPage() {
       e.preventDefault();
       const fd = new FormData(e.target);
       const keyword = fd.get("search").toString().trim();
-      await performSearch(() => shopService.searchByName(keyword));
+      await performSearch(() => shopService.search(keyword));
       document
         .getElementById("filters")
         ?.scrollIntoView({ behavior: "smooth" });
     });
+    console.log("1")
   }
 
   const filterForm = document.getElementById("filter-form");
@@ -63,6 +65,7 @@ function initSearchPage() {
       }
       await performSearch(() => shopService.filterShops(params.toString()));
     });
+    console.log("2")
   }
 
   document.querySelectorAll(".hero__tags .tag").forEach((tag) => {
@@ -77,6 +80,7 @@ function initSearchPage() {
         .getElementById("filters")
         ?.scrollIntoView({ behavior: "smooth" });
     });
+    console.log("3")
   });
 }
 

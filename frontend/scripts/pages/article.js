@@ -73,7 +73,7 @@ function createCategorySection(title, articles) {
                 }" alt="${article.title}">
                 <p class="article-name">${article.title}</p>
                 <div class="information">
-                    <p class="author">อ่าน ${article.view_count || 0} ครั้ง</p>
+                    <p class="author">อ่าน ${article.views || 0} ครั้ง</p>
                     <p class="date">${date}</p>
                 </div>
             </div>

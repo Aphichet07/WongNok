@@ -7,6 +7,13 @@ export const shopService = {
     if (!res.ok) throw new Error("Failed to fetch recommended shops");
     return await res.json();
   },
+  async search(keyword){
+    const res = await fetch(`${API_BASE_URL}/shops/search?q=${encodeURIComponent(keyword)}`);
+    if (!res.ok) throw new Error("Search failed");
+    return await res.json();
+  }
+  ,
+
 
   async searchByName(keyword) {
     const res = await fetch(`${API_BASE_URL}/shops/name`, {
@@ -38,5 +45,18 @@ export const shopService = {
     });
     if (!res.ok) throw new Error("Review failed");
     return await res.json();
-  }
+  },
+
+  async  fetchNearbyShops(lat, lng) {
+    try {
+        const res = await fetch(`${API_BASE_URL}/shops/nearby?lat=${lat}&lng=${lng}`);
+        if (!res.ok) throw new Error("Failed to fetch nearby shops");
+        
+        const shops = await res.json();
+        return shops; 
+    } catch (err) {
+        console.error(err);
+        return;
+    }
+}
 };

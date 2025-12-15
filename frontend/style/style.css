@@ -201,9 +201,7 @@ main .enter-box button {
     padding: 0 16px;
   }
 }
-.content .container div {
-  margin-top: 5px;
-}
+
 
 .content .container .main-text {
   margin-top: 50px;
@@ -407,6 +405,7 @@ main .enter-box button {
   aspect-ratio: 4 / 3;
   overflow: hidden;
   position: relative;
+  margin: 0;
 }
 
 .content .container #shop-suggestion .shop-card .pic img {
@@ -644,9 +643,10 @@ main .enter-box button {
 }
 
 .article-card .pic {
-  height: 60%;
+  height: 100%;
   overflow: hidden;
   position: relative;
+  margin: 0;
 }
 
 .article-card .pic img {

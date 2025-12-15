@@ -5,7 +5,8 @@ import { createHomeCard } from "../components/homeCard.js";
 document.addEventListener("DOMContentLoaded", async () => {
   console.log("Home Page Loaded");
 
-  loadRecommendedShops();
+  // loadRecommendedShops();
+  getUserLocation()
 
   loadRecommendedArticles();
 
@@ -13,6 +14,66 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   setupFilterButtons();
 });
+
+function getUserLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                const lat = position.coords.latitude;
+                const lng = position.coords.longitude;
+                
+                console.log("ได้พิกัดแล้ว:", lat, lng);
+
+                loadNearbyShops(lat, lng)
+            },
+            (error) => {
+                console.warn("ไม่ได้พิกัด:", error.message);
+                
+                 loadRecommendedShops()
+            },
+            {
+                enableHighAccuracy: true,
+                timeout: 5000,           
+                maximumAge: 0          
+            }
+        );
+    } else {
+        alert("Browser ของคุณไม่รองรับการระบุตำแหน่ง");
+    }
+}
+
+
+async function loadNearbyShops(lat, lng) {
+  try {
+    const shops = await shopService.fetchNearbyShops(lat, lng); 
+    shops.forEach(shop => {
+      console.log(shop)
+    });
+    const container = document.getElementById("shop-suggestion");
+
+    if (container) {
+      container.innerHTML = "";
+
+      if (shops.length === 0) {
+        container.innerHTML = "<p>ไม่พบร้านแนะนำ</p>";
+        return;
+      }
+
+      const limitShops = shops.slice(0, 5);
+
+      limitShops.forEach((shop) => {
+        // สร้างการ์ด
+        const card = createHomeCard(shop);
+        container.appendChild(card);
+      });
+
+      setupShopSliderButtons();
+    }
+  } catch (err) {
+    console.error("Error loading shops:", err);
+  }
+}
+
 
 async function loadRecommendedShops() {
   try {
@@ -74,7 +135,7 @@ async function loadRecommendedArticles() {
             <div class="info">
               <p class="title">${article.title}</p>
               <div class="specific">
-                <p class="author"> ${article.view_count || 0} วิว</p>
+                <p class="author"> ${article.views || 0} วิว</p>
                 <p class="date">${date}</p>
               </div>
             </div>

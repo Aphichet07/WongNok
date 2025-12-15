@@ -240,7 +240,7 @@ export function openShopPopup(shop) {
 
         card.innerHTML = `
                 <div class="review-avatar">
-                   <img src="/frontend/resources/avatar-placeholder.png" alt="user" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">
+                   <img src="/frontend/resources/article/cup_of_coffee.jpg" alt="user" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">
                 </div>
                 <div class="review-content">
                     <div class="review-head">

@@ -811,6 +811,74 @@ legend {
   border-radius: 10px;
 }
 
+.review-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 16px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.review-avatar {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+}
+
+.review-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.review-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.r-user {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.r-star {
+  font-size: 0.85rem;
+  background: #fffbeb;
+  color: #f59e0b;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.r-text {
+  font-size: 0.95rem;
+  color: #4b5563;
+  line-height: 1.5;
+  margin: 0 0 6px 0;
+  word-wrap: break-word;
+}
+
+.r-date {
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+.comment-form {
+  flex-shrink: 0;
+  background: #fff;
+  border-top: 1px solid #eee;
+  padding: 20px;
+  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.03);
+  z-index: 5;
+}
+
 /* Responsive Popup */
 @media (max-width: 800px) {
   .popCard {
@@ -873,6 +941,14 @@ legend {
   color: #fbbf24;
   text-shadow: 0 2px 4px rgba(251, 191, 36, 0.3);
 }
+
+  .gogobtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
 
 .comment-form textarea {
   width: 90%;
