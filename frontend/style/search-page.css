@@ -311,20 +311,6 @@ body {
   align-self: start;
 }
 
-.search-bar {
-  margin-bottom: 16px;
-  display: flex;
-  height: 46px;
-}
-
-.search-bar input {
-  border-radius: 999px;
-  width: 100%;
-  padding: 0 16px;
-  border: 1px solid #ddd;
-  outline: none;
-}
-
 #filter-form {
   background: #fff;
   border-radius: 18px;
@@ -770,6 +756,24 @@ legend {
   background: #ecfdf5;
   color: #047857;
   border: 1px solid #d1fae5;
+}
+
+.btn-map {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: #3b82f6;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 20px;
+  transition: opacity 0.2s;
+}
+
+.btn-map:hover {
+  opacity: 0.9;
 }
 
 /* Right Side (Reviews) */
